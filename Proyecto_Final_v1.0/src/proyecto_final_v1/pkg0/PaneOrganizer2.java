@@ -67,6 +67,7 @@ public class PaneOrganizer2 {
         bottomPane.getChildren().add(integrantes);
         topPane.setSpacing(30);
         centerPane.setSpacing(30);
+        this._principal=_root;
      
    
     }
@@ -163,11 +164,17 @@ public class PaneOrganizer2 {
         bottomPane.getChildren().add(integrantes);
         topPane.setSpacing(30);
         centerPane.setSpacing(30);
-        Proyecto_Final_v10.scene=new Scene(_root,1000,800);
-        Proyecto_Final_v10.stage.setScene(Proyecto_Final_v10.scene);
+        actualizarVentana();
         
     }
     
-   // public void 
+    public void actualizarVentana()
+    {
+        Proyecto_Final_v10.scene=new Scene(_root,1000,800);
+        Proyecto_Final_v10.stage.setScene(Proyecto_Final_v10.scene);
+    }
+            
+            
+           
     
 }
