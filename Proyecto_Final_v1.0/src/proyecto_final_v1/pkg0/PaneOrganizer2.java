@@ -11,6 +11,8 @@ package proyecto_final_v1.pkg0;
  */
 import static java.awt.Color.orange;
 import java.awt.Image;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -73,10 +75,10 @@ public class PaneOrganizer2 {
             Button btn2 = new Button("Instrucciones");
             Button btn3 = new Button("Salir");
             Button btn4 = new Button("TOP 10");
-            //btn1.setOnAction(new ClickHandler(1));
-            //btn2.setOnAction(new ClickHandler(2));
-            //btn3.setOnAction(new ClickHandler(3));
-            //btn4.setOnAction(new ClickHandler(4));
+            btn1.setOnAction(new ClickHandler1());
+            btn2.setOnAction(new ClickHandler2());
+            btn3.setOnAction(new ClickHandler3());
+            btn4.setOnAction(new ClickHandler4());
             Button a[]={btn1, btn2, btn3, btn4};
             return a;
             
@@ -86,4 +88,48 @@ public class PaneOrganizer2 {
 		return _root;
 	}
 
+     private class ClickHandler1 implements EventHandler<ActionEvent> {
+         
+           @Override
+           public void handle(ActionEvent event){
+            
+           }
+     }
+     private class ClickHandler2 implements EventHandler<ActionEvent> {
+         
+           @Override
+           public void handle(ActionEvent event){
+             
+           }       
+     }
+     
+    private class ClickHandler3 implements EventHandler<ActionEvent> {
+         
+           @Override
+           public void handle(ActionEvent event){
+             
+           }       
+     }
+    
+    private class ClickHandler4 implements EventHandler<ActionEvent> {
+         
+           @Override
+           public void handle(ActionEvent event){
+             
+           }       
+     }
+    
+    public void ventanaTOP10 (){
+    
+
+    }
+    
+    public void ventanaINSTRUCCIONES (){
+    
+    }
+    
+    public void ventanaJUEGO (){
+    
+    }
+    
 }

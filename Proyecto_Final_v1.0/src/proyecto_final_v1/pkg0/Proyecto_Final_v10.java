@@ -22,7 +22,7 @@ public class Proyecto_Final_v10 extends Application {
     @Override
     public void start(Stage stage) {
         PaneOrganizer2 organizer = new PaneOrganizer2();
-        Scene scene = new Scene(organizer.getRoot(),800,800);
+        Scene scene = new Scene(organizer.getRoot(),1000,800);
         stage.setScene(scene);
         stage.setTitle("Proyecto Segundo Parcial");
         stage.show();
