@@ -19,10 +19,13 @@ import javafx.stage.Stage;
  */
 public class Proyecto_Final_v10 extends Application {
     
+    public static Scene scene;
+    public static Stage stage;
     @Override
     public void start(Stage stage) {
+        this.stage=stage;
         PaneOrganizer2 organizer = new PaneOrganizer2();
-        Scene scene = new Scene(organizer.getRoot(),1000,800);
+        scene = new Scene(organizer.getRoot(),1000,800);
         stage.setScene(scene);
         stage.setTitle("Proyecto Segundo Parcial");
         stage.show();

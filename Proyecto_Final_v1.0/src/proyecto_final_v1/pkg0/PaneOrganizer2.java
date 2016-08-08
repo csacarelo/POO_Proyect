@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
@@ -35,6 +36,7 @@ import static javafx.scene.text.FontWeight.BOLD;
  */
 public class PaneOrganizer2 {
     private BorderPane _root;
+    private BorderPane _principal;
 
     
     public PaneOrganizer2(){
@@ -84,6 +86,8 @@ public class PaneOrganizer2 {
             
         }
     
+   
+    
     public Pane getRoot() {
 		return _root;
 	}
@@ -92,6 +96,7 @@ public class PaneOrganizer2 {
          
            @Override
            public void handle(ActionEvent event){
+               ventanaJUEGO ();
             
            }
      }
@@ -99,6 +104,7 @@ public class PaneOrganizer2 {
          
            @Override
            public void handle(ActionEvent event){
+               
              
            }       
      }
@@ -121,15 +127,47 @@ public class PaneOrganizer2 {
     
     public void ventanaTOP10 (){
     
-
+        
     }
     
     public void ventanaINSTRUCCIONES (){
-    
+        
+        
     }
     
     public void ventanaJUEGO (){
-    
+        _root = new BorderPane();
+        Button botones[]=this.setupButtons();
+        Label titulo = new Label("Instrucciones \n \n \n");
+        Label integrantes = new Label(" INTEGRANTES:\n*Christian Sacarelo \n*Tatiana Sanchez \n*Gabriel Arauz");
+        integrantes.setFont(Font.font(null,FontWeight.NORMAL,12));
+        titulo.setContentDisplay(ContentDisplay.CENTER);
+        titulo.setFont(Font.font(null, FontWeight.BOLD, 50));
+         VBox centerPane=new VBox();
+         VBox topPane=new VBox();
+         HBox bottomPane=new HBox();
+         topPane.setAlignment(Pos.BOTTOM_CENTER);
+         topPane.setMinHeight(100);
+         centerPane.setMinHeight(100); 
+
+         _root.setTop(topPane);
+         _root.setCenter(centerPane);
+         _root.setBottom(bottomPane);
+         _root.setStyle("-fx-background-color: #C2FBFB;");
+         
+        topPane.getChildren().add(titulo);
+        centerPane.getChildren().addAll(botones[0],botones[1],botones[2],botones[3]);
+        centerPane.setAlignment(Pos.TOP_CENTER);
+        
+        bottomPane.setAlignment(Pos.TOP_CENTER);
+        bottomPane.getChildren().add(integrantes);
+        topPane.setSpacing(30);
+        centerPane.setSpacing(30);
+        Proyecto_Final_v10.scene=new Scene(_root,1000,800);
+        Proyecto_Final_v10.stage.setScene(Proyecto_Final_v10.scene);
+        
     }
+    
+   // public void 
     
 }
