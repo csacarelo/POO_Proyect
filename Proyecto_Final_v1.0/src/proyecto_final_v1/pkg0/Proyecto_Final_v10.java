@@ -20,26 +20,13 @@ import javafx.stage.Stage;
 public class Proyecto_Final_v10 extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World232323");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+    public void start(Stage stage) {
+        PaneOrganizer organizer = new PaneOrganizer();
+        Scene scene = new Scene(organizer.getRoot(),1000,600);
+        stage.setScene(scene);
+        stage.setTitle("Tiburon");
+        stage.show();
+        }
 
     /**
      * @param args the command line arguments

@@ -1,0 +1,59 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyecto_final_v1.pkg0;
+
+import javafx.scene.image.ImageView;
+
+/**
+ *
+ * @author gabri
+ */
+public abstract class Atacante {
+    
+    private int postIn;
+    private int postFin;
+    private int velocidad;
+    private ImageView im;
+    
+    public Atacante(){}
+    
+    abstract public void destruir();
+    abstract public void mover(ImageView im);
+    abstract public void fila();
+
+    public int getPostIn() {
+        return postIn;
+    }
+
+    public void setPostIn(int postIn) {
+        this.postIn = postIn;
+    }
+
+    public int getPostFin() {
+        return postFin;
+    }
+
+    public void setPostFin(int postFin) {
+        this.postFin = postFin;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public ImageView getIm() {
+        return im;
+    }
+
+    public void setIm(ImageView im) {
+        this.im = im;
+    }
+}
+
