@@ -49,13 +49,25 @@ public class ArchTop {
         Archi.close();
     }
     
-    public String[] conseguirLos10Primeros()
+    public String[] conseguirLos10PrimerosNombres()
     {
         String retornar[]=new String[10];
         Collections.sort(this.puntajes);
         for (int i=0;i<10;i++)
         {
-            retornar[i]=new String(this.puntajes.get(i).getNombre()+"     "+this.puntajes.get(i).getPuntuacion());
+            retornar[i]=new String(this.puntajes.get(i).getNombre());
+        }
+        
+        return retornar;
+    }
+    
+    public String[] conseguirLos10PirmerosPuntajes()
+    {
+                String retornar[]=new String[10];
+        Collections.sort(this.puntajes);
+        for (int i=0;i<10;i++)
+        {
+            retornar[i]=new String(Integer.toString(this.puntajes.get(i).getPuntuacion()));
         }
         
         return retornar;
