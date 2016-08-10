@@ -35,11 +35,11 @@ public class Proyecto_Final_v10 extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArchTop a=new ArchTop();
-        System.out.println(a.conseguirLos10Primeros()[0]);
+        //ArchTop a=new ArchTop();
+        //System.out.println(a.conseguirLos10Primeros()[0]);
         //System.out.println(a.conseguirPalabraAleatoria());
-        a.guardarPuntajes("Jose", 600);
-        System.out.println(a.conseguirLos10Primeros()[0]);
+        //a.guardarPuntajes("Jose", 600);
+        //System.out.println(a.conseguirLos10Primeros()[0]);
         launch(args);
 
     }
