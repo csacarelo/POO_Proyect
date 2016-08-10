@@ -15,17 +15,18 @@ import javafx.util.Duration;
  * @author gabri
  */
 public class Buceador {
-       private ImageView bu;
+   
+     private ImageView bu;
      private int vidas;
      private int daños;
      private int ataqueEspecial;
      private int score;
      
     public Buceador(){
-       Image image = new Image("file:D:\\Espol\\Actual\\VIIII\\Poo\\2Parcial\\Tarea\\POO_Proyect\\Proyecto_Final_v1.0\\buceador.png");
+       Image image = new Image("file:buceador.png");
          bu = new ImageView();
          bu.setImage(image);
-         bu.setFitWidth(150);
+         bu.setFitWidth(250);
          bu.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
          bu.setLayoutX(0);
          bu.setLayoutY(100);
@@ -33,13 +34,13 @@ public class Buceador {
     }
     
     private void mover(ImageView bu){
-           TranslateTransition tt = new TranslateTransition(Duration.millis(10000), bu);
+           TranslateTransition tt = new TranslateTransition(Duration.millis(5000), bu);
          //Duration tiempo en que se translada
         //tt.setByX(-500f); //Para que se mueva de un lado a otro
-        tt.setByY(-100f);
+        tt.setByY(-75f);
         tt.setByZ(200f);
         tt.setCycleCount(40);// Nos permite continuar el ciclo 
-        tt.setByY(100f);
+        tt.setByY(125f);
         tt.setAutoReverse(true); //ayuda que regrese
         tt.play();
          
@@ -109,4 +110,3 @@ public class Buceador {
     }
 
 }
-

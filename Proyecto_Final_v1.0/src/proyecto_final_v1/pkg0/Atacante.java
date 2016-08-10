@@ -13,16 +13,17 @@ import javafx.scene.image.ImageView;
  */
 public abstract class Atacante {
     
-    private int postIn;
+   private int postIn;
     private int postFin;
     private int velocidad;
     private ImageView im;
+   // private ImageView im2;
     
     public Atacante(){}
     
     abstract public void destruir();
     abstract public void mover(ImageView im);
-    abstract public void fila();
+    abstract public int fila();
 
     public int getPostIn() {
         return postIn;
@@ -55,5 +56,7 @@ public abstract class Atacante {
     public void setIm(ImageView im) {
         this.im = im;
     }
-}
 
+    
+    
+}
