@@ -55,34 +55,34 @@ public class PaneOrganizer2 {
          fondo = new ImageView();
          fondo.setImage(image);
          fondo.setFitWidth(1000);
-         fondo.setFitHeight(600);
+         fondo.setFitHeight(800);
          
         
          Button btn1 = new Button("Jugar");
          btn1.setLayoutX(470);
-         btn1.setLayoutY(350);
+         btn1.setLayoutY(440);
          Button btn2 = new Button("TOP 10");
          btn2.setLayoutX(300);
-         btn2.setLayoutY(410);
+         btn2.setLayoutY(490);
          Button btn3 = new Button("Instrucciones");
          btn3.setLayoutX(430);
-         btn3.setLayoutY(410);
+         btn3.setLayoutY(490);
          Button btn4 = new Button("Salir");
          btn4.setLayoutX(630);
-         btn4.setLayoutY(410);
+         btn4.setLayoutY(490);
          btn1.setOnAction(new ClickHandler1());
          btn2.setOnAction(new ClickHandler2());
          btn3.setOnAction(new ClickHandler3());
          btn4.setOnAction(new ClickHandler4());
          Label titulo = new Label("TyperShark ");
-         titulo.setLayoutX(300);
-         titulo.setLayoutY(175);
+         titulo.setLayoutX(290);
+         titulo.setLayoutY(10);
          Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
-         integrantes.setLayoutX(750);
-         integrantes.setLayoutY(530);
+         integrantes.setLayoutX(430);
+         integrantes.setLayoutY(730);
          Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
-         proyecto.setLayoutX(70);
-         proyecto.setLayoutY(530);
+         proyecto.setLayoutX(30);
+         proyecto.setLayoutY(730);
          im.getChildren().add(fondo);
          
          _root.getChildren().addAll(im,titulo,btn1,btn2,btn3,btn4,integrantes,proyecto);
@@ -171,29 +171,29 @@ public class PaneOrganizer2 {
         
          Button btn1 = new Button("Jugar");
          btn1.setLayoutX(470);
-         btn1.setLayoutY(450);
+         btn1.setLayoutY(440);
          Button btn2 = new Button("TOP 10");
          btn2.setLayoutX(300);
-         btn2.setLayoutY(310);
+         btn2.setLayoutY(490);
          Button btn3 = new Button("Instrucciones");
          btn3.setLayoutX(430);
-         btn3.setLayoutY(310);
+         btn3.setLayoutY(490);
          Button btn4 = new Button("Salir");
          btn4.setLayoutX(630);
-         btn4.setLayoutY(310);
+         btn4.setLayoutY(490);
          btn1.setOnAction(new ClickHandler1());
          btn2.setOnAction(new ClickHandler2());
          btn3.setOnAction(new ClickHandler3());
          btn4.setOnAction(new ClickHandler4());
          Label titulo = new Label("TyperShark ");
-         titulo.setLayoutX(300);
-         titulo.setLayoutY(20);
+         titulo.setLayoutX(290);
+         titulo.setLayoutY(10);
          Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
-         integrantes.setLayoutX(450);
-         integrantes.setLayoutY(530);
+         integrantes.setLayoutX(430);
+         integrantes.setLayoutY(730);
          Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
-         proyecto.setLayoutX(70);
-         proyecto.setLayoutY(530);
+         proyecto.setLayoutX(30);
+         proyecto.setLayoutY(730);
          im.getChildren().add(fondo);
          
          _root.getChildren().addAll(im,titulo,btn1,btn2,btn3,btn4,integrantes,proyecto);
@@ -209,7 +209,7 @@ public class PaneOrganizer2 {
         integrantes.setTextFill(Color.LIGHTSKYBLUE);
         proyecto.setFont(Font.font(null, FontWeight.BOLD, 12));
         proyecto.setTextFill(Color.LIGHTSKYBLUE);
-        actualizarVentana();
+        actualizarVentana(); 
         
     }
     
@@ -217,30 +217,30 @@ public class PaneOrganizer2 {
         _root = new Pane();
         im = new Pane();
         
-        Image image = new Image("filefondo.jpg");
+        Image image = new Image("file:fondo.jpg");
          fondo = new ImageView();
          fondo.setImage(image);
          fondo.setFitWidth(1000);
-         fondo.setFitHeight(600);
+         fondo.setFitHeight(800);
          
          Button btn3 = new Button("Regresar");
          btn3.setLayoutX(770);
-         btn3.setLayoutY(560);
+         btn3.setLayoutY(760);
          Button btn4 = new Button("Salir");
          btn4.setLayoutX(900);
-         btn4.setLayoutY(560);
+         btn4.setLayoutY(760);
          
          btn3.setOnAction(new ClickHandler5());
          btn4.setOnAction(new ClickHandler4());
          Label titulo = new Label("TyperShark ");
-         titulo.setLayoutX(300);
-         titulo.setLayoutY(20);
+         titulo.setLayoutX(290);
+         titulo.setLayoutY(10);
          Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
-         integrantes.setLayoutX(450);
-         integrantes.setLayoutY(530);
+         integrantes.setLayoutX(430);
+         integrantes.setLayoutY(730);
          Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
-         proyecto.setLayoutX(70);
-         proyecto.setLayoutY(530);
+         proyecto.setLayoutX(30);
+         proyecto.setLayoutY(730);
          im.getChildren().add(fondo);
          
          _root.getChildren().addAll(im,titulo,btn3,btn4,integrantes,proyecto);
@@ -255,7 +255,7 @@ public class PaneOrganizer2 {
         proyecto.setFont(Font.font(null, FontWeight.BOLD, 12));
         proyecto.setTextFill(Color.LIGHTSKYBLUE);
         actualizarVentana();
-        
+      
     }
     
     public void ventanaINSTRUCCIONES (){
@@ -266,26 +266,26 @@ public class PaneOrganizer2 {
          fondo = new ImageView();
          fondo.setImage(image);
          fondo.setFitWidth(1000);
-         fondo.setFitHeight(600);
+         fondo.setFitHeight(800);
          
          Button btn3 = new Button("Regresar");
          btn3.setLayoutX(770);
-         btn3.setLayoutY(560);
+         btn3.setLayoutY(760);
          Button btn4 = new Button("Salir");
          btn4.setLayoutX(900);
-         btn4.setLayoutY(560);
+         btn4.setLayoutY(760);
          
          btn3.setOnAction(new ClickHandler5());
          btn4.setOnAction(new ClickHandler4());
          Label titulo = new Label("TyperShark ");
-         titulo.setLayoutX(300);
-         titulo.setLayoutY(20);
+         titulo.setLayoutX(290);
+         titulo.setLayoutY(10);
          Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
-         integrantes.setLayoutX(450);
-         integrantes.setLayoutY(530);
+         integrantes.setLayoutX(430);
+         integrantes.setLayoutY(730);
          Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
-         proyecto.setLayoutX(70);
-         proyecto.setLayoutY(530);
+         proyecto.setLayoutX(30);
+         proyecto.setLayoutY(730);
          Label instrucciones = new Label("INSTRUCCIONES DEL JUEGO:\n   ");
          instrucciones.setLayoutX(50);
          instrucciones.setLayoutY(130);
@@ -311,7 +311,7 @@ public class PaneOrganizer2 {
     
     public void actualizarVentana()
     {
-        Proyecto_Final_v10.scene=new Scene(_root,1000,600);
+        Proyecto_Final_v10.scene=new Scene(_root,1000,800);
         Proyecto_Final_v10.stage.setScene(Proyecto_Final_v10.scene);
     }
             
