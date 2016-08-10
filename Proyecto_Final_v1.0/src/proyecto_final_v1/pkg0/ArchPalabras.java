@@ -49,7 +49,7 @@ public class ArchPalabras {
                 this.palabras.add(Archi.nextLine());
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("Error Al Abrir Archivo De Caracteres");
+            System.out.println("Error Al Abrir Archivo De Palabras");
         }
         Archi.close();
     }

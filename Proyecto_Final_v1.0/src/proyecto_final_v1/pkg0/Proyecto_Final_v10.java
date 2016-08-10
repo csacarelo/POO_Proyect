@@ -35,7 +35,11 @@ public class Proyecto_Final_v10 extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        ArchPalabras a=new ArchPalabras();
+        System.out.println(a.conseguirCaracterAleatoria());
+        System.out.println(a.conseguirPalabraAleatoria());
         launch(args);
+
     }
     
 }
