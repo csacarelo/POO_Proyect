@@ -44,10 +44,10 @@ public class Puntajes implements Comparable<Puntajes> {
     @Override
     public int compareTo(Puntajes t) {
         if (this.puntuacion < t.getPuntuacion()) {
-            return -1;
+            return 1;
         }
         if (this.puntuacion > t.getPuntuacion()) {
-            return 1;
+            return -1;
         }
         return 0;
     }
