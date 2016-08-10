@@ -10,6 +10,7 @@ package proyecto_final_v1.pkg0;
  * @author Tatiana
  */
 import static java.awt.Color.orange;
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -30,6 +31,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import static javafx.scene.text.FontWeight.BOLD;
@@ -39,88 +41,69 @@ import static javafx.scene.text.FontWeight.BOLD;
  * @author Tatiana
  */
 public class PaneOrganizer2 {
-    private BorderPane _root;
-    private BorderPane _principal;
-    private ImageView fondo;
+    private Pane _root;
     private Pane im;
-    private Image ima;
+    private Pane _principal;
+    private ImageView fondo;
+ 
 
-    public PaneOrganizer2(){
-        _root = new BorderPane();
+ public PaneOrganizer2(){
+        _root = new Pane();
         im = new Pane();
-        Image image = new Image("file:C:\\Users\\Tatiana\\Documents\\Semestre actual\\Programacion Orientada a Objetos\\POO_Proyect\\Proyecto_Final_v1.0\\oce.png");
+        
+        Image image = new Image("file:C:\\Users\\Tatiana\\Documents\\practicas de poo\\Pantallas\\fondo.jpg");
          fondo = new ImageView();
          fondo.setImage(image);
-         fondo.setLayoutX(1000);
-         fondo.setLayoutY(800);
+         fondo.setFitWidth(1000);
+         fondo.setFitHeight(800);
+         
+        
+         Button btn1 = new Button("Jugar");
+         btn1.setLayoutX(470);
+         btn1.setLayoutY(450);
+         Button btn2 = new Button("TOP 10");
+         btn2.setLayoutX(300);
+         btn2.setLayoutY(510);
+         Button btn3 = new Button("Instrucciones");
+         btn3.setLayoutX(430);
+         btn3.setLayoutY(510);
+         Button btn4 = new Button("Salir");
+         btn4.setLayoutX(630);
+         btn4.setLayoutY(510);
+         btn1.setOnAction(new ClickHandler1());
+         btn2.setOnAction(new ClickHandler2());
+         btn3.setOnAction(new ClickHandler3());
+         btn4.setOnAction(new ClickHandler4());
+         Label titulo = new Label("TyperShark ");
+         titulo.setLayoutX(300);
+         titulo.setLayoutY(20);
+         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
+         integrantes.setLayoutX(450);
+         integrantes.setLayoutY(730);
+         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
+         proyecto.setLayoutX(70);
+         proyecto.setLayoutY(730);
          im.getChildren().add(fondo);
+         
+         _root.getChildren().addAll(im,titulo,btn1,btn2,btn3,btn4,integrantes,proyecto);
         
-        
-        Button botones[]=this.setupButtons();
-        Label titulo = new Label("TyperShark \n \n \n \n \n");
-        Label integrantes = new Label(" INTEGRANTES:\n*Christian Sacarelo \n*Tatiana Sanchez \n*Gabriel Arauz");
         integrantes.setFont(Font.font(null,FontWeight.NORMAL,12));
         titulo.setContentDisplay(ContentDisplay.CENTER);
-        titulo.setFont(Font.font(null, FontWeight.BOLD, 50));
-        GridPane centerPane=new GridPane();
-         VBox topPane=new VBox();
-         HBox bottomPane=new HBox();
-         topPane.setAlignment(Pos.BOTTOM_CENTER);
-         topPane.setMinHeight(100);
-         centerPane.setMinHeight(100); 
-       
-         _root.setTop(topPane);
-         _root.setCenter(centerPane);
-         _root.setBottom(bottomPane);
-         //.setCenter(centerPane2);
-        _root.getChildren().addAll(im);
+        titulo.setFont(Font.font(null, FontWeight.BOLD, 80));
+        btn1.setFont(Font.font(null, FontWeight.BOLD, 25));
+        btn2.setFont(Font.font(null, FontWeight.BOLD, 25));
+        btn3.setFont(Font.font(null, FontWeight.BOLD, 25));
+        btn4.setFont(Font.font(null, FontWeight.BOLD, 25));
+        integrantes.setFont(Font.font(null, FontWeight.BOLD, 12));
+        integrantes.setTextFill(Color.LIGHTSKYBLUE);
+        proyecto.setFont(Font.font(null, FontWeight.BOLD, 12));
+        proyecto.setTextFill(Color.LIGHTSKYBLUE);
          
-        topPane.getChildren().add(titulo);
-        //centerPane.getChildren().addAll(botones[0]);
-        //centerPane2.getChildren().addAll(botones[1],botones[2],botones[3]);
-        
-        setCenterPane1(centerPane);
-        centerPane.setAlignment(Pos.TOP_CENTER);
-        bottomPane.setAlignment(Pos.TOP_CENTER);
-        bottomPane.getChildren().add(integrantes);
-        topPane.setSpacing(30);
-
+       
         this._principal=_root;
      
    
     }
-    
-    public void setCenterPane1(GridPane p)
-        {
-            p.setHgap(12);
-            p.setVgap(21);
-            Button btn1 =new Button("Jugar");
-            p.add(btn1, 2,10); 
-            Button btn2 = new Button("TOP 10");
-            p.add(btn2, 1,11); 
-            Button btn3 = new Button("Instrucciones");
-            p.add(btn3, 2,11); 
-            Button btn4 = new Button("Salir");
-            p.add(btn4, 3,11); 
-       
-        }
-    
-    public Button[] setupButtons()
-        {
-            Button btn1 = new Button("Jugar");
-            Button btn2 = new Button("TOP 10");
-            Button btn3 = new Button("Instrucciones");
-            Button btn4 = new Button("Salir");
-            btn1.setOnAction(new ClickHandler1());
-            btn2.setOnAction(new ClickHandler2());
-            btn3.setOnAction(new ClickHandler3());
-            btn4.setOnAction(new ClickHandler4());
-            Button a[]={btn1, btn2, btn3, btn4};
-            return a;
-            
-        }
-    
-   
     
     public Pane getRoot() {
 		return _root;
@@ -138,7 +121,7 @@ public class PaneOrganizer2 {
          
            @Override
            public void handle(ActionEvent event){
-               
+               ventanaTOP10();
              
            }       
      }
@@ -147,7 +130,7 @@ public class PaneOrganizer2 {
          
            @Override
            public void handle(ActionEvent event){
-             
+               ventanaINSTRUCCIONES();
            }       
      }
     
@@ -155,51 +138,176 @@ public class PaneOrganizer2 {
          
            @Override
            public void handle(ActionEvent event){
-             
+               Platform.exit();
+               System.exit(0);  
            }       
      }
     
-    public void ventanaTOP10 (){
+    private class ClickHandler5 implements EventHandler<ActionEvent> {
+
     
+           @Override
+           public void handle(ActionEvent event){
+                ventanaPRINCIPAL();
+    
+           }       
+     }
+     public void ventanaJUEGO (){
+   
+        actualizarVentana();
+        
+    }
+    
+    public void ventanaPRINCIPAL(){
+        _root = new Pane();
+        im = new Pane();
+        
+        Image image = new Image("file:C:\\Users\\Tatiana\\Documents\\practicas de poo\\Pantallas\\fondo.jpg");
+         fondo = new ImageView();
+         fondo.setImage(image);
+         fondo.setFitWidth(1000);
+         fondo.setFitHeight(800);
+         
+        
+         Button btn1 = new Button("Jugar");
+         btn1.setLayoutX(470);
+         btn1.setLayoutY(450);
+         Button btn2 = new Button("TOP 10");
+         btn2.setLayoutX(300);
+         btn2.setLayoutY(510);
+         Button btn3 = new Button("Instrucciones");
+         btn3.setLayoutX(430);
+         btn3.setLayoutY(510);
+         Button btn4 = new Button("Salir");
+         btn4.setLayoutX(630);
+         btn4.setLayoutY(510);
+         btn1.setOnAction(new ClickHandler1());
+         btn2.setOnAction(new ClickHandler2());
+         btn3.setOnAction(new ClickHandler3());
+         btn4.setOnAction(new ClickHandler4());
+         Label titulo = new Label("TyperShark ");
+         titulo.setLayoutX(300);
+         titulo.setLayoutY(20);
+         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
+         integrantes.setLayoutX(450);
+         integrantes.setLayoutY(730);
+         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
+         proyecto.setLayoutX(70);
+         proyecto.setLayoutY(730);
+         im.getChildren().add(fondo);
+         
+         _root.getChildren().addAll(im,titulo,btn1,btn2,btn3,btn4,integrantes,proyecto);
+        
+        integrantes.setFont(Font.font(null,FontWeight.NORMAL,12));
+        titulo.setContentDisplay(ContentDisplay.CENTER);
+        titulo.setFont(Font.font(null, FontWeight.BOLD, 80));
+        btn1.setFont(Font.font(null, FontWeight.BOLD, 25));
+        btn2.setFont(Font.font(null, FontWeight.BOLD, 25));
+        btn3.setFont(Font.font(null, FontWeight.BOLD, 25));
+        btn4.setFont(Font.font(null, FontWeight.BOLD, 25));
+        integrantes.setFont(Font.font(null, FontWeight.BOLD, 12));
+        integrantes.setTextFill(Color.LIGHTSKYBLUE);
+        proyecto.setFont(Font.font(null, FontWeight.BOLD, 12));
+        proyecto.setTextFill(Color.LIGHTSKYBLUE);
+        actualizarVentana();
+        
+    }
+    
+    public void ventanaTOP10 (){
+        _root = new Pane();
+        im = new Pane();
+        
+        Image image = new Image("file:C:\\Users\\Tatiana\\Documents\\practicas de poo\\Pantallas\\fondo.jpg");
+         fondo = new ImageView();
+         fondo.setImage(image);
+         fondo.setFitWidth(1000);
+         fondo.setFitHeight(800);
+         
+         Button btn3 = new Button("Regresar");
+         btn3.setLayoutX(770);
+         btn3.setLayoutY(760);
+         Button btn4 = new Button("Salir");
+         btn4.setLayoutX(900);
+         btn4.setLayoutY(760);
+         
+         btn3.setOnAction(new ClickHandler5());
+         btn4.setOnAction(new ClickHandler4());
+         Label titulo = new Label("TyperShark ");
+         titulo.setLayoutX(300);
+         titulo.setLayoutY(20);
+         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
+         integrantes.setLayoutX(450);
+         integrantes.setLayoutY(730);
+         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
+         proyecto.setLayoutX(70);
+         proyecto.setLayoutY(730);
+         im.getChildren().add(fondo);
+         
+         _root.getChildren().addAll(im,titulo,btn3,btn4,integrantes,proyecto);
+        
+        integrantes.setFont(Font.font(null,FontWeight.NORMAL,12));
+        titulo.setContentDisplay(ContentDisplay.CENTER);
+        titulo.setFont(Font.font(null, FontWeight.BOLD, 80));
+        btn3.setFont(Font.font(null, FontWeight.BOLD, 20));
+        btn4.setFont(Font.font(null, FontWeight.BOLD, 20));
+        integrantes.setFont(Font.font(null, FontWeight.BOLD, 12));
+        integrantes.setTextFill(Color.LIGHTSKYBLUE);
+        proyecto.setFont(Font.font(null, FontWeight.BOLD, 12));
+        proyecto.setTextFill(Color.LIGHTSKYBLUE);
+        actualizarVentana();
         
     }
     
     public void ventanaINSTRUCCIONES (){
+        _root = new Pane();
+        im = new Pane();
         
+        Image image = new Image("file:C:\\Users\\Tatiana\\Documents\\practicas de poo\\Pantallas\\fondo.jpg");
+         fondo = new ImageView();
+         fondo.setImage(image);
+         fondo.setFitWidth(1000);
+         fondo.setFitHeight(800);
+         
+         Button btn3 = new Button("Regresar");
+         btn3.setLayoutX(770);
+         btn3.setLayoutY(760);
+         Button btn4 = new Button("Salir");
+         btn4.setLayoutX(900);
+         btn4.setLayoutY(760);
+         
+         btn3.setOnAction(new ClickHandler5());
+         btn4.setOnAction(new ClickHandler4());
+         Label titulo = new Label("TyperShark ");
+         titulo.setLayoutX(300);
+         titulo.setLayoutY(20);
+         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
+         integrantes.setLayoutX(450);
+         integrantes.setLayoutY(730);
+         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
+         proyecto.setLayoutX(70);
+         proyecto.setLayoutY(730);
+         Label instrucciones = new Label("INSTRUCCIONES DEL JUEGO:\n   ");
+         instrucciones.setLayoutX(50);
+         instrucciones.setLayoutY(130);
+         im.getChildren().add(fondo);
+         
+         _root.getChildren().addAll(im,titulo,btn3,btn4,integrantes,proyecto,instrucciones);
         
-    }
-    
-    public void ventanaJUEGO (){
-        _root = new BorderPane();
-        Button botones[]=this.setupButtons();
-        Label titulo = new Label("Instrucciones \n \n \n");
-        Label integrantes = new Label(" INTEGRANTES:\n*Christian Sacarelo \n*Tatiana Sanchez \n*Gabriel Arauz");
         integrantes.setFont(Font.font(null,FontWeight.NORMAL,12));
         titulo.setContentDisplay(ContentDisplay.CENTER);
-        titulo.setFont(Font.font(null, FontWeight.BOLD, 50));
-         VBox centerPane=new VBox();
-         VBox topPane=new VBox();
-         HBox bottomPane=new HBox();
-         topPane.setAlignment(Pos.BOTTOM_CENTER);
-         topPane.setMinHeight(100);
-         centerPane.setMinHeight(100); 
-
-         _root.setTop(topPane);
-         _root.setCenter(centerPane);
-         _root.setBottom(bottomPane);
-         _root.setStyle("-fx-background-color: #C2FBFB;");
-         
-        topPane.getChildren().add(titulo);
-        centerPane.getChildren().addAll(botones[0],botones[1],botones[2],botones[3]);
-        centerPane.setAlignment(Pos.TOP_CENTER);
-        
-        bottomPane.setAlignment(Pos.TOP_CENTER);
-        bottomPane.getChildren().add(integrantes);
-        topPane.setSpacing(30);
-        centerPane.setSpacing(30);
+        titulo.setFont(Font.font(null, FontWeight.BOLD, 80));
+        btn3.setFont(Font.font(null, FontWeight.BOLD, 20));
+        btn4.setFont(Font.font(null, FontWeight.BOLD, 20));
+        integrantes.setFont(Font.font(null, FontWeight.BOLD, 12));
+        integrantes.setTextFill(Color.LIGHTSKYBLUE);
+        proyecto.setFont(Font.font(null, FontWeight.BOLD, 12));
+        proyecto.setTextFill(Color.LIGHTSKYBLUE);
+        instrucciones.setFont(Font.font(null, FontWeight.BOLD, 15));
+        instrucciones.setTextFill(Color.WHITE);
         actualizarVentana();
         
     }
+    
     
     public void actualizarVentana()
     {
