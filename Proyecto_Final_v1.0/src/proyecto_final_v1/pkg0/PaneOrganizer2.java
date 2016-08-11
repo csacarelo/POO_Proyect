@@ -45,7 +45,10 @@ public class PaneOrganizer2 {
     private Pane im;
     private Pane _principal;
     private ImageView fondo;
- 
+    private Pane _bu;
+    private Pane _white;
+    private Pane _black;
+    private Pane _pira;
 
  public PaneOrganizer2(){
         _root = new Pane();
@@ -77,10 +80,12 @@ public class PaneOrganizer2 {
          Label titulo = new Label("TyperShark ");
          titulo.setLayoutX(290);
          titulo.setLayoutY(10);
-         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
+         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n"
+                                       + "                        *Gabriel Arauz");
          integrantes.setLayoutX(430);
          integrantes.setLayoutY(730);
-         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
+         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               "
+                                    + "Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
          proyecto.setLayoutX(30);
          proyecto.setLayoutY(730);
          im.getChildren().add(fondo);
@@ -153,9 +158,29 @@ public class PaneOrganizer2 {
            }       
      }
      public void ventanaJUEGO (){
-   
-        actualizarVentana();
+         _root = new Pane();
+        _bu = new Pane();
+        _white = new Pane();
+        _black = new Pane();
+        _pira = new Pane();
         
+        Buceador b = new Buceador();
+        sharkWhite w = new sharkWhite();
+        sharkBlack k = new sharkBlack();
+        piranha p = new piranha();
+        
+        _bu.getChildren().add(b.getBu());
+        _white.getChildren().add(w.getIm());
+        _black.getChildren().add(k.getIm());
+        _pira.getChildren().add(p.getIm());
+       
+        actualizarVentana();
+        Button btn4 = new Button("Salir");
+        btn4.setLayoutX(890);
+        btn4.setLayoutY(690);
+        btn4.setFont(Font.font(null, FontWeight.BOLD, 25));
+        _root.getChildren().addAll(_bu,_white,_black,_pira,btn4);
+        btn4.setOnAction(new ClickHandler4());
     }
     
     public void ventanaPRINCIPAL(){
@@ -188,13 +213,16 @@ public class PaneOrganizer2 {
          Label titulo = new Label("TyperShark ");
          titulo.setLayoutX(290);
          titulo.setLayoutY(10);
-         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
+         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n"
+                                       + "                        *Gabriel Arauz");
          integrantes.setLayoutX(430);
          integrantes.setLayoutY(730);
-         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
+         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               "
+                                    + "Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
          proyecto.setLayoutX(30);
          proyecto.setLayoutY(730);
          im.getChildren().add(fondo);
+         
          
          _root.getChildren().addAll(im,titulo,btn1,btn2,btn3,btn4,integrantes,proyecto);
         
@@ -216,6 +244,9 @@ public class PaneOrganizer2 {
     public void ventanaTOP10 (){
         _root = new Pane();
         im = new Pane();
+        ArchTop arch=new ArchTop();
+        String TopNom[]=arch.conseguirLos10PrimerosNombres();
+        String TopPunta[]=arch.conseguirLos10PirmerosPuntajes();
         
         Image image = new Image("file:fondo.jpg");
          fondo = new ImageView();
@@ -225,25 +256,45 @@ public class PaneOrganizer2 {
          
          Button btn3 = new Button("Regresar");
          btn3.setLayoutX(770);
-         btn3.setLayoutY(760);
+         btn3.setLayoutY(690);
          Button btn4 = new Button("Salir");
-         btn4.setLayoutX(900);
-         btn4.setLayoutY(760);
+         btn4.setLayoutX(890);
+         btn4.setLayoutY(690);
          
          btn3.setOnAction(new ClickHandler5());
          btn4.setOnAction(new ClickHandler4());
          Label titulo = new Label("TyperShark ");
          titulo.setLayoutX(290);
          titulo.setLayoutY(10);
-         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
+         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n"
+                                       + "                        *Gabriel Arauz");
          integrantes.setLayoutX(430);
          integrantes.setLayoutY(730);
-         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
+         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               "
+                                    + "Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
          proyecto.setLayoutX(30);
          proyecto.setLayoutY(730);
+         
+         Label jugador = new Label ("JUGADOR");
+         jugador.setLayoutX(290);
+         jugador.setLayoutY(210);
+         Label punt = new Label ("PUNTAJE");
+         punt.setLayoutX(540);
+         punt.setLayoutY(210);
+         
+         Label nombres = new Label ((TopNom[0]+"\n"+TopNom[1]+"\n"+TopNom[2]+"\n"+TopNom[3]+"\n"+TopNom[4]+"\n"
+                                   +TopNom[5]+"\n"+TopNom[6]+"\n"+TopNom[7]+"\n"+TopNom[8]+"\n"+TopNom[9]+"\n"));
+         nombres.setLayoutX(320);
+         nombres.setLayoutY(260);
+        
+         Label puntajes = new Label ((TopPunta[0]+"\n"+TopPunta[1]+"\n"+TopPunta[2]+"\n"+TopPunta[3]+"\n"+TopPunta[4]+"\n"
+                                     +TopPunta[5]+"\n"+TopPunta[6]+"\n"+TopPunta[7]+"\n"+TopPunta[8]+"\n"+TopPunta[9]+"\n"));
+        puntajes.setLayoutX(600);
+        puntajes.setLayoutY(260);
+        
          im.getChildren().add(fondo);
          
-         _root.getChildren().addAll(im,titulo,btn3,btn4,integrantes,proyecto);
+         _root.getChildren().addAll(im,titulo,btn3,btn4,integrantes,proyecto,jugador,punt,nombres,puntajes);
         
         integrantes.setFont(Font.font(null,FontWeight.NORMAL,12));
         titulo.setContentDisplay(ContentDisplay.CENTER);
@@ -254,6 +305,15 @@ public class PaneOrganizer2 {
         integrantes.setTextFill(Color.LIGHTSKYBLUE);
         proyecto.setFont(Font.font(null, FontWeight.BOLD, 12));
         proyecto.setTextFill(Color.LIGHTSKYBLUE);
+        jugador.setFont(Font.font(null, FontWeight.BOLD, 38));
+        jugador.setTextFill(Color.LIGHTSALMON);
+        punt.setFont(Font.font(null, FontWeight.BOLD, 38));
+        punt.setTextFill(Color.LIGHTSALMON);
+        nombres.setFont(Font.font(null, FontWeight.BOLD, 28));
+        nombres.setTextFill(Color.WHITE);
+        puntajes.setFont(Font.font(null, FontWeight.BOLD, 28));
+        puntajes.setTextFill(Color.WHITE);
+        
         actualizarVentana();
       
     }
@@ -270,20 +330,22 @@ public class PaneOrganizer2 {
          
          Button btn3 = new Button("Regresar");
          btn3.setLayoutX(770);
-         btn3.setLayoutY(760);
+         btn3.setLayoutY(690);
          Button btn4 = new Button("Salir");
-         btn4.setLayoutX(900);
-         btn4.setLayoutY(760);
+         btn4.setLayoutX(890);
+         btn4.setLayoutY(690);
          
          btn3.setOnAction(new ClickHandler5());
          btn4.setOnAction(new ClickHandler4());
          Label titulo = new Label("TyperShark ");
          titulo.setLayoutX(290);
          titulo.setLayoutY(10);
-         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n                        *Gabriel Arauz");
+       Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n"
+                                       + "                        *Gabriel Arauz");
          integrantes.setLayoutX(430);
          integrantes.setLayoutY(730);
-         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
+         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               "
+                                    + "Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
          proyecto.setLayoutX(30);
          proyecto.setLayoutY(730);
          Label instrucciones = new Label("INSTRUCCIONES DEL JUEGO:\n   ");
