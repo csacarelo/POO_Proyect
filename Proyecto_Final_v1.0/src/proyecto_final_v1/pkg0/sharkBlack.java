@@ -20,7 +20,7 @@ import javafx.util.Duration;
  */
 public class sharkBlack extends Atacante {
 
-      private ImageView im;
+    private ImageView im;
     private ImageView im2;
     private Label word;
     private int n ;

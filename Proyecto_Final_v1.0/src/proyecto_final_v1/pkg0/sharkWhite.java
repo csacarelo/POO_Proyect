@@ -20,7 +20,7 @@ import javafx.util.Duration;
  */
 public class sharkWhite extends Atacante {
 
-     private ImageView im;
+    private ImageView im;
     private ImageView im2;
     private Label word;
     private int n ;
@@ -30,7 +30,7 @@ public class sharkWhite extends Atacante {
     public sharkWhite(){
         
     n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
-    Image image = new Image("file:tiburon.png");
+    Image image = new Image("file:tiburon45.png");
          im = new ImageView();
          im.setImage(image);
          im.setFitWidth(300);
@@ -53,7 +53,7 @@ public class sharkWhite extends Atacante {
         word.setLayoutY(fila()+130);
         word.setTextFill(Color.WHITE);
         word.setFont(Font.font("Comic San MS", 20));
-         
+    
          mover(im);
        
     }
@@ -197,9 +197,8 @@ public class sharkWhite extends Atacante {
       
         }
         
-        //----------Recordar girar la imagen-----------
          else if (fila()==500){
-       TranslateTransition tt = new TranslateTransition(Duration.millis(10000), im);
+       TranslateTransition tt = new TranslateTransition(Duration.millis(10000), sharkWhite.this.im);
          //Duration tiempo en que se translada
          
         tt.setByX(-600f); //Para que se mueva de un lado a otro
@@ -233,7 +232,7 @@ public class sharkWhite extends Atacante {
 
     @Override
     public int fila() {
-      n=1;
+     
         if (n==1){
             n1=0;
         } else if (n==2){
@@ -270,6 +269,5 @@ public class sharkWhite extends Atacante {
     public void setWord(Label word) {
         this.word = word;
     }
-    
     
 }
