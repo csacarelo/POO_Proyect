@@ -26,7 +26,44 @@ public class piranha extends Atacante {
     private Label word;
     private int n ;
     private int n1;
+    private String palabra;
+    private int velocidad;
     
+    
+    public piranha(String palabra, int velocidad){
+    this.palabra = palabra;
+    this.velocidad = velocidad;
+    
+        n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
+        Image image = new Image("file:piranha.png");
+         im = new ImageView();
+         im.setImage(image);
+         im.setFitWidth(75);
+         im.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
+         im.setLayoutX(950);
+         im.setLayoutY(fila());
+         
+        Image image2 = new Image("file:red.png");
+         im2 = new ImageView();
+         im2.setImage(image2);
+         im2.setFitWidth(40);
+         im2.setFitHeight(42);
+         im2.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
+         im2.setLayoutX(955);
+         im2.setLayoutY(fila()+51);
+          
+         
+        word = new Label("a");
+        word.setLayoutX(968);
+        word.setLayoutY(fila()+42);
+        word.setTextFill(Color.WHITE);
+        word.setFont(Font.font("Comic San MS", 18));
+         
+         mover(im);
+    }
+    
+
+
     public piranha(){
        
         n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
