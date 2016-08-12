@@ -46,24 +46,25 @@ public class piranha extends Atacante {
         Image image2 = new Image("file:red.png");
          im2 = new ImageView();
          im2.setImage(image2);
-         im2.setFitWidth(40);
-         im2.setFitHeight(42);
+         im2.setFitWidth(50);
+         im2.setFitHeight(50);
          im2.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
          im2.setLayoutX(955);
          im2.setLayoutY(fila()+51);
           
          
-        word = new Label("a");
+       
+        ArchPalabras a = new ArchPalabras();
+        
+        word = new Label(a.conseguirCaracterAleatoria()); 
         word.setLayoutX(968);
-        word.setLayoutY(fila()+42);
+        word.setLayoutY(fila()+43);
         word.setTextFill(Color.WHITE);
         word.setFont(Font.font("Comic San MS", 18));
          
          mover(im);
     }
     
-
-
     public piranha(){
        
         n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
@@ -78,16 +79,19 @@ public class piranha extends Atacante {
         Image image2 = new Image("file:red.png");
          im2 = new ImageView();
          im2.setImage(image2);
-         im2.setFitWidth(40);
-         im2.setFitHeight(42);
+         im2.setFitWidth(50);
+         im2.setFitHeight(50);
          im2.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
          im2.setLayoutX(955);
          im2.setLayoutY(fila()+51);
           
-         
-        word = new Label("a");
+        //Palabra
+        
+        ArchPalabras a = new ArchPalabras();
+        
+        word = new Label(a.conseguirCaracterAleatoria()); 
         word.setLayoutX(968);
-        word.setLayoutY(fila()+42);
+        word.setLayoutY(fila()+43);
         word.setTextFill(Color.WHITE);
         word.setFont(Font.font("Comic San MS", 18));
          
@@ -249,3 +253,4 @@ public class piranha extends Atacante {
         this.im2 = im2;
     }
 }
+

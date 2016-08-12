@@ -25,7 +25,6 @@ public class sharkWhite extends Atacante {
     private Label word;
     private int n ;
     private int n1;
-    
     private String palabra;
     private int velocidad;
     
@@ -46,21 +45,23 @@ public class sharkWhite extends Atacante {
     Image image2 = new Image("file:blue.png");
          im2 = new ImageView();
          im2.setImage(image2);
-         im2.setFitWidth(200);
-         im2.setFitHeight(25);
+         im2.setFitWidth(600);
+         im2.setFitHeight(40);
          im2.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
          im2.setLayoutX(800);
          im2.setLayoutY(fila()+132);
           
          
-        word = new Label("white");
+    ArchPalabras a = new ArchPalabras();
+        
+        word = new Label(a.conseguirPalabraAleatoria()); 
         word.setLayoutX(815);
-        word.setLayoutY(fila()+130);
+        word.setLayoutY(fila()+135);
         word.setTextFill(Color.WHITE);
         word.setFont(Font.font("Comic San MS", 20));
     
          mover(im);
-       
+    
     }
     
     public sharkWhite(){
@@ -77,16 +78,18 @@ public class sharkWhite extends Atacante {
     Image image2 = new Image("file:blue.png");
          im2 = new ImageView();
          im2.setImage(image2);
-         im2.setFitWidth(200);
-         im2.setFitHeight(25);
+         im2.setFitWidth(600);
+         im2.setFitHeight(40);
          im2.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
          im2.setLayoutX(800);
          im2.setLayoutY(fila()+132);
           
          
-        word = new Label("white");
+    ArchPalabras a = new ArchPalabras();
+        
+        word = new Label(a.conseguirPalabraAleatoria()); 
         word.setLayoutX(815);
-        word.setLayoutY(fila()+130);
+        word.setLayoutY(fila()+135);
         word.setTextFill(Color.WHITE);
         word.setFont(Font.font("Comic San MS", 20));
     
@@ -233,6 +236,7 @@ public class sharkWhite extends Atacante {
       
         }
         
+        //----------Recordar girar la imagen-----------
          else if (fila()==500){
        TranslateTransition tt = new TranslateTransition(Duration.millis(10000), sharkWhite.this.im);
          //Duration tiempo en que se translada
@@ -268,7 +272,7 @@ public class sharkWhite extends Atacante {
 
     @Override
     public int fila() {
-     
+      n=4;
         if (n==1){
             n1=0;
         } else if (n==2){

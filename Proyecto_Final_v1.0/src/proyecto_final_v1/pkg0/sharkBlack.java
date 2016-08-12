@@ -28,7 +28,6 @@ public class sharkBlack extends Atacante {
     private String palabra;
     private int velocidad;
     
-    
     public sharkBlack(String palabra, int velocidad){
     this.palabra = palabra;
     this.velocidad = velocidad;
@@ -46,21 +45,25 @@ public class sharkBlack extends Atacante {
          Image image2 = new Image("file:brown.png");
          im2 = new ImageView();
          im2.setImage(image2);
-         im2.setFitWidth(200);
-         im2.setFitHeight(25);
+         im2.setFitWidth(600);
+         im2.setFitHeight(40);
          im2.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
          im2.setLayoutX(800);
          im2.setLayoutY(fila()+200);
           
          
-        word = new Label("black");
+        ArchPalabras a = new ArchPalabras();
+        
+        word = new Label(a.conseguirPalabraAleatoria()); 
         word.setLayoutX(815);
-        word.setLayoutY(fila()+198);
+        word.setLayoutY(fila()+200);
         word.setTextFill(Color.WHITE);
         word.setFont(Font.font("Comic San MS", 20));
          
          
          mover(im);
+    
+    
     }
     
     public sharkBlack(){
@@ -78,16 +81,18 @@ public class sharkBlack extends Atacante {
          Image image2 = new Image("file:brown.png");
          im2 = new ImageView();
          im2.setImage(image2);
-         im2.setFitWidth(200);
-         im2.setFitHeight(25);
+         im2.setFitWidth(600);
+         im2.setFitHeight(40);
          im2.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
          im2.setLayoutX(800);
          im2.setLayoutY(fila()+200);
           
          
-        word = new Label("black");
+        ArchPalabras a = new ArchPalabras();
+        
+        word = new Label(a.conseguirPalabraAleatoria()); 
         word.setLayoutX(815);
-        word.setLayoutY(fila()+198);
+        word.setLayoutY(fila()+200);
         word.setTextFill(Color.WHITE);
         word.setFont(Font.font("Comic San MS", 20));
          
