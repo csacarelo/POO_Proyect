@@ -40,6 +40,8 @@ public class Proyecto_Final_v10 extends Application {
         //System.out.println(a.conseguirPalabraAleatoria());
         //a.guardarPuntajes("Jose", 600);
         //System.out.println(a.conseguirLos10Primeros()[0]);
+        //CompararPalabras A=new CompararPalabras();
+        //A.start();
         launch(args);
 
     }

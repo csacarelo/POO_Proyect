@@ -44,15 +44,19 @@ public class Accion extends Thread{
     @Override
     public void run() {
         
+        String Palabra="";
+        String palabraDeLaImagen;
+        
         Platform.runLater(new Runnable() {
             @Override
                 public void run(){
                     Pane a=new Pane();
                     a.getChildren().addAll(A.getIm(),A.getIm2(),A.getWord());
                     PaneOrganizer2._root.getChildren().add(a);
+                    
                 }
         });
-        
+        palabraDeLaImagen=A.getWord().getText();
         while (flagAlive)
         {
             try {
@@ -60,6 +64,13 @@ public class Accion extends Thread{
             } catch (InterruptedException ex) {
                 Logger.getLogger(Accion.class.getName()).log(Level.SEVERE, null, ex);
             }
+            //if(Character.toString(palabraDeLaImagen.charAt(0))==Juego.letras);
+            //{
+            //    palabraDeLaImagen.substring(1);
+              
+            //}
+            
+            
         }
     }
     

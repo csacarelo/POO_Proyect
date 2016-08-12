@@ -108,7 +108,8 @@ public class PaneOrganizer2 {
     
      public void ventanaJUEGO (){
          Juego j=new Juego();
-         j.Jugar();
+         j.Jugar(); 
+         
          //this.ventanaPRINCIPAL();
         
     }

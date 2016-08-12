@@ -22,10 +22,11 @@ public class Juego extends PaneOrganizer2{
     int cargas;
     int nivel;
     ArchPalabras Arch;
-    Accion Enemigo1;
-    Accion Enemigo2;
-    Accion Enemigo3;
-    Accion Enemigo4;
+    public static Accion Enemigo1;
+    public static Accion Enemigo2;
+    public static Accion Enemigo3;
+    public static Accion Enemigo4;
+    CompararPalabras A;
     Scanner ser;
     static String  letras;
     
@@ -71,6 +72,8 @@ public class Juego extends PaneOrganizer2{
     public void Jugar()
     {
         iniciarAtacantes();
+        A=new CompararPalabras();
+        A.start();
        // letras=this.ser.next();
             
     }
@@ -111,7 +114,14 @@ public class Juego extends PaneOrganizer2{
         }
         
     }
-    
+   
+    public static boolean verSiHiloEstaVivo(Accion a)
+    {
+        if(a!=null)
+            if(a.isAlive())
+                return true;
+        return false;
+    }
     public void cerrarHilos()
     {
         if(Enemigo1!=null)
@@ -126,7 +136,7 @@ public class Juego extends PaneOrganizer2{
         if(Enemigo4!=null)
             if(Enemigo4.isAlive())
                 Enemigo4.destruir();
-        
+        A.destruir();
         
     }
     
