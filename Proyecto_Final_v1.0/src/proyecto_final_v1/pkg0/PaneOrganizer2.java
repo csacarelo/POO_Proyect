@@ -49,6 +49,8 @@ public class PaneOrganizer2 {
     private Pane _white;
     private Pane _black;
     private Pane _pira;
+    private ImageView im2;
+    private Pane _im;
 
  public PaneOrganizer2(){
         _root = new Pane();
@@ -164,22 +166,39 @@ public class PaneOrganizer2 {
         _black = new Pane();
         _pira = new Pane();
         
+        
+         Image image = new Image("file:oce.png");
+        im2 = new ImageView();
+        im2.setImage(image);
+        im2.setFitWidth(1000);
+        im2.setFitHeight(800);
+        
+        
         Buceador b = new Buceador();
         sharkWhite w = new sharkWhite();
         sharkBlack k = new sharkBlack();
         piranha p = new piranha();
         
         _bu.getChildren().add(b.getBu());
-        _white.getChildren().add(w.getIm());
-        _black.getChildren().add(k.getIm());
-        _pira.getChildren().add(p.getIm());
-       
+        _white.getChildren().addAll(w.getIm(),w.getIm2(),w.getWord());
+        _black.getChildren().addAll(k.getIm(),k.getIm2(),k.getWord());
+        _pira.getChildren().addAll(p.getIm(),p.getIm2(),p.getWord());
+        _im = new Pane();
+        _im.getChildren().add(im2);
+        //------------------
+        
+        
+        
+      // _root.getChildren().addAll(_im,_bu,_white,_black,_pira);
+        
+        //-------------------------
+        
         actualizarVentana();
         Button btn4 = new Button("Salir");
         btn4.setLayoutX(890);
         btn4.setLayoutY(690);
         btn4.setFont(Font.font(null, FontWeight.BOLD, 25));
-        _root.getChildren().addAll(_bu,_white,_black,_pira,btn4);
+        _root.getChildren().addAll(_im,_bu,_white,_black,_pira,btn4);
         btn4.setOnAction(new ClickHandler4());
     }
     

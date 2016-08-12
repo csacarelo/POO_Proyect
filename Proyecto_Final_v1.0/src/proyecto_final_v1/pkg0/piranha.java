@@ -212,4 +212,3 @@ public class piranha extends Atacante {
         this.im2 = im2;
     }
 }
-
