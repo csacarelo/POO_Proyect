@@ -6,6 +6,8 @@
 package proyecto_final_v1.pkg0;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -35,11 +37,16 @@ public class Juego {
         nivel=1;
         PaneOrganizer2._root= new Pane();
         Pane _bu = new Pane();
+        Image image = new Image("file:oce.png");
+        ImageView im2 = new ImageView();
+        im2.setImage(image);
+        im2.setFitWidth(1000);
+        im2.setFitHeight(800);
 
         
         Buceador b = new Buceador();
         
-        _bu.getChildren().add(b.getBu());
+        _bu.getChildren().addAll(im2,b.getBu());
     
         PaneOrganizer2.actualizarVentana();
         PaneOrganizer2._root.getChildren().addAll(_bu);
@@ -49,8 +56,29 @@ public class Juego {
     {
         if(nivel==1)
         {
-            //Enemigo1=new
+            Enemigo1=new Thread(new Accion(Arch,10));
         }
+        if(nivel==2)
+        {
+            Enemigo1=new Thread(new Accion(Arch,20));
+            Enemigo2=new Thread(new Accion(Arch,20));
+        }
+        if(nivel==3)
+        {
+            Enemigo1=new Thread(new Accion(Arch,30));
+            Enemigo2=new Thread(new Accion(Arch,30));
+            Enemigo3=new Thread(new Accion(Arch,30));
+        }
+        if(nivel==4)
+        {
+            Enemigo1=new Thread(new Accion(Arch,40));
+            Enemigo2=new Thread(new Accion(Arch,40));
+            Enemigo3=new Thread(new Accion(Arch,40));
+            Enemigo4=new Thread(new Accion(Arch,40));
+        }
+        
+        
+            
     }
     
 }
