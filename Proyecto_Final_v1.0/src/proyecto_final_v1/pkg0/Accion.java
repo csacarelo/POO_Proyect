@@ -24,11 +24,11 @@ public class Accion implements Runnable{
         switch(valorRandom)
         {
             case 1:
-                //A=new piranha(arch.conseguirCaracterAleatoria(),Rapidez);
+                A=new piranha(arch.conseguirCaracterAleatoria(),Rapidez);
             case 2:
-                //A=new sharkBlack(arch.conseguirPalabraAleatoria(),Rapidez);
+                A=new sharkBlack(arch.conseguirPalabraAleatoria(),Rapidez);
             default:
-                //A=new sharkWhite(arch.conseguirPalabraAleatoria(),Rapidez);
+                A=new sharkWhite(arch.conseguirPalabraAleatoria(),Rapidez);
         }
         
                     

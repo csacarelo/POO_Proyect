@@ -161,7 +161,7 @@ public class PaneOrganizer2 {
      }
      public void ventanaJUEGO (){
          Juego j=new Juego();
-         //j.jugar();
+         j.Jugar();
          /*_root = new Pane();
         _bu = new Pane();
         _white = new Pane();

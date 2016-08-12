@@ -57,17 +57,23 @@ public class Juego {
         if(nivel==1)
         {
             Enemigo1=new Thread(new Accion(Arch,10));
+            Enemigo1.start();
         }
         if(nivel==2)
         {
             Enemigo1=new Thread(new Accion(Arch,20));
             Enemigo2=new Thread(new Accion(Arch,20));
+            Enemigo1.start();
+            Enemigo2.start();
         }
         if(nivel==3)
         {
             Enemigo1=new Thread(new Accion(Arch,30));
             Enemigo2=new Thread(new Accion(Arch,30));
             Enemigo3=new Thread(new Accion(Arch,30));
+            Enemigo1.start();
+            Enemigo2.start();
+            Enemigo3.start();
         }
         if(nivel==4)
         {
@@ -75,6 +81,10 @@ public class Juego {
             Enemigo2=new Thread(new Accion(Arch,40));
             Enemigo3=new Thread(new Accion(Arch,40));
             Enemigo4=new Thread(new Accion(Arch,40));
+            Enemigo1.start();
+            Enemigo2.start();
+            Enemigo3.start();
+            Enemigo4.start();
         }
         
         
