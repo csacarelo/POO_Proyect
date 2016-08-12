@@ -5,6 +5,7 @@
  */
 package proyecto_final_v1.pkg0;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 /**
@@ -24,6 +25,9 @@ public abstract class Atacante {
     abstract public void destruir();
     abstract public void mover(ImageView im);
     abstract public int fila();
+    
+    abstract public ImageView getIm2();
+    abstract public Label getWord();
 
     public int getPostIn() {
         return postIn;

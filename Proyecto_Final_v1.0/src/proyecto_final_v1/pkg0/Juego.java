@@ -34,7 +34,7 @@ public class Juego {
         puntaje=0;
         vidas=3;
         cargas=0;
-        nivel=1;
+        nivel=3;
         PaneOrganizer2._root= new Pane();
         Pane _bu = new Pane();
         Image image = new Image("file:oce.png");

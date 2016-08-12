@@ -19,16 +19,19 @@ public class Accion implements Runnable{
     
     public Accion (ArchPalabras arch,int Rapidez)
     {
-        int valorRandom=(int)(Math.random()*3)+1;
+        int valorRandom=(int)(Math.random()*3+1);
         Velocidad=Rapidez;
         switch(valorRandom)
         {
             case 1:
                 A=new piranha(arch.conseguirCaracterAleatoria(),Rapidez);
+                break;
             case 2:
                 A=new sharkBlack(arch.conseguirPalabraAleatoria(),Rapidez);
+                break;
             default:
                 A=new sharkWhite(arch.conseguirPalabraAleatoria(),Rapidez);
+                break;
         }
         
                     
@@ -42,7 +45,7 @@ public class Accion implements Runnable{
             @Override
                 public void run(){
                     Pane a=new Pane();
-                    a.getChildren().add(A.getIm());
+                    a.getChildren().addAll(A.getIm(),A.getIm2(),A.getWord());
                     PaneOrganizer2._root.getChildren().add(a);
                 }
         });
