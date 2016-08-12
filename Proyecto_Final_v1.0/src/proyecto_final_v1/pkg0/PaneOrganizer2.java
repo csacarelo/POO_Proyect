@@ -53,62 +53,8 @@ public class PaneOrganizer2 {
     private Pane _im;
 
  public PaneOrganizer2(){
-        _root = new Pane();
-        im = new Pane();
-        
-        Image image = new Image("file:fondo.jpg");
-         fondo = new ImageView();
-         fondo.setImage(image);
-         fondo.setFitWidth(1000);
-         fondo.setFitHeight(800);
-         
-        
-         Button btn1 = new Button("Jugar");
-         btn1.setLayoutX(470);
-         btn1.setLayoutY(440);
-         Button btn2 = new Button("TOP 10");
-         btn2.setLayoutX(300);
-         btn2.setLayoutY(490);
-         Button btn3 = new Button("Instrucciones");
-         btn3.setLayoutX(430);
-         btn3.setLayoutY(490);
-         Button btn4 = new Button("Salir");
-         btn4.setLayoutX(630);
-         btn4.setLayoutY(490);
-         btn1.setOnAction(new ClickHandler1());
-         btn2.setOnAction(new ClickHandler2());
-         btn3.setOnAction(new ClickHandler3());
-         btn4.setOnAction(new ClickHandler4());
-         Label titulo = new Label("TyperShark ");
-         titulo.setLayoutX(290);
-         titulo.setLayoutY(10);
-         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n"
-                                       + "                        *Gabriel Arauz");
-         integrantes.setLayoutX(430);
-         integrantes.setLayoutY(730);
-         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               "
-                                    + "Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
-         proyecto.setLayoutX(30);
-         proyecto.setLayoutY(730);
-         im.getChildren().add(fondo);
-         
-         _root.getChildren().addAll(im,titulo,btn1,btn2,btn3,btn4,integrantes,proyecto);
-        
-        integrantes.setFont(Font.font(null,FontWeight.NORMAL,12));
-        titulo.setContentDisplay(ContentDisplay.CENTER);
-        titulo.setFont(Font.font(null, FontWeight.BOLD, 80));
-        btn1.setFont(Font.font(null, FontWeight.BOLD, 25));
-        btn2.setFont(Font.font(null, FontWeight.BOLD, 25));
-        btn3.setFont(Font.font(null, FontWeight.BOLD, 25));
-        btn4.setFont(Font.font(null, FontWeight.BOLD, 25));
-        integrantes.setFont(Font.font(null, FontWeight.BOLD, 12));
-        integrantes.setTextFill(Color.LIGHTSKYBLUE);
-        proyecto.setFont(Font.font(null, FontWeight.BOLD, 12));
-        proyecto.setTextFill(Color.LIGHTSKYBLUE);
-         
-       
-        this._principal=_root;
      
+        this.ventanaPRINCIPAL();
    
     }
     
@@ -162,6 +108,8 @@ public class PaneOrganizer2 {
      public void ventanaJUEGO (){
          Juego j=new Juego();
          j.Jugar();
+         
+         this.ventanaPRINCIPAL();
          /*_root = new Pane();
         _bu = new Pane();
         _white = new Pane();
@@ -198,6 +146,7 @@ public class PaneOrganizer2 {
     }
     
     public void ventanaPRINCIPAL(){
+        
         _root = new Pane();
         im = new Pane();
         
@@ -252,7 +201,7 @@ public class PaneOrganizer2 {
         proyecto.setFont(Font.font(null, FontWeight.BOLD, 12));
         proyecto.setTextFill(Color.LIGHTSKYBLUE);
         actualizarVentana(); 
-        
+   
     }
     
     public void ventanaTOP10 (){
