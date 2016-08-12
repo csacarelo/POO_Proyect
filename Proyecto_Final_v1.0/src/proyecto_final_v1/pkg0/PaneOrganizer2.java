@@ -185,14 +185,7 @@ public class PaneOrganizer2 {
         _pira.getChildren().addAll(p.getIm(),p.getIm2(),p.getWord());
         _im = new Pane();
         _im.getChildren().add(im2);
-        //------------------
-        
-        
-        
-      // _root.getChildren().addAll(_im,_bu,_white,_black,_pira);
-        
-        //-------------------------
-        
+       
         actualizarVentana();
         Button btn4 = new Button("Salir");
         btn4.setLayoutX(890);
