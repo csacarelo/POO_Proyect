@@ -105,44 +105,12 @@ public class PaneOrganizer2 {
     
            }       
      }
+    
      public void ventanaJUEGO (){
          Juego j=new Juego();
          j.Jugar();
-         
-         this.ventanaPRINCIPAL();
-         /*_root = new Pane();
-        _bu = new Pane();
-        _white = new Pane();
-        _black = new Pane();
-        _pira = new Pane();
+         //this.ventanaPRINCIPAL();
         
-        
-         Image image = new Image("file:oce.png");
-        im2 = new ImageView();
-        im2.setImage(image);
-        im2.setFitWidth(1000);
-        im2.setFitHeight(800);
-        
-        
-        Buceador b = new Buceador();
-        sharkWhite w = new sharkWhite();
-        sharkBlack k = new sharkBlack();
-        piranha p = new piranha();
-        
-        _bu.getChildren().add(b.getBu());
-        _white.getChildren().addAll(w.getIm(),w.getIm2(),w.getWord());
-        _black.getChildren().addAll(k.getIm(),k.getIm2(),k.getWord());
-        _pira.getChildren().addAll(p.getIm(),p.getIm2(),p.getWord());
-        _im = new Pane();
-        _im.getChildren().add(im2);
-       
-        actualizarVentana();
-        Button btn4 = new Button("Salir");
-        btn4.setLayoutX(890);
-        btn4.setLayoutY(690);
-        btn4.setFont(Font.font(null, FontWeight.BOLD, 25));
-        _root.getChildren().addAll(_bu,_white,_black,_pira,btn4);
-        btn4.setOnAction(new ClickHandler4());*/
     }
     
     public void ventanaPRINCIPAL(){
