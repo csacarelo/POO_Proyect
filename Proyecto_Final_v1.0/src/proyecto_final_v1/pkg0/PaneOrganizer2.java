@@ -362,12 +362,39 @@ public class PaneOrganizer2 {
                                     + "Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
          proyecto.setLayoutX(30);
          proyecto.setLayoutY(730);
-         Label instrucciones = new Label("INSTRUCCIONES DEL JUEGO:\n   ");
-         instrucciones.setLayoutX(50);
-         instrucciones.setLayoutY(130);
+         Label instrucciones = new Label("INSTRUCCIONES DEL JUEGO");
+         instrucciones.setLayoutX(290);
+         instrucciones.setLayoutY(120);
+         Label inst = new Label("*El juego TyperShark permite al usiario entrenar su habilidad en el uso del teclado y mejorar su rapidez en el mismo.\n"
+                              + "*Consiste en proteger a un buceador de los animales marinos, mientras va descendiendo hasta el fondo del mar.\n"
+                              + "*Esto se logra tipeando las mismas palabras que cada animal marino contiene. Existen tres tipos de animales marinos:\n"
+                              + "        Tiburon blanco:\n"
+                              + "            -Contiene Palabras.\n"
+                              + "            -Desparece cuando se ha tipeado todas las letras de su palabra.\n"
+                              + "            -Si toca al buceador, este pierde una vida.\n"
+                              + "        Tiburon negro:\n"
+                              + "            -Contiene Palabras.\n"
+                              + "            -Desparece cuando se ha tipeado todas las palabras.\n"
+                              + "            -Cuando se ha tipeado toda la palabra, aparece una nueva, en este caso un tiburon negro tiene dos palabras.\n"
+                              + "        Piraña:\n"
+                              + "            -Contiene un caracter.\n" 
+                              + "            -Desparece cuando se ha tipeado su letra.\n" 
+                              + "            -Avanza mas rapidamente que un tiburon.\n"
+                              + "            -Se requiere que mas de tres pirañas toquen a un buceador para que este pierda una vida.\n"
+                              + "*El buceador acumula puntos por cada animal que desaparece:\n"
+                              + "        Piraña equivale a 10 puntos.\n"
+                              + "        Tiburon blanco equivale a 20 puntos.\n"
+                              + "        Tiburon negro equivale a 30 puntos.\n"
+                              + "*Inicialmente el buceador dispone de tres vidas, pero puede ganar vidas extra por cada 100 puntos acumulados.\n"
+                              + "*Con 150 puntos, el buceador puede eliminar todos los animales marinos en la cercania solo presionando la tecla ENTER.\n"
+                              + "*A medica que acumula puntaje, el jugador va avanzando a un siguiente nivel, donde los animales aumentan su rapidez.\n"
+                              + "*El juego termina cuando el buceador pierde todas sus vidas.");
+         inst.setLayoutX(15);
+         inst.setLayoutY(155);
          im.getChildren().add(fondo);
          
-         _root.getChildren().addAll(im,titulo,btn3,btn4,integrantes,proyecto,instrucciones);
+         
+         _root.getChildren().addAll(im,titulo,btn3,btn4,integrantes,proyecto,instrucciones,inst);
         
         integrantes.setFont(Font.font(null,FontWeight.NORMAL,12));
         titulo.setContentDisplay(ContentDisplay.CENTER);
@@ -378,8 +405,10 @@ public class PaneOrganizer2 {
         integrantes.setTextFill(Color.LIGHTSKYBLUE);
         proyecto.setFont(Font.font(null, FontWeight.BOLD, 12));
         proyecto.setTextFill(Color.LIGHTSKYBLUE);
-        instrucciones.setFont(Font.font(null, FontWeight.BOLD, 15));
-        instrucciones.setTextFill(Color.WHITE);
+        instrucciones.setFont(Font.font(null, FontWeight.BOLD, 30));
+        instrucciones.setTextFill(Color.LIGHTSALMON);
+        inst.setFont(Font.font(null, FontWeight.BOLD, 17));
+        inst.setTextFill(Color.WHITE);
         actualizarVentana();
         
     }
