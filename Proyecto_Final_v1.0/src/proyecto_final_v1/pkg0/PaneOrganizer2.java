@@ -41,7 +41,7 @@ import static javafx.scene.text.FontWeight.BOLD;
  * @author Tatiana
  */
 public class PaneOrganizer2 {
-    private Pane _root;
+    public static Pane _root;
     private Pane im;
     private Pane _principal;
     private ImageView fondo;
@@ -158,7 +158,9 @@ public class PaneOrganizer2 {
            }       
      }
      public void ventanaJUEGO (){
-         _root = new Pane();
+         Juego j=new Juego();
+         //j.jugar();
+         /*_root = new Pane();
         _bu = new Pane();
         _white = new Pane();
         _black = new Pane();
@@ -180,7 +182,7 @@ public class PaneOrganizer2 {
         btn4.setLayoutY(690);
         btn4.setFont(Font.font(null, FontWeight.BOLD, 25));
         _root.getChildren().addAll(_bu,_white,_black,_pira,btn4);
-        btn4.setOnAction(new ClickHandler4());
+        btn4.setOnAction(new ClickHandler4());*/
     }
     
     public void ventanaPRINCIPAL(){
@@ -371,7 +373,7 @@ public class PaneOrganizer2 {
     }
     
     
-    public void actualizarVentana()
+    public static void actualizarVentana()
     {
         Proyecto_Final_v10.scene=new Scene(_root,1000,800);
         Proyecto_Final_v10.stage.setScene(Proyecto_Final_v10.scene);
