@@ -5,6 +5,8 @@
  */
 package proyecto_final_v1.pkg0;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.scene.layout.Pane;
 
@@ -12,10 +14,11 @@ import javafx.scene.layout.Pane;
  *
  * @author Christian
  */
-public class Accion implements Runnable{
+public class Accion extends Thread{
     
     Atacante A;
     int Velocidad;
+    boolean flagAlive=true;
     
     public Accion (ArchPalabras arch,int Rapidez)
     {
@@ -50,10 +53,19 @@ public class Accion implements Runnable{
                 }
         });
         
-        while (true)
+        while (flagAlive)
         {
-            
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Accion.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+    }
+    
+    public void destruir()
+    {
+        flagAlive=false;
     }
 
     

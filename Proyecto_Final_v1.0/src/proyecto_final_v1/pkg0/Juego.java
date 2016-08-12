@@ -1,5 +1,6 @@
 package proyecto_final_v1.pkg0;
 
+import java.util.Scanner;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,10 +22,12 @@ public class Juego extends PaneOrganizer2{
     int cargas;
     int nivel;
     ArchPalabras Arch;
-    Thread Enemigo1;
-    Thread Enemigo2;
-    Thread Enemigo3;
-    Thread Enemigo4;
+    Accion Enemigo1;
+    Accion Enemigo2;
+    Accion Enemigo3;
+    Accion Enemigo4;
+    Scanner ser;
+    static String  letras;
     
     public Juego ()
     {
@@ -33,6 +36,7 @@ public class Juego extends PaneOrganizer2{
         vidas=3;
         cargas=0;
         nivel=3;
+        ser=new Scanner(System.in);
         PaneOrganizer2._root= new Pane();
         Pane _bu = new Pane();
         Image image = new Image("file:oce.png");
@@ -59,46 +63,71 @@ public class Juego extends PaneOrganizer2{
          
            @Override
            public void handle(ActionEvent event){
-              ventanaPRINCIPAL();
+               ventanaPRINCIPAL();
+              cerrarHilos();
+              
            }       
      }
     public void Jugar()
     {
+        iniciarAtacantes();
+        letras=this.ser.next();
+            
+    }
+    
+    public void iniciarAtacantes()
+    {
         if(nivel==1)
         {
-            Enemigo1=new Thread(new Accion(Arch,10));
+            Enemigo1=new Accion(Arch,10);
             Enemigo1.start();
         }
         if(nivel==2)
         {
-            Enemigo1=new Thread(new Accion(Arch,20));
-            Enemigo2=new Thread(new Accion(Arch,20));
+            Enemigo1=new Accion(Arch,20);
+            Enemigo2=new Accion(Arch,20);
             Enemigo1.start();
             Enemigo2.start();
         }
         if(nivel==3)
         {
-            Enemigo1=new Thread(new Accion(Arch,30));
-            Enemigo2=new Thread(new Accion(Arch,30));
-            Enemigo3=new Thread(new Accion(Arch,30));
+            Enemigo1=new Accion(Arch,30);
+            Enemigo2=new Accion(Arch,30);
+            Enemigo3=new Accion(Arch,30);
             Enemigo1.start();
             Enemigo2.start();
             Enemigo3.start();
         }
         if(nivel==4)
         {
-            Enemigo1=new Thread(new Accion(Arch,40));
-            Enemigo2=new Thread(new Accion(Arch,40));
-            Enemigo3=new Thread(new Accion(Arch,40));
-            Enemigo4=new Thread(new Accion(Arch,40));
+            Enemigo1=new Accion(Arch,40);
+            Enemigo2=new Accion(Arch,40);
+            Enemigo3=new Accion(Arch,40);
+            Enemigo4=new Accion(Arch,40);
             Enemigo1.start();
             Enemigo2.start();
             Enemigo3.start();
             Enemigo4.start();
         }
         
+    }
+    
+    public void cerrarHilos()
+    {
+        if(Enemigo1!=null)
+            if(Enemigo1.isAlive())
+                Enemigo1.destruir();
+        if(Enemigo2!=null)
+            if(Enemigo2.isAlive())
+                Enemigo2.destruir();
+        if(Enemigo3!=null)
+            if(Enemigo3.isAlive())
+                Enemigo3.destruir();
+        if(Enemigo4!=null)
+            if(Enemigo4.isAlive())
+                Enemigo4.destruir();
         
-            
+        
     }
     
 }
