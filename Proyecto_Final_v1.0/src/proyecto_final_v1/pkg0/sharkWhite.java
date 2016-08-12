@@ -7,6 +7,8 @@ package proyecto_final_v1.pkg0;
 
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -101,33 +103,14 @@ public class sharkWhite extends Atacante {
     public void destruir() {
         int  n3 =(int)(Math.random()*1+1);
         
-       // if ((n3==0)&&(im.getLayoutX()<300)){
        if(im.getLayoutX()<900){
            System.out.println(im.getLayoutX());
-        //im.setOpacity(75);
         TranslateTransition tt = new TranslateTransition(Duration.millis(10000), im);
-         //Duration tiempo en que se translada
-        //tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByX(-800f);
         tt.setByZ(200f);
-        //tt.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
-        //tt.setByY(100f);
-        //tt.setAutoReverse(true); //ayuda que regrese
         tt.play();
         
-            
-       // }else if ((n3==1)&&(im.getLayoutX()<300)){
-        /*else if (im.getLayoutX()<300){
-        im.setOpacity(75);
-        TranslateTransition tt = new TranslateTransition(Duration.millis(10000), im);
-         //Duration tiempo en que se translada
-        //tt.setByX(-600f); //Para que se mueva de un lado a otro
-        tt.setByY(-800f);
-        tt.setByZ(200f);
-        //tt.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
-        //tt.setByY(100f);
-        //tt.setAutoReverse(true); //ayuda que regrese
-        tt.play();*/
+        
         }
         
     }
@@ -141,45 +124,52 @@ public class sharkWhite extends Atacante {
         tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByY(-100f);
         tt.setByZ(200f);
-        tt.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        tt.setCycleCount(1);// Nos permite continuar el ciclo 
         tt.setByY(100f);
         tt.setAutoReverse(true); //ayuda que regrese
         tt.play();
         
-        //-------------Probando--------------------//revisar
-        if (im.getLayoutX()<750){
-           System.out.println(im.getLayoutX());
-           System.out.println(tt.getByX());
-            /* 
-            tt.pause();
-            tt.setByY(200);
-            tt.play();*/
-           tt.stop();
-        }
-        
-        
-        //-----------------------------------------
-        
+         tt.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.im.setVisible(false);
+             }
+        });
         
         TranslateTransition w = new TranslateTransition(Duration.millis(10000), sharkWhite.this.word);
         w.setByX(-600f); //Para que se mueva de un lado a otro
         w.setByY(-100f);
         w.setByZ(200f);
-        w.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        w.setCycleCount(1);// Nos permite continuar el ciclo 
         w.setByY(100f);
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
+        
+         w.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.word.setVisible(false);
+             }
+        });
+        
         
         TranslateTransition m2 = new TranslateTransition(Duration.millis(10000), sharkWhite.this.im2);
         m2.setByX(-600f); //Para que se mueva de un lado a otro
         m2.setByY(-100f);
         m2.setByZ(200f);
-        m2.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        m2.setCycleCount(1);// Nos permite continuar el ciclo 
         m2.setByY(100f);
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
         
         
+         m2.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.im2.setVisible(false);
+             }
+        });
+    
         }
         
         else if (fila()==125){
@@ -187,23 +177,46 @@ public class sharkWhite extends Atacante {
          //Duration tiempo en que se translada
         tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByZ(200f);
-        tt.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        tt.setCycleCount(1);// Nos permite continuar el ciclo 
         tt.setAutoReverse(true); //ayuda que regrese
         tt.play();
       
+        tt.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.im.setVisible(false);
+             }
+        });
+        
           TranslateTransition w = new TranslateTransition(Duration.millis(10000), sharkWhite.this.word);
         w.setByX(-600f); //Para que se mueva de un lado a otro
         w.setByZ(200f);
-        w.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        w.setCycleCount(1);// Nos permite continuar el ciclo 
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
+        
+        
+         w.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.word.setVisible(false);
+             }
+        });
         
         TranslateTransition m2 = new TranslateTransition(Duration.millis(10000), sharkWhite.this.im2);
         m2.setByX(-600f); //Para que se mueva de un lado a otro
         m2.setByZ(200f);
-        m2.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        m2.setCycleCount(1);// Nos permite continuar el ciclo 
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
+    
+         m2.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.im2.setVisible(false);
+             }
+        });
+    
         }
         
         else if (fila()==250){
@@ -211,29 +224,51 @@ public class sharkWhite extends Atacante {
          //Duration tiempo en que se translada
         tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByZ(200f);
-        tt.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        tt.setCycleCount(1);// Nos permite continuar el ciclo 
         tt.setByY(-150f);
         tt.setAutoReverse(true); //ayuda que regrese
         tt.play();
+        
+        tt.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.im.setVisible(false);
+             }
+        });
         
         TranslateTransition w = new TranslateTransition(Duration.millis(10000), sharkWhite.this.word);
         w.setByX(-600f); //Para que se mueva de un lado a otro
         w.setByY(-100f);
         w.setByZ(200f);
-        w.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        w.setCycleCount(1);// Nos permite continuar el ciclo 
         w.setByY(-150f);
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
+        
+        
+         w.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.word.setVisible(false);
+             }
+        });
         
         TranslateTransition m2 = new TranslateTransition(Duration.millis(10000), sharkWhite.this.im2);
         m2.setByX(-600f); //Para que se mueva de un lado a otro
         m2.setByY(-100f);
         m2.setByZ(200f);
-        m2.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        m2.setCycleCount(1);// Nos permite continuar el ciclo 
         m2.setByY(-150f);
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
       
+             m2.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.im2.setVisible(false);
+             }
+        });
+    
         }
         
         //----------Recordar girar la imagen-----------
@@ -243,30 +278,52 @@ public class sharkWhite extends Atacante {
          
         tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByZ(200f);
-        tt.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        tt.setCycleCount(1);// Nos permite continuar el ciclo 
         tt.setByY(-400f);
         tt.setAutoReverse(true); //ayuda que regrese
         tt.play();
         
+        tt.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.im.setVisible(false);
+             }
+        });
         
         TranslateTransition w = new TranslateTransition(Duration.millis(10000), sharkWhite.this.word);
         w.setByX(-600f); //Para que se mueva de un lado a otro
         w.setByY(-100f);
         w.setByZ(200f);
-        w.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        w.setCycleCount(1);// Nos permite continuar el ciclo 
         w.setByY(-400f);
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
+        
+        
+         w.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.word.setVisible(false);
+             }
+        });
         
         TranslateTransition m2 = new TranslateTransition(Duration.millis(10000), sharkWhite.this.im2);
         m2.setByX(-600f); //Para que se mueva de un lado a otro
         m2.setByY(-100f);
         m2.setByZ(200f);
-        m2.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        m2.setCycleCount(1);// Nos permite continuar el ciclo 
         m2.setByY(-400f);
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
-        }
+    
+             m2.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              sharkWhite.this.im2.setVisible(false);
+             }
+        });
+    
+         }
         
     }
 

@@ -7,6 +7,8 @@ package proyecto_final_v1.pkg0;
 
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -107,110 +109,192 @@ public class piranha extends Atacante {
          if (fila()==0){ 
     TranslateTransition tt = new TranslateTransition(Duration.millis(15000), im);
          //Duration tiempo en que se translada
-        tt.setByX(-600f); //Para que se mueva de un lado a otro
+        tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(250f);
         tt.setByZ(250f);
-        tt.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        tt.setCycleCount(1);// Nos permite continuar el ciclo 
         tt.setAutoReverse(true); //ayuda que regrese
         tt.play();
+       
+        tt.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.im.setVisible(false);
+             }
+        });
+       
         
         TranslateTransition w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
-        w.setByX(-600f); //Para que se mueva de un lado a otro
+        w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByY(250f);
         w.setByZ(250f);
-        w.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        w.setCycleCount(1);// Nos permite continuar el ciclo 
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
         
+        w.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.word.setVisible(false);
+             }
+        });
+        
         TranslateTransition m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
-        m2.setByX(-600f); //Para que se mueva de un lado a otro
+        m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByY(250f);
         m2.setByZ(250f);
-        m2.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        m2.setCycleCount(1);// Nos permite continuar el ciclo 
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
+        
+        m2.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.im2.setVisible(false);
+             }
+        });
+        
          }
          else if (fila()==150){ 
     TranslateTransition tt = new TranslateTransition(Duration.millis(15000), im);
          //Duration tiempo en que se translada
-        tt.setByX(-600f); //Para que se mueva de un lado a otro
-        //tt.setByY(-300f);
+        tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByZ(250f);
-        tt.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        tt.setCycleCount(1);// Nos permite continuar el ciclo 
         tt.setAutoReverse(true); //ayuda que regrese
         tt.play();
         
+        tt.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.im.setVisible(false);
+             }
+        });
+        
         TranslateTransition w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
-        w.setByX(-600f); //Para que se mueva de un lado a otro
-        //w.setByY(-300f);
+        w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByZ(250f);
-        w.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        w.setCycleCount(1);// Nos permite continuar el ciclo 
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
         
+        w.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.word.setVisible(false);
+             }
+        });
+        
         TranslateTransition m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
-        m2.setByX(-600f); //Para que se mueva de un lado a otro
-        //m2.setByY(-300f);
+        m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByZ(250f);
-        m2.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        m2.setCycleCount(1);// Nos permite continuar el ciclo 
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
+         
+        m2.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.im2.setVisible(false);
+             }
+        });
          }
          
          else if (fila()==350){ 
     TranslateTransition tt = new TranslateTransition(Duration.millis(15000), im);
          //Duration tiempo en que se translada
-        tt.setByX(-600f); //Para que se mueva de un lado a otro
+        tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(-175f);
         tt.setByZ(250f);
-        tt.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        tt.setCycleCount(1);// Nos permite continuar el ciclo 
         tt.setAutoReverse(true); //ayuda que regrese
         tt.play();
         
+        tt.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.im.setVisible(false);
+             }
+        });
+        
         TranslateTransition w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
-        w.setByX(-600f); //Para que se mueva de un lado a otro
+        w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByY(-175f);
         w.setByZ(250f);
-        w.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        w.setCycleCount(1);// Nos permite continuar el ciclo 
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
         
+        w.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.word.setVisible(false);
+             }
+        });
+        
         TranslateTransition m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
-        m2.setByX(-600f); //Para que se mueva de un lado a otro
+        m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByY(-175f);
         m2.setByZ(250f);
-        m2.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        m2.setCycleCount(1);// Nos permite continuar el ciclo 
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
+        
+        m2.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.im2.setVisible(false);
+             }
+        });
          }
          
          else if (fila()==500){ 
     TranslateTransition tt = new TranslateTransition(Duration.millis(15000), im);
          //Duration tiempo en que se translada
-        tt.setByX(-600f); //Para que se mueva de un lado a otro
+        tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(-300f);
         tt.setByZ(250f);
-        tt.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        tt.setCycleCount(1);// Nos permite continuar el ciclo 
         tt.setAutoReverse(true); //ayuda que regrese
         tt.play();
         
+        tt.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.im.setVisible(false);
+             }
+        });
+        
         TranslateTransition w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
-        w.setByX(-600f); //Para que se mueva de un lado a otro
+        w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByY(-300f);
         w.setByZ(250f);
-        w.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        w.setCycleCount(1);// Nos permite continuar el ciclo 
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
         
+        w.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.word.setVisible(false);
+             }
+        });
+        
         TranslateTransition m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
-        m2.setByX(-600f); //Para que se mueva de un lado a otro
+        m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByY(-300f);
         m2.setByZ(250f);
-        m2.setCycleCount(Timeline.INDEFINITE);// Nos permite continuar el ciclo 
+        m2.setCycleCount(1);// Nos permite continuar el ciclo 
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
+         
+         m2.setOnFinished(new EventHandler<ActionEvent>(){
+             @Override
+             public void handle(ActionEvent event) {
+              piranha.this.im2.setVisible(false);
+             }
+        });
          }
- 
     }
     
      @Override

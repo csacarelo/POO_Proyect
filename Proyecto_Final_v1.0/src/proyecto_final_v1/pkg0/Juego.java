@@ -71,7 +71,7 @@ public class Juego extends PaneOrganizer2{
     public void Jugar()
     {
         iniciarAtacantes();
-        letras=this.ser.next();
+       // letras=this.ser.next();
             
     }
     
