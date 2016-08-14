@@ -5,12 +5,15 @@
  */
 package proyecto_final_v1.pkg0;
 
+import java.io.File;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 /**
@@ -35,15 +38,10 @@ public class Proyecto_Final_v10 extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //ArchTop a=new ArchTop();
-        //System.out.println(a.conseguirLos10Primeros()[0]);
-        //System.out.println(a.conseguirPalabraAleatoria());
-        //a.guardarPuntajes("Jose", 600);
-        //System.out.println(a.conseguirLos10Primeros()[0]);
-        //CompararPalabras A=new CompararPalabras();
-        //A.start();
+     String uriString = new File("Firework.mp3").toURI().toString();
+    MediaPlayer player = new MediaPlayer( new Media(uriString));
+     player.play();  
         launch(args);
 
     }
-    
 }

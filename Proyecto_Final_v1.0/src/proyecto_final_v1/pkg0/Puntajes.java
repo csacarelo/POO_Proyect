@@ -11,7 +11,7 @@ import java.io.IOException;
  *
  * @author Christian
  */
-public class Puntajes implements Comparable<Puntajes> {
+public class Puntajes implements Comparable<Puntajes> { //para que ordene la lista
     
     private String nombre;
     private int puntuacion;

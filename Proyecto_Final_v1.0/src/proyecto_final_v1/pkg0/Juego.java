@@ -5,9 +5,12 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
@@ -36,7 +39,7 @@ public class Juego extends PaneOrganizer2{
         puntaje=0;
         vidas=3;
         cargas=0;
-        nivel=3;
+        nivel=1;
         ser=new Scanner(System.in);
         PaneOrganizer2._root= new Pane();
         Pane _bu = new Pane();
@@ -45,15 +48,59 @@ public class Juego extends PaneOrganizer2{
         im2.setImage(image);
         im2.setFitWidth(1000);
         im2.setFitHeight(800);
-
         
         Buceador b = new Buceador();
         Button btn4 = new Button("REGRESAR");
-         btn4.setLayoutX(89);
-         btn4.setLayoutY(690);
+         btn4.setLayoutX(790);
+         btn4.setLayoutY(740);
          btn4.setOnAction(new ClickHandlerJuego());
+         
+         Label VIDAS = new Label("VIDAS:");
+         VIDAS.setLayoutX(5);
+         VIDAS.setLayoutY(5);
+         
+         Label VIDA = new Label("      "  + Integer.toString(vidas));
+         VIDA.setLayoutX(55);
+         VIDA.setLayoutY(5);
+         
+         Label PUNTAJE = new Label("PUNTAJE:");
+         PUNTAJE.setLayoutX(255);
+         PUNTAJE.setLayoutY(5);
+         
+         Label PUNT = new Label("      "  + Integer.toString(puntaje));
+         PUNT.setLayoutX(340);
+         PUNT.setLayoutY(5);
+         
+         Label NIVEL = new Label("NIVEL:");
+         NIVEL.setLayoutX(540);
+         NIVEL.setLayoutY(5);
+         
+         Label NIV = new Label("      "  + Integer.toString(nivel));
+         NIV.setLayoutX(590);
+         NIV.setLayoutY(5);
+         
+         btn4.setFont(Font.font(null, FontWeight.BOLD, 20));
+     
 
-        _bu.getChildren().addAll(im2,b.getBu(),btn4);
+         VIDAS.setFont(Font.font(null, FontWeight.BOLD, 25));
+         VIDAS.setTextFill(Color.LIGHTSALMON);
+        
+         PUNTAJE.setFont(Font.font(null, FontWeight.BOLD, 25));
+         PUNTAJE.setTextFill(Color.LIGHTSALMON);
+        
+         NIVEL.setFont(Font.font(null, FontWeight.BOLD, 25));
+         NIVEL.setTextFill(Color.LIGHTSALMON);
+
+         VIDA.setFont(Font.font(null, FontWeight.BOLD, 25));
+         VIDA.setTextFill(Color.WHITE);
+        
+         PUNT.setFont(Font.font(null, FontWeight.BOLD, 25));
+         PUNT.setTextFill(Color.WHITE);
+        
+         NIV.setFont(Font.font(null, FontWeight.BOLD, 25));
+         NIV.setTextFill(Color.WHITE);
+
+        _bu.getChildren().addAll(im2,b.getBu(),btn4,VIDAS,VIDA,PUNTAJE,PUNT,NIVEL,NIV);
     
         PaneOrganizer2.actualizarVentana();
         PaneOrganizer2._root.getChildren().addAll(_bu);
@@ -69,6 +116,9 @@ public class Juego extends PaneOrganizer2{
               
            }       
      }
+     
+     
+     
     public void Jugar()
     {
         iniciarAtacantes();
