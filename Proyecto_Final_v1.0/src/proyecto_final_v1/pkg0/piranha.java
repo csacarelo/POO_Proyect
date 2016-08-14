@@ -101,7 +101,13 @@ public class piranha extends Atacante {
     }
     
     @Override
-    public void destruir() {}
+    public void destruir() {
+        piranha.this.im.setVisible(false);
+        piranha.this.word.setVisible(false);
+        piranha.this.im2.setVisible(false);
+        
+        
+    }
 
     @Override
     public void mover(ImageView im) {

@@ -101,19 +101,13 @@ public class sharkWhite extends Atacante {
     
     @Override
     public void destruir() {
-        int  n3 =(int)(Math.random()*1+1);
+        sharkWhite.this.im.setVisible(false);
+        sharkWhite.this.word.setVisible(false);
+        sharkWhite.this.im2.setVisible(false);
         
-       if(im.getLayoutX()<900){
-           System.out.println(im.getLayoutX());
-        TranslateTransition tt = new TranslateTransition(Duration.millis(10000), im);
-        tt.setByX(-800f);
-        tt.setByZ(200f);
-        tt.play();
-        
-        
-        }
         
     }
+        
 
     @Override
     public void mover(ImageView im) {

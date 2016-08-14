@@ -103,7 +103,13 @@ public class sharkBlack extends Atacante {
     }
     
     @Override
-    public void destruir() {}
+    public void destruir() {
+        sharkBlack.this.im.setVisible(false);
+        sharkBlack.this.word.setVisible(false);
+        sharkBlack.this.im2.setVisible(false);
+        
+        
+    }
 
     @Override
     public void mover(ImageView im) {
