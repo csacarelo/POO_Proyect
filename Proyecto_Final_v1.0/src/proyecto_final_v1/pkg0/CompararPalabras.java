@@ -22,6 +22,7 @@ import javafx.scene.input.KeyEvent;
 public class CompararPalabras extends Thread {
     Scanner scane=new Scanner(System.in);
     boolean flag=true;
+    public static String ga="";
     public CompararPalabras()
     {
         
@@ -41,7 +42,7 @@ public class CompararPalabras extends Thread {
         PaneOrganizer2._root.setOnKeyPressed(new EventHandler<KeyEvent>(){
             @Override
             public void handle(KeyEvent ke) {
-            String ga=ke.getText();
+            ga=ke.getText();
             System.out.println("Key Pressed: " + ga);
             }
             
