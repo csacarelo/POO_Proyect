@@ -30,6 +30,9 @@ public class piranha extends Atacante {
     private int n1;
     private String palabra;
     private int velocidad;
+    TranslateTransition tt;
+    TranslateTransition w;
+    TranslateTransition m2;
     
     
     public piranha(String palabra, int velocidad){
@@ -105,6 +108,9 @@ public class piranha extends Atacante {
         piranha.this.im.setVisible(false);
         piranha.this.word.setVisible(false);
         piranha.this.im2.setVisible(false);
+        tt.stop();
+        w.stop();
+        m2.stop();
         
         
     }
@@ -113,7 +119,7 @@ public class piranha extends Atacante {
     public void mover(ImageView im) {
         
          if (fila()==0){ 
-    TranslateTransition tt = new TranslateTransition(Duration.millis(15000), im);
+        tt = new TranslateTransition(Duration.millis(15000), im);
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(250f);
@@ -125,12 +131,13 @@ public class piranha extends Atacante {
         tt.setOnFinished(new EventHandler<ActionEvent>(){
              @Override
              public void handle(ActionEvent event) {
-              piranha.this.im.setVisible(false);
+              piranha.this.destruir();
+              Juego.flagMurio=true;
              }
         });
        
         
-        TranslateTransition w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
+        w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
         w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByY(250f);
         w.setByZ(250f);
@@ -138,14 +145,8 @@ public class piranha extends Atacante {
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
         
-        w.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              piranha.this.word.setVisible(false);
-             }
-        });
         
-        TranslateTransition m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
+        m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
         m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByY(250f);
         m2.setByZ(250f);
@@ -153,16 +154,10 @@ public class piranha extends Atacante {
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
         
-        m2.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              piranha.this.im2.setVisible(false);
-             }
-        });
         
          }
          else if (fila()==150){ 
-    TranslateTransition tt = new TranslateTransition(Duration.millis(15000), im);
+        tt = new TranslateTransition(Duration.millis(15000), im);
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByZ(250f);
@@ -173,41 +168,31 @@ public class piranha extends Atacante {
         tt.setOnFinished(new EventHandler<ActionEvent>(){
              @Override
              public void handle(ActionEvent event) {
-              piranha.this.im.setVisible(false);
+              piranha.this.destruir();
+              Juego.flagMurio=true;
              }
         });
         
-        TranslateTransition w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
+        w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
         w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByZ(250f);
         w.setCycleCount(1);// Nos permite continuar el ciclo 
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
         
-        w.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              piranha.this.word.setVisible(false);
-             }
-        });
+
         
-        TranslateTransition m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
+        m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
         m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByZ(250f);
         m2.setCycleCount(1);// Nos permite continuar el ciclo 
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
          
-        m2.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              piranha.this.im2.setVisible(false);
-             }
-        });
          }
          
          else if (fila()==350){ 
-    TranslateTransition tt = new TranslateTransition(Duration.millis(15000), im);
+        tt = new TranslateTransition(Duration.millis(15000), im);
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(-175f);
@@ -219,11 +204,12 @@ public class piranha extends Atacante {
         tt.setOnFinished(new EventHandler<ActionEvent>(){
              @Override
              public void handle(ActionEvent event) {
-              piranha.this.im.setVisible(false);
+              piranha.this.destruir();
+              Juego.flagMurio=true;
              }
         });
         
-        TranslateTransition w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
+        w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
         w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByY(-175f);
         w.setByZ(250f);
@@ -231,14 +217,8 @@ public class piranha extends Atacante {
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
         
-        w.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              piranha.this.word.setVisible(false);
-             }
-        });
         
-        TranslateTransition m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
+        m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
         m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByY(-175f);
         m2.setByZ(250f);
@@ -246,16 +226,12 @@ public class piranha extends Atacante {
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
         
-        m2.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              piranha.this.im2.setVisible(false);
-             }
-        });
+
+     
          }
          
          else if (fila()==500){ 
-    TranslateTransition tt = new TranslateTransition(Duration.millis(15000), im);
+        tt = new TranslateTransition(Duration.millis(15000), im);
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(-300f);
@@ -267,11 +243,12 @@ public class piranha extends Atacante {
         tt.setOnFinished(new EventHandler<ActionEvent>(){
              @Override
              public void handle(ActionEvent event) {
-              piranha.this.im.setVisible(false);
+              piranha.this.destruir();
+              Juego.flagMurio=true;
              }
         });
         
-        TranslateTransition w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
+        w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
         w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByY(-300f);
         w.setByZ(250f);
@@ -279,14 +256,9 @@ public class piranha extends Atacante {
         w.setAutoReverse(true); //ayuda que regrese
         w.play();
         
-        w.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              piranha.this.word.setVisible(false);
-             }
-        });
+
         
-        TranslateTransition m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
+        m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
         m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByY(-300f);
         m2.setByZ(250f);
@@ -294,12 +266,6 @@ public class piranha extends Atacante {
         m2.setAutoReverse(true); //ayuda que regrese
         m2.play();
          
-         m2.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              piranha.this.im2.setVisible(false);
-             }
-        });
          }
     }
     

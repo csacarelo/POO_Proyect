@@ -1,6 +1,8 @@
 package proyecto_final_v1.pkg0;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,6 +26,7 @@ public class Juego extends PaneOrganizer2{
     int vidas;
     int cargas;
     int nivel;
+    public static boolean flagMurio=false;
     ArchPalabras Arch;
     public static Accion Enemigo1;
     public static Accion Enemigo2;
@@ -124,8 +127,71 @@ public class Juego extends PaneOrganizer2{
         iniciarAtacantes();
         A=new CompararPalabras();
         A.start();
+        Thread Hilos=new Thread(new Runnable(){
+            @Override
+            public void run()
+            {
+                while (true)
+                {
+                    murioAlgunAtacante();
+                }
+            }    
+                
+                });
+
+            
+          Hilos.start();
+
        // letras=this.ser.next();
             
+    }
+    
+    public void murioAlgunAtacante()
+    {
+        if(!flagMurio)
+        {
+            if(nivel==1)
+            {
+                if(!Enemigo1.isAlive())
+                {
+                    Enemigo1=new Accion(Arch,20);
+                    Enemigo1.start();
+                    this.puntaje=this.puntaje+10;
+                }
+            }
+            if(nivel==2)
+            {
+                Enemigo1=new Accion(Arch,20);
+                Enemigo2=new Accion(Arch,20);
+                Enemigo1.start();
+                Enemigo2.start();
+            }
+            if(nivel==3)
+            {
+                Enemigo1=new Accion(Arch,30);
+                Enemigo2=new Accion(Arch,30);
+                Enemigo3=new Accion(Arch,30);
+                Enemigo1.start();
+                Enemigo2.start();
+                Enemigo3.start();
+            }
+            if(nivel==4)
+            {
+                Enemigo1=new Accion(Arch,40);
+                Enemigo2=new Accion(Arch,40);
+                Enemigo3=new Accion(Arch,40);
+                Enemigo4=new Accion(Arch,40);
+                Enemigo1.start();
+                Enemigo2.start();
+                Enemigo3.start();
+                Enemigo4.start();
+            }
+        }else{
+            this.vidas--;
+            this.cerrarHilos();
+            flagMurio=false;
+        }
+        
     }
     
     public void iniciarAtacantes()

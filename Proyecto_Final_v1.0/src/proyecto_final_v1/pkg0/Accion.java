@@ -59,11 +59,7 @@ public class Accion extends Thread{
         
         while (flagAlive)
         {
-            try {
-                Thread.sleep(20);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Accion.class.getName()).log(Level.SEVERE, null, ex);
-            }
+
             try
             {
                 if(Character.toString(palabraDeLaImagen.charAt(0)).compareToIgnoreCase(CompararPalabras.ga)==0)
