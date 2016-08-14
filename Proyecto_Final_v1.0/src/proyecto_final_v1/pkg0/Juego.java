@@ -22,10 +22,10 @@ import javafx.scene.text.FontWeight;
  */
 public class Juego extends PaneOrganizer2{
     
-    int puntaje;
-    int vidas;
+    public static int puntaje;
+    public static int vidas;
     int cargas;
-    int nivel;
+    public static int nivel;
     public static boolean flagMurio=false;
     ArchPalabras Arch;
     public static Accion Enemigo1;
@@ -35,6 +35,9 @@ public class Juego extends PaneOrganizer2{
     CompararPalabras A;
     Scanner ser;
     static String  letras;
+    public static Label PUNT;
+    public static Label VIDA;
+    public static Label NIV;
     
     public Juego ()
     {
@@ -62,7 +65,7 @@ public class Juego extends PaneOrganizer2{
          VIDAS.setLayoutX(5);
          VIDAS.setLayoutY(5);
          
-         Label VIDA = new Label("      "  + Integer.toString(vidas));
+         VIDA = new Label("      "  + Integer.toString(vidas));
          VIDA.setLayoutX(55);
          VIDA.setLayoutY(5);
          
@@ -70,7 +73,7 @@ public class Juego extends PaneOrganizer2{
          PUNTAJE.setLayoutX(255);
          PUNTAJE.setLayoutY(5);
          
-         Label PUNT = new Label("      "  + Integer.toString(puntaje));
+         PUNT = new Label("      "  + Integer.toString(puntaje));
          PUNT.setLayoutX(340);
          PUNT.setLayoutY(5);
          
@@ -78,7 +81,7 @@ public class Juego extends PaneOrganizer2{
          NIVEL.setLayoutX(540);
          NIVEL.setLayoutY(5);
          
-         Label NIV = new Label("      "  + Integer.toString(nivel));
+         NIV = new Label("      "  + Integer.toString(nivel));
          NIV.setLayoutX(590);
          NIV.setLayoutY(5);
          
@@ -127,7 +130,7 @@ public class Juego extends PaneOrganizer2{
         iniciarAtacantes();
         A=new CompararPalabras();
         A.start();
-        Thread Hilos=new Thread(new Runnable(){
+        Thread verificarQueEstenVivos=new Thread(new Runnable(){
             @Override
             public void run()
             {
@@ -140,16 +143,41 @@ public class Juego extends PaneOrganizer2{
                 });
 
             
-          Hilos.start();
+          verificarQueEstenVivos.start();
 
+          
+
+          
        // letras=this.ser.next();
             
+    }
+    
+    public static void actualizarValores()
+    {
+        Thread actualizar=new Thread(new Runnable(){
+            @Override
+            public void run()
+            {
+                Platform.runLater(new Runnable() {
+                @Override
+                    public void run(){
+                        NIV.setText("      "  + Integer.toString(nivel));
+                        PUNT.setText("      "  + Integer.toString(puntaje));
+                        VIDA.setText("      "  + Integer.toString(vidas));
+                    
+                    }
+                });
+            }
+        });
+        actualizar.start();
     }
     
     public void murioAlgunAtacante()
     {
         if(!flagMurio)
         {
+            //actualizarValores();
+
             if(nivel==1)
             {
                 if(!Enemigo1.isAlive())

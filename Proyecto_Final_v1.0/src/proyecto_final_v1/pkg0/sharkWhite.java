@@ -37,7 +37,7 @@ public class sharkWhite extends Atacante {
     public sharkWhite(String palabra, int velocidad){
     this.palabra = palabra;
     this.velocidad = velocidad;
-    this.ID=1;
+    this.ID=2;
     
     n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
     Image image = new Image("file:tiburon45.png");
@@ -133,6 +133,8 @@ public class sharkWhite extends Atacante {
              @Override
              public void handle(ActionEvent event) {
               sharkWhite.this.destruir();
+              Juego.vidas--;
+              Juego.actualizarValores();
               Juego.flagMurio=true;
               
              }
@@ -173,6 +175,8 @@ public class sharkWhite extends Atacante {
              @Override
              public void handle(ActionEvent event) {
               sharkWhite.this.destruir();
+              Juego.vidas--;
+              Juego.actualizarValores();
               Juego.flagMurio=true;
              }
         });
@@ -209,6 +213,8 @@ public class sharkWhite extends Atacante {
              @Override
              public void handle(ActionEvent event) {
               sharkWhite.this.destruir();
+              Juego.vidas--;
+              Juego.actualizarValores();              
               Juego.flagMurio=true;
              }
         });
@@ -250,6 +256,8 @@ public class sharkWhite extends Atacante {
              @Override
              public void handle(ActionEvent event) {
               sharkWhite.this.destruir();
+              Juego.vidas--;
+              Juego.actualizarValores();              
               Juego.flagMurio=true;
               
              }

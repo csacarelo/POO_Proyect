@@ -38,7 +38,7 @@ public class piranha extends Atacante {
     public piranha(String palabra, int velocidad){
     this.palabra = palabra;
     this.velocidad = velocidad;
-    this.ID=3;
+    this.ID=1;
     
         n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
         Image image = new Image("file:piranha.png");
@@ -130,6 +130,8 @@ public class piranha extends Atacante {
              @Override
              public void handle(ActionEvent event) {
               piranha.this.destruir();
+              Juego.vidas--;
+              Juego.actualizarValores();
               Juego.flagMurio=true;
              }
         });
@@ -167,6 +169,8 @@ public class piranha extends Atacante {
              @Override
              public void handle(ActionEvent event) {
               piranha.this.destruir();
+              Juego.vidas--;
+              Juego.actualizarValores();
               Juego.flagMurio=true;
              }
         });
@@ -203,6 +207,8 @@ public class piranha extends Atacante {
              @Override
              public void handle(ActionEvent event) {
               piranha.this.destruir();
+              Juego.vidas--;
+              Juego.actualizarValores();
               Juego.flagMurio=true;
              }
         });
@@ -242,6 +248,8 @@ public class piranha extends Atacante {
              @Override
              public void handle(ActionEvent event) {
               piranha.this.destruir();
+              Juego.vidas--;
+              Juego.actualizarValores();
               Juego.flagMurio=true;
              }
         });

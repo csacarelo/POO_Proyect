@@ -68,7 +68,9 @@ public class Accion extends Thread{
                 }
             }catch(StringIndexOutOfBoundsException e)
             {
+                Juego.puntaje=Juego.puntaje+A.ID*10;
                 destruir();
+                Juego.actualizarValores();
             }
             
             
