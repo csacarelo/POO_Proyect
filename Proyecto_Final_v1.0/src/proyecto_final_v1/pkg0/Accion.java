@@ -66,7 +66,7 @@ public class Accion extends Thread{
             }
             try
             {
-                if(Character.toString(palabraDeLaImagen.charAt(0)).compareTo(CompararPalabras.ga)==0)
+                if(Character.toString(palabraDeLaImagen.charAt(0)).compareToIgnoreCase(CompararPalabras.ga)==0)
                 {
                    palabraDeLaImagen=palabraDeLaImagen.substring(1);
                    //A.getWord().setText(palabraDeLaImagen);
