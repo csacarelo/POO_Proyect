@@ -17,6 +17,7 @@ public abstract class Atacante {
    private int postIn;
     private int postFin;
     private int velocidad;
+    protected int ID;
     private ImageView im;
    // private ImageView im2;
     
@@ -28,7 +29,10 @@ public abstract class Atacante {
     
     abstract public ImageView getIm2();
     abstract public Label getWord();
-
+    public int getID()
+    {
+        return this.ID;
+    }
     public int getPostIn() {
         return postIn;
     }

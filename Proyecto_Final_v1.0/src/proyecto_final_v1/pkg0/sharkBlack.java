@@ -36,7 +36,7 @@ public class sharkBlack extends Atacante {
     public sharkBlack(String palabra, int velocidad){
     this.palabra = palabra;
     this.velocidad = velocidad;
-    
+    this.ID=2;
         n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
                 
         Image image = new Image("file:tiburonb.png");
@@ -56,10 +56,8 @@ public class sharkBlack extends Atacante {
          im2.setLayoutX(800);
          im2.setLayoutY(fila()+200);
           
-         
-        ArchPalabras a = new ArchPalabras();
         
-        word = new Label(a.conseguirPalabraAleatoria()); 
+        word = new Label(palabra); 
         word.setLayoutX(815);
         word.setLayoutY(fila()+200);
         word.setTextFill(Color.WHITE);

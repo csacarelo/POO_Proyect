@@ -42,7 +42,7 @@ public class Juego extends PaneOrganizer2{
         puntaje=0;
         vidas=3;
         cargas=0;
-        nivel=1;
+        nivel=2;
         ser=new Scanner(System.in);
         PaneOrganizer2._root= new Pane();
         Pane _bu = new Pane();
@@ -161,30 +161,66 @@ public class Juego extends PaneOrganizer2{
             }
             if(nivel==2)
             {
-                Enemigo1=new Accion(Arch,20);
-                Enemigo2=new Accion(Arch,20);
-                Enemigo1.start();
-                Enemigo2.start();
+                if(!Enemigo1.isAlive())
+                {
+                    Enemigo1=new Accion(Arch,20);
+                    Enemigo1.start();
+                    this.puntaje=this.puntaje+10;
+                }
+                if(!Enemigo2.isAlive())
+                {
+                    Enemigo2=new Accion(Arch,20);
+                    Enemigo2.start();
+                    this.puntaje=this.puntaje+10;
+                }
             }
             if(nivel==3)
             {
-                Enemigo1=new Accion(Arch,30);
-                Enemigo2=new Accion(Arch,30);
-                Enemigo3=new Accion(Arch,30);
-                Enemigo1.start();
-                Enemigo2.start();
-                Enemigo3.start();
+                if(!Enemigo1.isAlive())
+                {
+                    Enemigo1=new Accion(Arch,20);
+                    Enemigo1.start();
+                    this.puntaje=this.puntaje+10;
+                }
+                if(!Enemigo2.isAlive())
+                {
+                    Enemigo2=new Accion(Arch,20);
+                    Enemigo2.start();
+                    this.puntaje=this.puntaje+10;
+                }
+                if(!Enemigo3.isAlive())
+                {
+                    Enemigo3=new Accion(Arch,20);
+                    Enemigo3.start();
+                    this.puntaje=this.puntaje+10;
+                }                
             }
             if(nivel==4)
             {
-                Enemigo1=new Accion(Arch,40);
-                Enemigo2=new Accion(Arch,40);
-                Enemigo3=new Accion(Arch,40);
-                Enemigo4=new Accion(Arch,40);
-                Enemigo1.start();
-                Enemigo2.start();
-                Enemigo3.start();
-                Enemigo4.start();
+                if(!Enemigo1.isAlive())
+                {
+                    Enemigo1=new Accion(Arch,20);
+                    Enemigo1.start();
+                    this.puntaje=this.puntaje+10;
+                }
+                if(!Enemigo2.isAlive())
+                {
+                    Enemigo2=new Accion(Arch,20);
+                    Enemigo2.start();
+                    this.puntaje=this.puntaje+10;
+                }
+                if(!Enemigo3.isAlive())
+                {
+                    Enemigo3=new Accion(Arch,20);
+                    Enemigo3.start();
+                    this.puntaje=this.puntaje+10;
+                }
+                if(!Enemigo4.isAlive())
+                {
+                    Enemigo4=new Accion(Arch,20);
+                    Enemigo4.start();
+                    this.puntaje=this.puntaje+10;
+                }
             }
         }else{
             this.vidas--;
@@ -252,7 +288,7 @@ public class Juego extends PaneOrganizer2{
         if(Enemigo4!=null)
             if(Enemigo4.isAlive())
                 Enemigo4.destruir();
-        A.destruir();
+        //A.destruir();
         
     }
     

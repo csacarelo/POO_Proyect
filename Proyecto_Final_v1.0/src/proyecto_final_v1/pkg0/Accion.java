@@ -44,7 +44,6 @@ public class Accion extends Thread{
     @Override
     public void run() {
         
-        String Palabra="";
         String palabraDeLaImagen=A.getWord().getText();
         
         Platform.runLater(new Runnable() {
@@ -69,7 +68,6 @@ public class Accion extends Thread{
                 }
             }catch(StringIndexOutOfBoundsException e)
             {
-                A.destruir();
                 destruir();
             }
             
@@ -80,6 +78,7 @@ public class Accion extends Thread{
     public void destruir()
     {
         flagAlive=false;
+        A.destruir();
     }
 
     

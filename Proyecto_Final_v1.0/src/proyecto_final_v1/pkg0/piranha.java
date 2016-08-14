@@ -38,6 +38,7 @@ public class piranha extends Atacante {
     public piranha(String palabra, int velocidad){
     this.palabra = palabra;
     this.velocidad = velocidad;
+    this.ID=3;
     
         n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
         Image image = new Image("file:piranha.png");
@@ -56,12 +57,9 @@ public class piranha extends Atacante {
          im2.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
          im2.setLayoutX(955);
          im2.setLayoutY(fila()+51);
-          
          
-       
-        ArchPalabras a = new ArchPalabras();
         
-        word = new Label(a.conseguirCaracterAleatoria()); 
+        word = new Label(palabra); 
         word.setLayoutX(968);
         word.setLayoutY(fila()+43);
         word.setTextFill(Color.WHITE);
