@@ -12,6 +12,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
@@ -30,13 +31,13 @@ public class sharkBlack extends Atacante {
     private String palabra;
     private int velocidad;
     TranslateTransition tt;
-    TranslateTransition w;
-    TranslateTransition m2;
+
     
     public sharkBlack(String palabra, int velocidad){
     this.palabra = palabra;
     this.velocidad = velocidad;
     this.ID=3;
+    this.A=new Pane();
         n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
                 
         Image image = new Image("file:tiburonb.png");
@@ -70,7 +71,7 @@ public class sharkBlack extends Atacante {
     }
     
     public sharkBlack(){
-        
+        this.A=new Pane();
         n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
                 
         Image image = new Image("file:tiburonb.png");
@@ -109,8 +110,8 @@ public class sharkBlack extends Atacante {
         sharkBlack.this.word.setVisible(false);
         sharkBlack.this.im2.setVisible(false);
         tt.stop();
-        w.stop();
-        m2.stop();
+        //w.stop();
+        //m2.stop();
         
         
     }
@@ -118,132 +119,49 @@ public class sharkBlack extends Atacante {
     @Override
     public void mover(ImageView im) {
         
+        this.A.getChildren().addAll(im,sharkBlack.this.im2,sharkBlack.this.word);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*1000),this.A);
+        
          if (fila()==0){ 
-         tt = new TranslateTransition(Duration.millis(this.velocidad*1000), im);
+         
          //Duration tiempo en que se translada
         tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByY(75f);
         tt.setByZ(200f);
         tt.setCycleCount(1);// Nos permite continuar el ciclo 
-        tt.setAutoReverse(true); //ayuda que regrese
-        tt.play();
-        
-         tt.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              sharkBlack.this.destruir();
-              Juego.vidas--;
-              Juego.actualizarValores();
-              Juego.flagMurio=true;
-             }
-        });
+       // tt.setAutoReverse(true); //ayuda que regrese     
          
-        w = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkBlack.this.word);
-        w.setByX(-600f); //Para que se mueva de un lado a otro
-        w.setByY(75f);
-        w.setByZ(200f);
-        w.setCycleCount(1);// Nos permite continuar el ciclo 
-        w.setAutoReverse(true); //ayuda que regrese
-        w.play();
-        
-        m2 = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkBlack.this.im2);
-        m2.setByX(-600f); //Para que se mueva de un lado a otro
-        m2.setByY(75f);
-        m2.setByZ(200f);
-        m2.setCycleCount(1);// Nos permite continuar el ciclo 
-        m2.setAutoReverse(true); //ayuda que regrese
-        m2.play();
-        
-         
-    }
+        }
          else  if (fila()==125){ 
-        tt = new TranslateTransition(Duration.millis(this.velocidad*1000), im);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*1000), this.A);
          //Duration tiempo en que se translada
         tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByZ(200f);
         tt.setCycleCount(1);// Nos permite continuar el ciclo 
-        tt.setAutoReverse(true); //ayuda que regrese
-        tt.play();
-        
-         tt.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              sharkBlack.this.destruir();
-              Juego.vidas--;
-              Juego.actualizarValores();
-              Juego.flagMurio=true;
-             }
-        });
-         
-        w = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkBlack.this.word);
-        w.setByX(-600f); //Para que se mueva de un lado a otro
-        w.setByZ(200f);
-        w.setCycleCount(1);// Nos permite continuar el ciclo 
-        w.setAutoReverse(true); //ayuda que regrese
-        w.play();
-        
-
-        
-        m2 = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkBlack.this.im2);
-        m2.setByX(-600f); //Para que se mueva de un lado a otro
-        m2.setByZ(200f);
-        m2.setCycleCount(1);// Nos permite continuar el ciclo 
-        m2.setAutoReverse(true); //ayuda que regrese
-        m2.play();
-        
-
-         
-    }
+        //tt.setAutoReverse(true); //ayuda que regrese
+       
+        }
          else  if (fila()==250){ 
-        tt = new TranslateTransition(Duration.millis(this.velocidad*1000), im);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*1000), this.A);
          //Duration tiempo en que se translada
         tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByY(-100f);
         tt.setByZ(200f);
         tt.setCycleCount(1);// Nos permite continuar el ciclo 
-        tt.setAutoReverse(true); //ayuda que regrese
-        tt.play();
+        //tt.setAutoReverse(true); //ayuda que regrese
          
-         tt.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              sharkBlack.this.destruir();
-              Juego.vidas--;
-              Juego.actualizarValores();
-              Juego.flagMurio=true;
-             }
-        });
-         
-        w = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkBlack.this.word);
-        w.setByX(-600f); //Para que se mueva de un lado a otro
-        w.setByY(-100f);
-        w.setByZ(200f);
-        w.setCycleCount(1);// Nos permite continuar el ciclo 
-        w.setAutoReverse(true); //ayuda que regrese
-        w.play();
-        
-         
-        m2 = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkBlack.this.im2);
-        m2.setByX(-600f); //Para que se mueva de un lado a otro
-        m2.setByY(-100f);
-        m2.setByZ(200f);
-        m2.setCycleCount(1);// Nos permite continuar el ciclo 
-        m2.setAutoReverse(true); //ayuda que regrese
-        m2.play();
-        
-         
-    }
+        }
          else  if (fila()==500){ 
-        tt = new TranslateTransition(Duration.millis(this.velocidad*1000), im);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*1000), this.A);
          //Duration tiempo en que se translada
         tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByY(-300f);
         tt.setByZ(200f);
         tt.setCycleCount(1);// Nos permite continuar el ciclo 
-        tt.setAutoReverse(true); //ayuda que regrese
-        tt.play();
-        
-         tt.setOnFinished(new EventHandler<ActionEvent>(){
+        //tt.setAutoReverse(true); //ayuda que regrese
+
+        }
+        tt.setOnFinished(new EventHandler<ActionEvent>(){
              @Override
              public void handle(ActionEvent event) {
               sharkBlack.this.destruir();
@@ -252,26 +170,7 @@ public class sharkBlack extends Atacante {
               Juego.flagMurio=true;
              }
         });
-         
-        w = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkBlack.this.word);
-        w.setByX(-600f); //Para que se mueva de un lado a otro
-        w.setByY(-300f);
-        w.setByZ(200f);
-        w.setCycleCount(1);// Nos permite continuar el ciclo 
-        w.setAutoReverse(true); //ayuda que regrese
-        w.play();
-        
-        
-        m2 = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkBlack.this.im2);
-        m2.setByX(-600f); //Para que se mueva de un lado a otro
-        m2.setByY(-300f);
-        m2.setByZ(200f);
-        m2.setCycleCount(1);// Nos permite continuar el ciclo 
-        m2.setAutoReverse(true); //ayuda que regrese
-        m2.play();
-        
-
-    }
+        tt.play();         
     }    
      
     @Override

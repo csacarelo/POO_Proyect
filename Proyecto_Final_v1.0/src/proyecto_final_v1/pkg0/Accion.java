@@ -34,6 +34,7 @@ public class Accion extends Thread{
                 break;
             default:
                 A=new sharkWhite(arch.conseguirPalabraAleatoria(),Rapidez);
+                //A=new sharkBlack(arch.conseguirPalabraAleatoria(),Rapidez);
                 break;
         }
         
@@ -50,7 +51,7 @@ public class Accion extends Thread{
             @Override
                 public void run(){
                     Pane a=new Pane();
-                    a.getChildren().addAll(A.getIm(),A.getIm2(),A.getWord());
+                    a.getChildren().addAll(A.getA());
                     PaneOrganizer2._root.getChildren().add(a);
                     
                 }

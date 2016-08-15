@@ -7,6 +7,7 @@ package proyecto_final_v1.pkg0;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 /**
  *
@@ -18,6 +19,7 @@ public abstract class Atacante {
     private int postFin;
     private int velocidad;
     protected int ID;
+    protected Pane A;
     private ImageView im;
    // private ImageView im2;
     
@@ -33,6 +35,11 @@ public abstract class Atacante {
     {
         return this.ID;
     }
+
+    public Pane getA() {
+        return A;
+    }
+    
     public int getPostIn() {
         return postIn;
     }

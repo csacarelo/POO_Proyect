@@ -12,6 +12,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
@@ -31,14 +32,14 @@ public class piranha extends Atacante {
     private String palabra;
     private int velocidad;
     TranslateTransition tt;
-    TranslateTransition w;
-    TranslateTransition m2;
+
     
     
     public piranha(String palabra, int velocidad){
     this.palabra = palabra;
     this.velocidad = velocidad;
     this.ID=1;
+    this.A=new Pane();
     
         n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
         Image image = new Image("file:piranha.png");
@@ -107,143 +108,56 @@ public class piranha extends Atacante {
         piranha.this.word.setVisible(false);
         piranha.this.im2.setVisible(false);
         tt.stop();
-        w.stop();
-        m2.stop();
+        //w.stop();
+        //m2.stop();
         
         
     }
 
     @Override
     public void mover(ImageView im) {
+     
+        this.A.getChildren().addAll(im,piranha.this.im2,piranha.this.word);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*1000),this.A);
         
          if (fila()==0){ 
-        tt = new TranslateTransition(Duration.millis(this.velocidad*750), im);
+        
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(250f);
         tt.setByZ(250f);
         tt.setCycleCount(1);// Nos permite continuar el ciclo 
-        tt.setAutoReverse(true); //ayuda que regrese
-        tt.play();
-       
-        tt.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              piranha.this.destruir();
-              Juego.vidas--;
-              Juego.actualizarValores();
-              Juego.flagMurio=true;
-             }
-        });
-       
-        
-        w = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.word);
-        w.setByX(-800f); //Para que se mueva de un lado a otro
-        w.setByY(250f);
-        w.setByZ(250f);
-        w.setCycleCount(1);// Nos permite continuar el ciclo 
-        w.setAutoReverse(true); //ayuda que regrese
-        w.play();
-        
-        
-        m2 = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.im2);
-        m2.setByX(-800f); //Para que se mueva de un lado a otro
-        m2.setByY(250f);
-        m2.setByZ(250f);
-        m2.setCycleCount(1);// Nos permite continuar el ciclo 
-        m2.setAutoReverse(true); //ayuda que regrese
-        m2.play();
-        
-        
+        //tt.setAutoReverse(true); //ayuda que regrese
+
          }
          else if (fila()==150){ 
-        tt = new TranslateTransition(Duration.millis(this.velocidad*750), im);
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByZ(250f);
         tt.setCycleCount(1);// Nos permite continuar el ciclo 
-        tt.setAutoReverse(true); //ayuda que regrese
-        tt.play();
-        
-        tt.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              piranha.this.destruir();
-              Juego.vidas--;
-              Juego.actualizarValores();
-              Juego.flagMurio=true;
-             }
-        });
-        
-        w = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.word);
-        w.setByX(-800f); //Para que se mueva de un lado a otro
-        w.setByZ(250f);
-        w.setCycleCount(1);// Nos permite continuar el ciclo 
-        w.setAutoReverse(true); //ayuda que regrese
-        w.play();
-        
-
-        
-        m2 = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.im2);
-        m2.setByX(-800f); //Para que se mueva de un lado a otro
-        m2.setByZ(250f);
-        m2.setCycleCount(1);// Nos permite continuar el ciclo 
-        m2.setAutoReverse(true); //ayuda que regrese
-        m2.play();
+        //tt.setAutoReverse(true); //ayuda que regrese
          
          }
          
          else if (fila()==350){ 
-        tt = new TranslateTransition(Duration.millis(this.velocidad*750), im);
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(-175f);
         tt.setByZ(250f);
         tt.setCycleCount(1);// Nos permite continuar el ciclo 
-        tt.setAutoReverse(true); //ayuda que regrese
-        tt.play();
-        
-        tt.setOnFinished(new EventHandler<ActionEvent>(){
-             @Override
-             public void handle(ActionEvent event) {
-              piranha.this.destruir();
-              Juego.vidas--;
-              Juego.actualizarValores();
-              Juego.flagMurio=true;
-             }
-        });
-        
-        w = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.word);
-        w.setByX(-800f); //Para que se mueva de un lado a otro
-        w.setByY(-175f);
-        w.setByZ(250f);
-        w.setCycleCount(1);// Nos permite continuar el ciclo 
-        w.setAutoReverse(true); //ayuda que regrese
-        w.play();
-        
-        
-        m2 = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.im2);
-        m2.setByX(-800f); //Para que se mueva de un lado a otro
-        m2.setByY(-175f);
-        m2.setByZ(250f);
-        m2.setCycleCount(1);// Nos permite continuar el ciclo 
-        m2.setAutoReverse(true); //ayuda que regrese
-        m2.play();
-        
+        //tt.setAutoReverse(true); //ayuda que regrese
 
-     
          }
          
          else if (fila()==500){ 
-        tt = new TranslateTransition(Duration.millis(this.velocidad*750), im);
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(-300f);
         tt.setByZ(250f);
         tt.setCycleCount(1);// Nos permite continuar el ciclo 
-        tt.setAutoReverse(true); //ayuda que regrese
-        tt.play();
-        
+        //tt.setAutoReverse(true); //ayuda que regrese     
+
+         }
         tt.setOnFinished(new EventHandler<ActionEvent>(){
              @Override
              public void handle(ActionEvent event) {
@@ -253,26 +167,7 @@ public class piranha extends Atacante {
               Juego.flagMurio=true;
              }
         });
-        
-        w = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.word);
-        w.setByX(-800f); //Para que se mueva de un lado a otro
-        w.setByY(-300f);
-        w.setByZ(250f);
-        w.setCycleCount(1);// Nos permite continuar el ciclo 
-        w.setAutoReverse(true); //ayuda que regrese
-        w.play();
-        
-
-        
-        m2 = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.im2);
-        m2.setByX(-800f); //Para que se mueva de un lado a otro
-        m2.setByY(-300f);
-        m2.setByZ(250f);
-        m2.setCycleCount(1);// Nos permite continuar el ciclo 
-        m2.setAutoReverse(true); //ayuda que regrese
-        m2.play();
-         
-         }
+        tt.play();
     }
     
      @Override

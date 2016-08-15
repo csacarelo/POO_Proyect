@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.EventHandler;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 /**
@@ -43,6 +44,14 @@ public class CompararPalabras extends Thread {
             @Override
             public void handle(KeyEvent ke) {
             ga=ke.getText();
+            if(ke.getCode().compareTo(KeyCode.ENTER)==0 && Juego.puntaje>=200)
+            {
+                Juego.cerrarHilos();
+                Juego.puntaje=Juego.puntaje-200;
+                Juego.cambiarDeNivel();
+                Juego.actualizarValores();
+            }
+                
             System.out.println("Key Pressed: " + ga);
             }
             

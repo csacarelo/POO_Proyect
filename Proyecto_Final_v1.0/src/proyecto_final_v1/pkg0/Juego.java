@@ -52,7 +52,7 @@ public class Juego extends PaneOrganizer2{
         Juego.flagMurio=false;
         ser=new Scanner(System.in);
         PaneOrganizer2._root= new Pane();
-        Pane _bu = new Pane();
+        //Pane _bu = new Pane();
         Image image = new Image("file:oce.png");
         ImageView im2 = new ImageView();
         im2.setImage(image);
@@ -110,10 +110,10 @@ public class Juego extends PaneOrganizer2{
          NIV.setFont(Font.font(null, FontWeight.BOLD, 25));
          NIV.setTextFill(Color.WHITE);
 
-        _bu.getChildren().addAll(im2,b.getBu(),btn4,VIDAS,VIDA,PUNTAJE,PUNT,NIVEL,NIV);
+        PaneOrganizer2._root.getChildren().addAll(im2,b.getBu(),btn4,VIDAS,VIDA,PUNTAJE,PUNT,NIVEL,NIV);
     
         PaneOrganizer2.actualizarVentana();
-        PaneOrganizer2._root.getChildren().addAll(_bu);
+        //PaneOrganizer2._root.getChildren().addAll(_bu);
    
     }
     
@@ -124,6 +124,11 @@ public class Juego extends PaneOrganizer2{
 
                A.destruir();
                Juego.flagTerminar=false;
+               try {
+                   Thread.sleep(20);
+               } catch (InterruptedException ex) {
+                   Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+               }
               cerrarHilos();
               ventanaPRINCIPAL();
               
@@ -350,7 +355,7 @@ public class Juego extends PaneOrganizer2{
                 return true;
         return false;
     }
-    public void cerrarHilos()
+    public static void cerrarHilos()
     {
         if(Enemigo1!=null)
             if(Enemigo1.isAlive())
