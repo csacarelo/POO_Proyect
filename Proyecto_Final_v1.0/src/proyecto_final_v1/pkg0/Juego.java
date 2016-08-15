@@ -281,7 +281,7 @@ public class Juego extends PaneOrganizer2{
         }else{
      //       this.vidas--;
             this.cerrarHilos();
-            if(Juego.vidas==0)
+            if(Juego.vidas<=0)
             {
                 Juego.flagTerminar=false;
                 A.destruir();
