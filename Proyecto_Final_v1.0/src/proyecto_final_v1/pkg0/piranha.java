@@ -117,7 +117,7 @@ public class piranha extends Atacante {
     public void mover(ImageView im) {
         
          if (fila()==0){ 
-        tt = new TranslateTransition(Duration.millis(15000), im);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*750), im);
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(250f);
@@ -137,7 +137,7 @@ public class piranha extends Atacante {
         });
        
         
-        w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
+        w = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.word);
         w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByY(250f);
         w.setByZ(250f);
@@ -146,7 +146,7 @@ public class piranha extends Atacante {
         w.play();
         
         
-        m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
+        m2 = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.im2);
         m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByY(250f);
         m2.setByZ(250f);
@@ -157,7 +157,7 @@ public class piranha extends Atacante {
         
          }
          else if (fila()==150){ 
-        tt = new TranslateTransition(Duration.millis(15000), im);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*750), im);
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByZ(250f);
@@ -175,7 +175,7 @@ public class piranha extends Atacante {
              }
         });
         
-        w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
+        w = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.word);
         w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByZ(250f);
         w.setCycleCount(1);// Nos permite continuar el ciclo 
@@ -184,7 +184,7 @@ public class piranha extends Atacante {
         
 
         
-        m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
+        m2 = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.im2);
         m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByZ(250f);
         m2.setCycleCount(1);// Nos permite continuar el ciclo 
@@ -194,7 +194,7 @@ public class piranha extends Atacante {
          }
          
          else if (fila()==350){ 
-        tt = new TranslateTransition(Duration.millis(15000), im);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*750), im);
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(-175f);
@@ -213,7 +213,7 @@ public class piranha extends Atacante {
              }
         });
         
-        w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
+        w = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.word);
         w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByY(-175f);
         w.setByZ(250f);
@@ -222,7 +222,7 @@ public class piranha extends Atacante {
         w.play();
         
         
-        m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
+        m2 = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.im2);
         m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByY(-175f);
         m2.setByZ(250f);
@@ -235,7 +235,7 @@ public class piranha extends Atacante {
          }
          
          else if (fila()==500){ 
-        tt = new TranslateTransition(Duration.millis(15000), im);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*750), im);
          //Duration tiempo en que se translada
         tt.setByX(-800f); //Para que se mueva de un lado a otro
         tt.setByY(-300f);
@@ -254,7 +254,7 @@ public class piranha extends Atacante {
              }
         });
         
-        w = new TranslateTransition(Duration.millis(15000), piranha.this.word);
+        w = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.word);
         w.setByX(-800f); //Para que se mueva de un lado a otro
         w.setByY(-300f);
         w.setByZ(250f);
@@ -264,7 +264,7 @@ public class piranha extends Atacante {
         
 
         
-        m2 = new TranslateTransition(Duration.millis(15000), piranha.this.im2);
+        m2 = new TranslateTransition(Duration.millis(this.velocidad*750), piranha.this.im2);
         m2.setByX(-800f); //Para que se mueva de un lado a otro
         m2.setByY(-300f);
         m2.setByZ(250f);

@@ -119,7 +119,7 @@ public class sharkWhite extends Atacante {
     public void mover(ImageView im) {
          
         if (fila()==0){ 
-        tt = new TranslateTransition(Duration.millis(10000), im);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*1000), im);
          //Duration tiempo en que se translada
         tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByY(-100f);
@@ -140,7 +140,7 @@ public class sharkWhite extends Atacante {
              }
         });
         
-        w = new TranslateTransition(Duration.millis(10000), sharkWhite.this.word);
+        w = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkWhite.this.word);
         w.setByX(-600f); //Para que se mueva de un lado a otro
         w.setByY(-100f);
         w.setByZ(200f);
@@ -150,7 +150,7 @@ public class sharkWhite extends Atacante {
         w.play();
         
         
-        m2 = new TranslateTransition(Duration.millis(10000), sharkWhite.this.im2);
+        m2 = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkWhite.this.im2);
         m2.setByX(-600f); //Para que se mueva de un lado a otro
         m2.setByY(-100f);
         m2.setByZ(200f);
@@ -163,7 +163,7 @@ public class sharkWhite extends Atacante {
         }
         
         else if (fila()==125){
-        tt = new TranslateTransition(Duration.millis(10000), im);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*1000), im);
          //Duration tiempo en que se translada
         tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByZ(200f);
@@ -181,7 +181,7 @@ public class sharkWhite extends Atacante {
              }
         });
         
-        w = new TranslateTransition(Duration.millis(10000), sharkWhite.this.word);
+        w = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkWhite.this.word);
         w.setByX(-600f); //Para que se mueva de un lado a otro
         w.setByZ(200f);
         w.setCycleCount(1);// Nos permite continuar el ciclo 
@@ -189,7 +189,7 @@ public class sharkWhite extends Atacante {
         w.play();
         
         
-        m2 = new TranslateTransition(Duration.millis(10000), sharkWhite.this.im2);
+        m2 = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkWhite.this.im2);
         m2.setByX(-600f); //Para que se mueva de un lado a otro
         m2.setByZ(200f);
         m2.setCycleCount(1);// Nos permite continuar el ciclo 
@@ -200,7 +200,7 @@ public class sharkWhite extends Atacante {
         }
         
         else if (fila()==250){
-        tt = new TranslateTransition(Duration.millis(10000), im);
+        tt = new TranslateTransition(Duration.millis(this.velocidad*1000), im);
          //Duration tiempo en que se translada
         tt.setByX(-600f); //Para que se mueva de un lado a otro
         tt.setByZ(200f);
@@ -219,7 +219,7 @@ public class sharkWhite extends Atacante {
              }
         });
         
-        w = new TranslateTransition(Duration.millis(10000), sharkWhite.this.word);
+        w = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkWhite.this.word);
         w.setByX(-600f); //Para que se mueva de un lado a otro
         w.setByY(-100f);
         w.setByZ(200f);
@@ -229,7 +229,7 @@ public class sharkWhite extends Atacante {
         w.play();
         
         
-        m2 = new TranslateTransition(Duration.millis(10000), sharkWhite.this.im2);
+        m2 = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkWhite.this.im2);
         m2.setByX(-600f); //Para que se mueva de un lado a otro
         m2.setByY(-100f);
         m2.setByZ(200f);
@@ -242,7 +242,7 @@ public class sharkWhite extends Atacante {
         
         //----------Recordar girar la imagen-----------
          else if (fila()==500){
-       tt = new TranslateTransition(Duration.millis(10000), sharkWhite.this.im);
+       tt = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkWhite.this.im);
          //Duration tiempo en que se translada
          
         tt.setByX(-600f); //Para que se mueva de un lado a otro
@@ -263,7 +263,7 @@ public class sharkWhite extends Atacante {
              }
         });
         
-        w = new TranslateTransition(Duration.millis(10000), sharkWhite.this.word);
+        w = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkWhite.this.word);
         w.setByX(-600f); //Para que se mueva de un lado a otro
         w.setByY(-100f);
         w.setByZ(200f);
@@ -274,7 +274,7 @@ public class sharkWhite extends Atacante {
         
         
 
-        m2 = new TranslateTransition(Duration.millis(10000), sharkWhite.this.im2);
+        m2 = new TranslateTransition(Duration.millis(this.velocidad*1000), sharkWhite.this.im2);
         m2.setByX(-600f); //Para que se mueva de un lado a otro
         m2.setByY(-100f);
         m2.setByZ(200f);
