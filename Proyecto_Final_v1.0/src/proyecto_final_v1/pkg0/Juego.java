@@ -38,6 +38,8 @@ public class Juego extends PaneOrganizer2{
     public static Label PUNT;
     public static Label VIDA;
     public static Label NIV;
+    Thread verificarQueEstenVivos;
+    public static boolean flagTerminar;
     
     public Juego ()
     {
@@ -45,7 +47,9 @@ public class Juego extends PaneOrganizer2{
         puntaje=0;
         vidas=3;
         cargas=0;
-        nivel=2;
+        nivel=1;
+        Juego.flagTerminar=true;
+        Juego.flagMurio=false;
         ser=new Scanner(System.in);
         PaneOrganizer2._root= new Pane();
         Pane _bu = new Pane();
@@ -117,8 +121,11 @@ public class Juego extends PaneOrganizer2{
          
            @Override
            public void handle(ActionEvent event){
-               ventanaPRINCIPAL();
+
+               A.destruir();
+               Juego.flagTerminar=false;
               cerrarHilos();
+              ventanaPRINCIPAL();
               
            }       
      }
@@ -130,15 +137,15 @@ public class Juego extends PaneOrganizer2{
         iniciarAtacantes();
         A=new CompararPalabras();
         A.start();
-        Thread verificarQueEstenVivos=new Thread(new Runnable(){
+        verificarQueEstenVivos=new Thread(new Runnable(){
             @Override
             public void run()
-            {
-                while (true)
                 {
-                    murioAlgunAtacante();
-                }
-            }    
+                    while (Juego.flagTerminar)
+                    {
+                        murioAlgunAtacante();
+                    }
+                }  
                 
                 });
 
@@ -150,6 +157,18 @@ public class Juego extends PaneOrganizer2{
           
        // letras=this.ser.next();
             
+    }
+    
+    public static void cambiarDeNivel()
+    {
+        if (Juego.puntaje>0 && Juego.puntaje<100)
+            Juego.nivel=1;
+        if(Juego.puntaje>=100 && Juego.puntaje<300)
+            Juego.nivel=2;
+        if(Juego.puntaje>=300 && Juego.puntaje<600)
+            Juego.nivel=3;
+        if(Juego.puntaje>=600)
+            Juego.nivel=4;
     }
     
     public static void actualizarValores()
@@ -164,7 +183,7 @@ public class Juego extends PaneOrganizer2{
                         NIV.setText("      "  + Integer.toString(nivel));
                         PUNT.setText("      "  + Integer.toString(puntaje));
                         VIDA.setText("      "  + Integer.toString(vidas));
-                    
+
                     }
                 });
             }
@@ -194,11 +213,16 @@ public class Juego extends PaneOrganizer2{
                     Enemigo1=new Accion(Arch,15);
                     Enemigo1.start();
                 }
+                try{
                 if(!Enemigo2.isAlive())
                 {
                     Enemigo2=new Accion(Arch,15);
                     Enemigo2.start();
 
+                }
+                }catch(NullPointerException e){
+                    Enemigo2=new Accion(Arch,15);
+                    Enemigo2.start();
                 }
             }
             if(nivel==3)
@@ -209,16 +233,21 @@ public class Juego extends PaneOrganizer2{
                     Enemigo1.start();
                    
                 }
-                if(!Enemigo2.isAlive())
+                if(!Enemigo2.isAlive() )
                 {
                     Enemigo2=new Accion(Arch,10);
                     Enemigo2.start();
                 }
-                if(!Enemigo3.isAlive())
+                try{
+                if(!Enemigo3.isAlive() )
                 {
                     Enemigo3=new Accion(Arch,10);
                     Enemigo3.start();
-                }                
+                } 
+                }catch(NullPointerException e){
+                    Enemigo3=new Accion(Arch,10);
+                    Enemigo3.start();
+                }
             }
             if(nivel==4)
             {
@@ -237,16 +266,42 @@ public class Juego extends PaneOrganizer2{
                     Enemigo3=new Accion(Arch,5);
                     Enemigo3.start();
                  }
-                if(!Enemigo4.isAlive())
+                try{
+                if(!Enemigo4.isAlive() )
                 {
                     Enemigo4=new Accion(Arch,5);
                     Enemigo4.start();
                  }
+                }catch(NullPointerException e){
+                    Enemigo4=new Accion(Arch,5);
+                    Enemigo4.start();
+                }
             }
         }else{
      //       this.vidas--;
             this.cerrarHilos();
+            if(Juego.vidas==0)
+            {
+                Juego.flagTerminar=false;
+                A.destruir();
+               Thread actualizar=new Thread(new Runnable(){
+                    @Override
+                    public void run()
+                    {
+                        Platform.runLater(new Runnable() {
+                        @Override
+                            public void run(){
+                                Juego.this.ventanaPRINCIPAL();
+                            }
+                        });
+                    }
+                });
+                actualizar.start();
+
+                
+            }
             flagMurio=false;
+            
         }
         
     }
