@@ -124,12 +124,8 @@ public class Juego extends PaneOrganizer2{
 
                A.destruir();
                Juego.flagTerminar=false;
-               try {
-                   Thread.sleep(20);
-               } catch (InterruptedException ex) {
-                   Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
-               }
               cerrarHilos();
+              Thread.yield();
               ventanaPRINCIPAL();
               
            }       

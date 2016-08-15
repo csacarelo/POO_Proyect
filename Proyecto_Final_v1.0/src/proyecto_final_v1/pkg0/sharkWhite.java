@@ -23,9 +23,7 @@ import javafx.util.Duration;
  */
 public class sharkWhite extends Atacante {
 
-    private ImageView im;
-    private ImageView im2;
-    private Label word;
+
     private int n ;
     private int n1;
     private String palabra;

@@ -30,7 +30,7 @@ public class Accion extends Thread{
                 A=new piranha(arch.conseguirCaracterAleatoria(),Rapidez);
                 break;
             case 2:
-                A=new sharkBlack(arch.conseguirPalabraAleatoria(),Rapidez);
+                A=new sharkBlack(arch.conseguirPalabraAleatoria(),arch.conseguirPalabraAleatoria(),Rapidez);
                 break;
             default:
                 A=new sharkWhite(arch.conseguirPalabraAleatoria(),Rapidez);
@@ -69,10 +69,25 @@ public class Accion extends Thread{
                 }
             }catch(StringIndexOutOfBoundsException e)
             {
-                Juego.puntaje=Juego.puntaje+A.ID*10;
-                Juego.cambiarDeNivel();
-                destruir();
-                Juego.actualizarValores();
+                if(A.getID()!=3)
+                {
+                    Juego.puntaje=Juego.puntaje+A.ID*10;
+                    Juego.cambiarDeNivel();
+                    destruir();
+                    Juego.actualizarValores();
+                }else if(A.murio)
+                {
+                    A.cambiarPalabra();
+                    palabraDeLaImagen=A.getWord2().getText();
+                    A.murio=false;
+                }else{
+                    Juego.puntaje=Juego.puntaje+A.ID*10;
+                    Juego.cambiarDeNivel();
+                    destruir();
+                    Juego.actualizarValores();
+                }
+                    
+
             }
             
             
