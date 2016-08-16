@@ -24,6 +24,7 @@ public class CompararPalabras extends Thread {
     Scanner scane=new Scanner(System.in);
     boolean flag=true;
     public static String ga="";
+    public static KeyCode a;
     public CompararPalabras()
     {
         
@@ -44,6 +45,7 @@ public class CompararPalabras extends Thread {
             @Override
             public void handle(KeyEvent ke) {
             ga=ke.getText();
+            a=ke.getCode();
             if(ke.getCode().compareTo(KeyCode.ENTER)==0 && Juego.puntaje>=200)
             {
                 Juego.cerrarHilos();

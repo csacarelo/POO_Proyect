@@ -17,10 +17,7 @@ import javafx.util.Duration;
 public class Buceador {
    
      private ImageView bu;
-     private int vidas;
-     private int daños;
-     private int ataqueEspecial;
-     private int score;
+
      
     public Buceador(){
        Image image = new Image("file:buceador.png");
@@ -46,25 +43,7 @@ public class Buceador {
          
     }
     
-    private void aumentarScore(int score){
-        //Definir
-    }
-    
-    private void aumentarVida(int vida){
-        //Definir
-    }
-    
-    private void disminuirVida(int vida){
-        //Definir
-    }
-    
-    private void aumentarAtaqueEspecial(){
-        //Definir
-    }
-    
-    private void disminuirAtaqueEspecial(){
-        //Definir
-    }
+
     
     
     //--------------------------------------------------------------------
@@ -75,38 +54,6 @@ public class Buceador {
 
     public void setBu(ImageView bu) {
         this.bu = bu;
-    }
-
-    public int getVidas() {
-        return vidas;
-    }
-
-    public void setVidas(int vidas) {
-        this.vidas = vidas;
-    }
-
-    public int getDaños() {
-        return daños;
-    }
-
-    public void setDaños(int daños) {
-        this.daños = daños;
-    }
-
-    public int getAtaqueEspecial() {
-        return ataqueEspecial;
-    }
-
-    public void setAtaqueEspecial(int ataqueEspecial) {
-        this.ataqueEspecial = ataqueEspecial;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
 }

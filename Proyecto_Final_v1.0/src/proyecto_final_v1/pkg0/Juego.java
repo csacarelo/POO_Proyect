@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
@@ -15,6 +16,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 
 /**
  *
@@ -24,6 +28,7 @@ public class Juego extends PaneOrganizer2{
     
     public static int puntaje;
     public static int vidas;
+    public static int vidasPrianha;
     int cargas;
     public static int nivel;
     public static boolean flagMurio=false;
@@ -40,6 +45,9 @@ public class Juego extends PaneOrganizer2{
     public static Label NIV;
     Thread verificarQueEstenVivos;
     public static boolean flagTerminar;
+    private static ImageView im1;
+    private static ImageView im2;
+    private static ImageView im3;
     
     public Juego ()
     {
@@ -48,6 +56,7 @@ public class Juego extends PaneOrganizer2{
         vidas=3;
         cargas=0;
         nivel=1;
+        vidasPrianha=3;
         Juego.flagTerminar=true;
         Juego.flagMurio=false;
         ser=new Scanner(System.in);
@@ -60,10 +69,13 @@ public class Juego extends PaneOrganizer2{
         im2.setFitHeight(800);
         
         Buceador b = new Buceador();
+
         Button btn4 = new Button("REGRESAR");
          btn4.setLayoutX(790);
          btn4.setLayoutY(740);
-         btn4.setOnAction(new ClickHandlerJuego());
+         btn4.setFont(Font.font(null, FontWeight.BOLD, 20));
+        //btn4.setFocusTraversable(false);
+         btn4.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClickHandlerJuego());
          
          Label VIDAS = new Label("VIDAS:");
          VIDAS.setLayoutX(5);
@@ -88,9 +100,29 @@ public class Juego extends PaneOrganizer2{
          NIV = new Label("      "  + Integer.toString(nivel));
          NIV.setLayoutX(590);
          NIV.setLayoutY(5);
-         
-         btn4.setFont(Font.font(null, FontWeight.BOLD, 20));
-     
+
+         Image ima = new Image("file:piranha.png");
+         im1 = new ImageView();
+         im1.setImage(ima);
+         im1.setFitWidth(30);
+         im1.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
+         im1.setLayoutX(900);
+         im1.setLayoutY(5);
+
+         this.im2 = new ImageView();
+         this.im2.setImage(ima);
+         this.im2.setFitWidth(30);
+         this.im2.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
+         this.im2.setLayoutX(925);
+         this.im2.setLayoutY(5);         
+
+        
+         im3 = new ImageView();
+         im3.setImage(ima);
+         im3.setFitWidth(30);
+         im3.setPreserveRatio(true); //Mantiene equilibrada la imagen a escala
+         im3.setLayoutX(950);
+         im3.setLayoutY(5);     
 
          VIDAS.setFont(Font.font(null, FontWeight.BOLD, 25));
          VIDAS.setTextFill(Color.LIGHTSALMON);
@@ -110,23 +142,23 @@ public class Juego extends PaneOrganizer2{
          NIV.setFont(Font.font(null, FontWeight.BOLD, 25));
          NIV.setTextFill(Color.WHITE);
 
-        PaneOrganizer2._root.getChildren().addAll(im2,b.getBu(),btn4,VIDAS,VIDA,PUNTAJE,PUNT,NIVEL,NIV);
+        PaneOrganizer2._root.getChildren().addAll(im2,b.getBu(),btn4,VIDAS,VIDA,PUNTAJE,PUNT,NIVEL,NIV,this.im1,this.im2,this.im3);
     
         PaneOrganizer2.actualizarVentana();
         //PaneOrganizer2._root.getChildren().addAll(_bu);
    
     }
     
-     private class ClickHandlerJuego implements EventHandler<ActionEvent> {
+     private class ClickHandlerJuego implements EventHandler<MouseEvent> {
          
            @Override
-           public void handle(ActionEvent event){
+           public void handle(MouseEvent event){
 
-               A.destruir();
-               Juego.flagTerminar=false;
-              cerrarHilos();
-              Thread.yield();
-              ventanaPRINCIPAL();
+                    A.destruir();
+                    Juego.flagTerminar=false;
+                   cerrarHilos();
+                   Thread.yield();
+                   ventanaPRINCIPAL();
               
            }       
      }
@@ -184,12 +216,37 @@ public class Juego extends PaneOrganizer2{
                         NIV.setText("      "  + Integer.toString(nivel));
                         PUNT.setText("      "  + Integer.toString(puntaje));
                         VIDA.setText("      "  + Integer.toString(vidas));
+                        compararVidasPiranhas();
 
                     }
                 });
             }
         });
         actualizar.start();
+    }
+    
+    
+    public static void compararVidasPiranhas()
+    {
+        if(Juego.vidasPrianha==3)
+        {
+           Juego.im1.setVisible(true);
+           Juego.im2.setVisible(true);
+           Juego.im3.setVisible(true);                    
+        }
+        if(Juego.vidasPrianha==2)
+        {
+           Juego.im1.setVisible(true);
+           Juego.im2.setVisible(true);
+           Juego.im3.setVisible(false);                    
+        } 
+        if(Juego.vidasPrianha==1)
+        {
+           Juego.im1.setVisible(true);
+           Juego.im2.setVisible(false);
+           Juego.im3.setVisible(false);                    
+        }        
+        
     }
     
     public void murioAlgunAtacante()
@@ -281,6 +338,11 @@ public class Juego extends PaneOrganizer2{
         }else{
      //       this.vidas--;
             this.cerrarHilos();
+            if(Juego.vidasPrianha<=0)
+            {
+                Juego.vidas--;
+                Juego.vidasPrianha=3;
+            }
             if(Juego.vidas<=0)
             {
                 Juego.flagTerminar=false;
@@ -292,7 +354,7 @@ public class Juego extends PaneOrganizer2{
                         Platform.runLater(new Runnable() {
                         @Override
                             public void run(){
-                                Juego.this.ventanaPRINCIPAL();
+                                Juego.this.ventanaFinDeJuego();
                             }
                         });
                     }

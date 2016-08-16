@@ -109,9 +109,10 @@ public class PaneOrganizer2 {
     
     private class ClickHandler6 implements EventHandler<ActionEvent> {
 
-    
            @Override
            public void handle(ActionEvent event){
+               ArchTop arch=new ArchTop();
+               arch.guardarPuntajes(Nombres.getText(), Juego.puntaje);
                 ventanaPRINCIPAL();
     
            }       
@@ -391,7 +392,7 @@ public class PaneOrganizer2 {
          score.setLayoutX(390);
          score.setLayoutY(240);
          
-         Label sc = new Label("puntaje");
+         Label sc = new Label(Integer.toString(Juego.puntaje));
          sc.setLayoutX(530);
          sc.setLayoutY(240);
          

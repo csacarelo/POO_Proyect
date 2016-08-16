@@ -160,7 +160,7 @@ public class piranha extends Atacante {
              @Override
              public void handle(ActionEvent event) {
               piranha.this.destruir();
-              Juego.vidas--;
+              Juego.vidasPrianha--;
               Juego.actualizarValores();
               Juego.flagMurio=true;
              }
