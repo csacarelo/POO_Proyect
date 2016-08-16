@@ -38,7 +38,7 @@ public class Proyecto_Final_v10 extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     String uriString = new File("Firework.mp3").toURI().toString();
+    String uriString = new File("Firework.mp3").toURI().toString();
     MediaPlayer player = new MediaPlayer( new Media(uriString));
      player.play();  
         launch(args);

@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -51,7 +52,7 @@ public class PaneOrganizer2 {
     private Pane _pira;
     private ImageView im2;
     private Pane _im;
-
+    private TextField Nombres;
  public PaneOrganizer2(){
      
         this.ventanaPRINCIPAL();
@@ -106,6 +107,15 @@ public class PaneOrganizer2 {
            }       
      }
     
+    private class ClickHandler6 implements EventHandler<ActionEvent> {
+
+    
+           @Override
+           public void handle(ActionEvent event){
+                ventanaPRINCIPAL();
+    
+           }       
+     }
      public void ventanaJUEGO (){
          Juego j=new Juego();
          j.Jugar(); 
@@ -327,11 +337,85 @@ public class PaneOrganizer2 {
         instrucciones.setTextFill(Color.LIGHTSALMON);
         inst.setFont(Font.font(null, FontWeight.BOLD, 17));
         inst.setTextFill(Color.WHITE);
+        
         actualizarVentana();
         
     }
     
-    
+     public void ventanaFinDeJuego(){
+        
+        _root = new Pane();
+        im = new Pane();
+        Nombres = new TextField();
+        
+        Image image = new Image("file:fondo.jpg");
+         fondo = new ImageView();
+         fondo.setImage(image);
+         fondo.setFitWidth(1000);
+         fondo.setFitHeight(800);
+         
+        this.Nombres.setLayoutX(350);
+        this.Nombres.setLayoutY(470);
+        
+        Nombres.setStyle(""
+                          + "-fx-font-size: 30px;"
+                          + "-fx-font-weight: bold;"
+                          + "-fx-text-fill: black;"
+                          + "-fx-background-color: white");
+         
+         Button btn1 = new Button("Guardar");
+         btn1.setLayoutX(480);
+         btn1.setLayoutY(620);
+        
+         btn1.setOnAction(new ClickHandler6());
+         
+         Label titulo = new Label("GAME OVER");
+         titulo.setLayoutX(220);
+         titulo.setLayoutY(30);
+        
+         Label nombre = new Label("Ingresa tu Nombre:");
+         nombre.setLayoutX(350);
+         nombre.setLayoutY(370);
+        
+         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n"
+                                       + "                        *Gabriel Arauz");
+         integrantes.setLayoutX(430);
+         integrantes.setLayoutY(730);
+         Label proyecto = new Label("PROGRAMACION ORIENTADA A OBJETOS \n           Proyecto de Segunda Evaluacion \n               "
+                                    + "Profesor: Orlando Zambrano\n                          2016 I TERMINO ");
+         proyecto.setLayoutX(30);
+         proyecto.setLayoutY(730);
+         im.getChildren().add(fondo);
+         
+         Label score = new Label("Score:");
+         score.setLayoutX(390);
+         score.setLayoutY(240);
+         
+         Label sc = new Label("puntaje");
+         sc.setLayoutX(530);
+         sc.setLayoutY(240);
+         
+         _root.getChildren().addAll(im,titulo,btn1,integrantes,proyecto,score,nombre,this.Nombres,sc);
+        
+        titulo.setContentDisplay(ContentDisplay.CENTER);
+        titulo.setFont(Font.font(null, FontWeight.BOLD, 100));
+        titulo.setTextFill(Color.WHITE);
+        
+        btn1.setFont(Font.font(null, FontWeight.BOLD, 25));
+        integrantes.setFont(Font.font(null, FontWeight.BOLD, 12));
+        integrantes.setTextFill(Color.LIGHTSKYBLUE);
+        proyecto.setFont(Font.font(null, FontWeight.BOLD, 12));
+        proyecto.setTextFill(Color.LIGHTSKYBLUE);
+        nombre.setFont(Font.font(null, FontWeight.BOLD, 40));
+        nombre.setTextFill(Color.LIGHTSALMON); 
+        score.setFont(Font.font(null, FontWeight.BOLD, 40));
+        score.setTextFill(Color.LIGHTSALMON); 
+        sc.setFont(Font.font(null, FontWeight.BOLD, 40));
+        sc.setTextFill(Color.WHITE); 
+       
+        actualizarVentana(); 
+        
+    }
     public static void actualizarVentana()
     {
         Proyecto_Final_v10.scene=new Scene(_root,1000,800);
