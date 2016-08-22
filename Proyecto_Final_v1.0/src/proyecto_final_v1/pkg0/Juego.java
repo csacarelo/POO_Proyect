@@ -29,6 +29,7 @@ public class Juego extends PaneOrganizer2{
     public static int puntaje;
     public static int vidas;
     public static int vidasPrianha;
+    public static int puntajeReal;
     int cargas;
     public static int nivel;
     public static boolean flagMurio=false;
@@ -53,6 +54,7 @@ public class Juego extends PaneOrganizer2{
     {
         Arch=new ArchPalabras();
         puntaje=0;
+        puntajeReal=0;
         vidas=3;
         cargas=0;
         nivel=1;
@@ -194,13 +196,13 @@ public class Juego extends PaneOrganizer2{
     
     public static void cambiarDeNivel()
     {
-        if (Juego.puntaje>0 && Juego.puntaje<100)
+        if (Juego.puntajeReal>0 && Juego.puntajeReal<100 )
             Juego.nivel=1;
-        if(Juego.puntaje>=100 && Juego.puntaje<300)
+        if(Juego.puntajeReal>=100 && Juego.puntajeReal<300)
             Juego.nivel=2;
-        if(Juego.puntaje>=300 && Juego.puntaje<600)
+        if(Juego.puntajeReal>=300 && Juego.puntajeReal<600)
             Juego.nivel=3;
-        if(Juego.puntaje>=600)
+        if(Juego.puntajeReal>=600)
             Juego.nivel=4;
     }
     
@@ -254,7 +256,47 @@ public class Juego extends PaneOrganizer2{
         if(!flagMurio)
         {
             //actualizarValores();
+            this.comprobarAtacantes();
 
+        }else{
+     //       this.vidas--;
+            //this.cerrarHilos();
+            if(Juego.vidasPrianha<=0)
+            {
+                Juego.vidas--;
+                Juego.vidasPrianha=3;
+            }
+            if(Juego.vidas<=0)
+            {
+               Juego.cerrarHilos();
+                Juego.flagTerminar=false;
+                A.destruir();
+               Thread actualizar=new Thread(new Runnable(){
+                    @Override
+                    public void run()
+                    {
+                        Platform.runLater(new Runnable() {
+                        @Override
+                            public void run(){
+                                Juego.this.ventanaFinDeJuego();
+                            }
+                        });
+                    }
+                });
+                actualizar.start();
+
+                
+            }
+                flagMurio=false;
+                
+                //this.comprobarAtacantes();
+            
+        }
+        
+    }
+    
+    public void comprobarAtacantes()
+    {
             if(nivel==1)
             {
                 if(!Enemigo1.isAlive())
@@ -335,38 +377,6 @@ public class Juego extends PaneOrganizer2{
                     Enemigo4.start();
                 }
             }
-        }else{
-     //       this.vidas--;
-            this.cerrarHilos();
-            if(Juego.vidasPrianha<=0)
-            {
-                Juego.vidas--;
-                Juego.vidasPrianha=3;
-            }
-            if(Juego.vidas<=0)
-            {
-                Juego.flagTerminar=false;
-                A.destruir();
-               Thread actualizar=new Thread(new Runnable(){
-                    @Override
-                    public void run()
-                    {
-                        Platform.runLater(new Runnable() {
-                        @Override
-                            public void run(){
-                                Juego.this.ventanaFinDeJuego();
-                            }
-                        });
-                    }
-                });
-                actualizar.start();
-
-                
-            }
-            flagMurio=false;
-            
-        }
-        
     }
     
     public void iniciarAtacantes()

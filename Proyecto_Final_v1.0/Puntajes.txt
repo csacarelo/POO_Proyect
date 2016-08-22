@@ -17,3 +17,6 @@ AAA 100
 AAA 100
 Jose 600
 Prueba 900
+LOL 330
+Tati 190
+tat 60

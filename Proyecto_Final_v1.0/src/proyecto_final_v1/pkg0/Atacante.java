@@ -25,6 +25,7 @@ public abstract class Atacante {
     protected Label word2;
     protected Pane A;
     protected boolean murio;
+    protected boolean flagAcabo;
    // private ImageView im2;
     
     public Atacante(){}
@@ -35,6 +36,12 @@ public abstract class Atacante {
     
     abstract public ImageView getIm2();
     abstract public Label getWord();
+
+    public boolean isFlagAcabo() {
+        return flagAcabo;
+    }
+    
+    
 
     public boolean isMurio() {
         return murio;

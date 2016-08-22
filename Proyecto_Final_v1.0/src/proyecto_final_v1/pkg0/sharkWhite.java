@@ -35,6 +35,7 @@ public class sharkWhite extends Atacante {
     this.palabra = palabra;
     this.velocidad = velocidad;
     this.ID=2;
+    this.flagAcabo=true;
     this.A=new Pane();
     
     n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
@@ -105,6 +106,7 @@ public class sharkWhite extends Atacante {
         sharkWhite.this.word.setVisible(false);
         sharkWhite.this.im2.setVisible(false);
         tt.stop();
+        flagAcabo=false;
         //w.stop();
         //m2.stop();
 

@@ -19,6 +19,7 @@ public class Accion extends Thread{
     Atacante A;
     int Velocidad;
     boolean flagAlive=true;
+    String palabraDeLaImagen;
     
     public Accion (ArchPalabras arch,int Rapidez)
     {
@@ -45,7 +46,7 @@ public class Accion extends Thread{
     @Override
     public void run() {
         
-        String palabraDeLaImagen=A.getWord().getText();
+        palabraDeLaImagen=A.getWord().getText();
         
         Platform.runLater(new Runnable() {
             @Override
@@ -57,7 +58,7 @@ public class Accion extends Thread{
                 }
         });
         
-        while (flagAlive)
+        while (flagAlive && A.isFlagAcabo())
         {
 
             try
@@ -65,6 +66,17 @@ public class Accion extends Thread{
                 if(Character.toString(palabraDeLaImagen.charAt(0)).compareToIgnoreCase(CompararPalabras.ga)==0)
                 {
                    palabraDeLaImagen=palabraDeLaImagen.substring(1);
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run(){
+                            
+                           if(A.getID()!=3 || A.murio)
+                                A.word.setText(palabraDeLaImagen);
+                           else
+                               A.word2.setText(palabraDeLaImagen);
+                        }
+                    });
+                   
                    //A.getWord().setText(palabraDeLaImagen);
                 }
             }catch(StringIndexOutOfBoundsException e)
@@ -72,6 +84,7 @@ public class Accion extends Thread{
                 if(A.getID()!=3)
                 {
                     Juego.puntaje=Juego.puntaje+A.ID*10;
+                    Juego.puntajeReal=Juego.puntajeReal+A.ID*10;
                     Juego.cambiarDeNivel();
                     destruir();
                     Juego.actualizarValores();
@@ -82,6 +95,7 @@ public class Accion extends Thread{
                     A.murio=false;
                 }else{
                     Juego.puntaje=Juego.puntaje+A.ID*10;
+                    Juego.puntajeReal=Juego.puntajeReal+A.ID*10;
                     Juego.cambiarDeNivel();
                     destruir();
                     Juego.actualizarValores();
