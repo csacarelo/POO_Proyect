@@ -9,33 +9,21 @@ package proyecto_final_v1.pkg0;
  *
  * @author Tatiana
  */
-import static java.awt.Color.orange;
+
 import javafx.application.Platform;
 import javafx.scene.image.Image;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import static javafx.scene.text.FontWeight.BOLD;
 
 /**
  *
@@ -44,14 +32,7 @@ import static javafx.scene.text.FontWeight.BOLD;
 public class PaneOrganizer2 {
     public static Pane _root;
     private Pane im;
-    private Pane _principal;
     private ImageView fondo;
-    private Pane _bu;
-    private Pane _white;
-    private Pane _black;
-    private Pane _pira;
-    private ImageView im2;
-    private Pane _im;
     private TextField Nombres;
  public PaneOrganizer2(){
      
@@ -120,8 +101,6 @@ public class PaneOrganizer2 {
      public void ventanaJUEGO (){
          Juego j=new Juego();
          j.Jugar(); 
-         
-         //this.ventanaPRINCIPAL();
         
     }
     
@@ -283,7 +262,7 @@ public class PaneOrganizer2 {
          Label titulo = new Label("TyperShark ");
          titulo.setLayoutX(290);
          titulo.setLayoutY(10);
-       Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n"
+         Label integrantes = new Label(" Elaborado por:\n                        *Christian Sacarelo \n                        *Tatiana Sanchez \n"
                                        + "                        *Gabriel Arauz");
          integrantes.setLayoutX(430);
          integrantes.setLayoutY(730);
@@ -336,7 +315,7 @@ public class PaneOrganizer2 {
         proyecto.setTextFill(Color.LIGHTSKYBLUE);
         instrucciones.setFont(Font.font(null, FontWeight.BOLD, 30));
         instrucciones.setTextFill(Color.LIGHTSALMON);
-        inst.setFont(Font.font(null, FontWeight.BOLD, 17));
+        inst.setFont(Font.font(null, FontWeight.BOLD, 15));
         inst.setTextFill(Color.WHITE);
         
         actualizarVentana();
@@ -422,8 +401,5 @@ public class PaneOrganizer2 {
         Proyecto_Final_v10.scene=new Scene(_root,1000,800);
         Proyecto_Final_v10.stage.setScene(Proyecto_Final_v10.scene);
     }
-            
-            
-           
     
 }

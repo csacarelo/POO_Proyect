@@ -155,10 +155,7 @@ public class sharkBlack extends Atacante {
         sharkBlack.this.word2.setVisible(false);
         tt.stop();
         flagAcabo=false;
-        //w.stop();
-        //m2.stop();
-        
-        
+      
     }
 
     @Override

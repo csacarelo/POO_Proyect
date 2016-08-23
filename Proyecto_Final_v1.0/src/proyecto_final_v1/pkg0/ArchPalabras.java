@@ -10,8 +10,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -34,7 +32,7 @@ public class ArchPalabras {
         try {
             Archi = new Scanner(new FileReader(this.archivoDeCaracteres));
             while (Archi.hasNext()) {
-                ///reviewScore = Archi.nextInt();
+         
                 this.caracteres.add(Archi.nextLine());
             }
         } catch (FileNotFoundException ex) {

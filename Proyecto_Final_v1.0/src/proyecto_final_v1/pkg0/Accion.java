@@ -5,8 +5,6 @@
  */
 package proyecto_final_v1.pkg0;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.scene.layout.Pane;
 
@@ -77,7 +75,6 @@ public class Accion extends Thread{
                         }
                     });
                    
-                   //A.getWord().setText(palabraDeLaImagen);
                 }
             }catch(StringIndexOutOfBoundsException e)
             {

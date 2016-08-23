@@ -7,11 +7,7 @@ package proyecto_final_v1.pkg0;
 
 import java.io.File;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -28,8 +24,7 @@ public class Proyecto_Final_v10 extends Application {
     public void start(Stage stage) {
         this.stage=stage;
         PaneOrganizer2 organizer = new PaneOrganizer2();
-        //scene = new Scene(organizer.getRoot(),1000,800);
-        //stage.setScene(scene);
+     
         stage.setTitle("Proyecto Segundo Parcial");
         stage.show();
         }

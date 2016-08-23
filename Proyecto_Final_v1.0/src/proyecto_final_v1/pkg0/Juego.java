@@ -1,24 +1,15 @@
 package proyecto_final_v1.pkg0;
 
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseEvent;
+
 
 /**
  *
@@ -72,8 +63,6 @@ public class Juego extends PaneOrganizer2{
         
         Buceador b = new Buceador();
 
-       
-                 
          Label VIDAS = new Label("VIDAS:");
          VIDAS.setLayoutX(5);
          VIDAS.setLayoutY(5);
@@ -142,26 +131,9 @@ public class Juego extends PaneOrganizer2{
         PaneOrganizer2._root.getChildren().addAll(im2,b.getBu(),VIDAS,VIDA,PUNTAJE,PUNT,NIVEL,NIV,this.im1,this.im2,this.im3);
     
         PaneOrganizer2.actualizarVentana();
-        //PaneOrganizer2._root.getChildren().addAll(_bu);
-   
+        
     }
-    
-     private class ClickHandlerJuego implements EventHandler<MouseEvent> {
-         
-           @Override
-           public void handle(MouseEvent event){
-
-                    A.destruir();
-                    Juego.flagTerminar=false;
-                   cerrarHilos();
-                   Thread.yield();
-                   ventanaPRINCIPAL();
-              
-           }       
-     }
-     
-     
-     
+   
     public void Jugar()
     {
         iniciarAtacantes();
@@ -182,11 +154,6 @@ public class Juego extends PaneOrganizer2{
             
           verificarQueEstenVivos.start();
 
-          
-
-          
-       // letras=this.ser.next();
-            
     }
     
     public static void cambiarDeNivel()
@@ -250,12 +217,11 @@ public class Juego extends PaneOrganizer2{
     {
         if(!flagMurio)
         {
-            //actualizarValores();
+           
             this.comprobarAtacantes();
 
         }else{
-     //       this.vidas--;
-            //this.cerrarHilos();
+    
             if(Juego.vidasPrianha<=0)
             {
                 Juego.vidas--;
@@ -284,7 +250,6 @@ public class Juego extends PaneOrganizer2{
             }
                 flagMurio=false;
                 
-                //this.comprobarAtacantes();
             
         }
         
@@ -432,7 +397,6 @@ public class Juego extends PaneOrganizer2{
         if(Enemigo4!=null)
             if(Enemigo4.isAlive())
                 Enemigo4.destruir();
-        //A.destruir();
         
     }
     

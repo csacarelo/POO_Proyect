@@ -44,10 +44,6 @@ public class Buceador {
     }
     
 
-    
-    
-    //--------------------------------------------------------------------
-
     public ImageView getBu() {
         return bu;
     }

@@ -5,7 +5,6 @@
  */
 package proyecto_final_v1.pkg0;
 
-import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -107,11 +106,7 @@ public class sharkWhite extends Atacante {
         sharkWhite.this.im2.setVisible(false);
         tt.stop();
         flagAcabo=false;
-        //w.stop();
-        //m2.stop();
-
-        
-        
+      
     }
         
 

@@ -12,9 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,7 +36,6 @@ public class ArchTop {
         try {
             Archi = new Scanner(new FileReader(this.archPuntajes));
             while (Archi.hasNext()) {
-                ///reviewScore = Archi.nextInt();
                 reviewText = Archi.nextLine();
                 String Cargado[] = reviewText.split(cod);
                 this.puntajes.add(new Puntajes(Cargado[0],new Integer (Cargado[1])));

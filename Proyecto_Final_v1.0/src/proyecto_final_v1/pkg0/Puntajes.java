@@ -5,8 +5,6 @@
  */
 package proyecto_final_v1.pkg0;
 
-import java.io.IOException;
-
 /**
  *
  * @author Christian
