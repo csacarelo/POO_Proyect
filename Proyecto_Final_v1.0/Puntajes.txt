@@ -20,3 +20,4 @@ Prueba 900
 LOL 330
 Tati 190
 tat 60
+ts 480

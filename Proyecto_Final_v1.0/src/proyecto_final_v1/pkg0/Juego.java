@@ -72,13 +72,8 @@ public class Juego extends PaneOrganizer2{
         
         Buceador b = new Buceador();
 
-        Button btn4 = new Button("REGRESAR");
-         btn4.setLayoutX(790);
-         btn4.setLayoutY(740);
-         btn4.setFont(Font.font(null, FontWeight.BOLD, 20));
-        //btn4.setFocusTraversable(false);
-         btn4.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClickHandlerJuego());
-         
+       
+                 
          Label VIDAS = new Label("VIDAS:");
          VIDAS.setLayoutX(5);
          VIDAS.setLayoutY(5);
@@ -144,7 +139,7 @@ public class Juego extends PaneOrganizer2{
          NIV.setFont(Font.font(null, FontWeight.BOLD, 25));
          NIV.setTextFill(Color.WHITE);
 
-        PaneOrganizer2._root.getChildren().addAll(im2,b.getBu(),btn4,VIDAS,VIDA,PUNTAJE,PUNT,NIVEL,NIV,this.im1,this.im2,this.im3);
+        PaneOrganizer2._root.getChildren().addAll(im2,b.getBu(),VIDAS,VIDA,PUNTAJE,PUNT,NIVEL,NIV,this.im1,this.im2,this.im3);
     
         PaneOrganizer2.actualizarVentana();
         //PaneOrganizer2._root.getChildren().addAll(_bu);
