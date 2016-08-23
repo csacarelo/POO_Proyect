@@ -252,10 +252,10 @@ public class PaneOrganizer2 {
          
          Button btn3 = new Button("Regresar");
          btn3.setLayoutX(770);
-         btn3.setLayoutY(690);
+         btn3.setLayoutY(720);
          Button btn4 = new Button("Salir");
          btn4.setLayoutX(890);
-         btn4.setLayoutY(690);
+         btn4.setLayoutY(720);
          
          btn3.setOnAction(new ClickHandler5());
          btn4.setOnAction(new ClickHandler4());
@@ -297,7 +297,7 @@ public class PaneOrganizer2 {
                               + "*Con 150 puntos, el buceador puede eliminar todos los animales marinos en la cercania solo presionando la tecla ENTER.\n"
                               + "*A medica que acumula puntaje, el jugador va avanzando a un siguiente nivel, donde los animales aumentan su rapidez.\n"
                               + "*El juego termina cuando el buceador pierde todas sus vidas.");
-         inst.setLayoutX(15);
+         inst.setLayoutX(90);
          inst.setLayoutY(155);
          im.getChildren().add(fondo);
          
@@ -315,7 +315,7 @@ public class PaneOrganizer2 {
         proyecto.setTextFill(Color.LIGHTSKYBLUE);
         instrucciones.setFont(Font.font(null, FontWeight.BOLD, 30));
         instrucciones.setTextFill(Color.LIGHTSALMON);
-        inst.setFont(Font.font(null, FontWeight.BOLD, 15));
+        inst.setFont(Font.font(null, FontWeight.BOLD, 14));
         inst.setTextFill(Color.WHITE);
         
         actualizarVentana();

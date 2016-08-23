@@ -22,3 +22,4 @@ Tati 190
 tat 60
 ts 480
 prueba2 0
+Tati 0
