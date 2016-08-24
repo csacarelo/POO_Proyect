@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_final_v1.pkg0;
 
 import javafx.animation.TranslateTransition;
@@ -12,13 +7,19 @@ import javafx.util.Duration;
 
 /**
  *
- * @author gabri
+ * @author Christian, Tatiana, Gabriel
+ * @version 1.0 05 de Agosto de 2016
  */
+
 public class Buceador {
    
      private ImageView bu;
 
      
+     /**
+    * Constructor de clase publica Buseador, que mosntrara en la ventana Juego
+    * a un buso moviendose en el mar.
+    */   
     public Buceador(){
        Image image = new Image("file:buceador.png");
          bu = new ImageView();
@@ -30,6 +31,11 @@ public class Buceador {
          mover(bu);
     }
     
+    
+     /**
+    * Metodo mover void que permitira ver como se mueve el buso.   
+    * @param bu ImageView que es la imagen del buso para poder mostrarla.
+    */    
     private void mover(ImageView bu){
            TranslateTransition tt = new TranslateTransition(Duration.millis(5000), bu);
          //Duration tiempo en que se translada
@@ -43,7 +49,11 @@ public class Buceador {
          
     }
     
-
+    
+    /**
+    * Metodo getBu ImageView que permite obtener la imagen del buso.   
+    * @return bu una imagen que representa al buso.
+    */
     public ImageView getBu() {
         return bu;
     }

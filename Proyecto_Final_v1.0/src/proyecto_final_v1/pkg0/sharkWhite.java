@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_final_v1.pkg0;
 
 import javafx.animation.TranslateTransition;
@@ -18,8 +13,10 @@ import javafx.util.Duration;
 
 /**
  *
- * @author gabri
+ * @author Christian, Tatiana, Gabriel
+ * @version 1.0 05 de Agosto de 2016
  */
+
 public class sharkWhite extends Atacante {
 
 
@@ -30,6 +27,10 @@ public class sharkWhite extends Atacante {
     TranslateTransition tt;
     
     
+    /**
+    * Constructor de clase sharWhite la cual hereda de la clase Abtracta Atacante.   
+    * @param palabra String que es la palara 1 asignada a un tiburon blanco.
+    */
     public sharkWhite(String palabra, int velocidad){
     this.palabra = palabra;
     this.velocidad = velocidad;
@@ -66,6 +67,11 @@ public class sharkWhite extends Atacante {
     
     }
     
+    
+    /**
+    * Constructor de clase sharWhite la cual hereda de la clase Abtracta Atacante.   
+    * Se hace que la imagen se mantenga equilibrada en una escala correcta.
+    */
     public sharkWhite(){
         
     n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
@@ -99,6 +105,11 @@ public class sharkWhite extends Atacante {
        
     }
     
+    
+    /**
+    * Metodo destruir void que hace que tanto el tiburon blanco como su palabra 
+    * ya no sean visibles.
+    */
     @Override
     public void destruir() {
         sharkWhite.this.im.setVisible(false);
@@ -109,7 +120,11 @@ public class sharkWhite extends Atacante {
       
     }
         
-
+    
+    
+    /**
+    * Metodo mover void que hace que sea posible el movimiento del tiburon blanco.
+    */
     @Override
     public void mover(ImageView im) {
         this.A.getChildren().addAll(im,sharkWhite.this.im2,sharkWhite.this.word);

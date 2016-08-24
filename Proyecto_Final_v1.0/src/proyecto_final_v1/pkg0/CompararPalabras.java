@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_final_v1.pkg0;
 
 import java.util.Scanner;
@@ -12,8 +7,10 @@ import javafx.scene.input.KeyEvent;
 
 /**
  *
- * @author Christian
+ * @author Christian, Tatiana, Gabriel
+ * @version 1.0 05 de Agosto de 2016
  */
+
 public class CompararPalabras extends Thread {
     Scanner scane=new Scanner(System.in);
     boolean flag=true;
@@ -33,17 +30,24 @@ public class CompararPalabras extends Thread {
 
        }
     }
-        
+    
+    
+     /**
+    * Metodo result void que permitira ejecutar el evento de ingreso por teclado
+    * de lo caracteres que presiona el jugador.
+    * Aqui tambien se valida el ataque especial que puede eliminar todos los 
+    * atacantes cercanos con 150 puntos y presionando solo la tecla ENTER. 
+    */       
     private void result(){
         PaneOrganizer2._root.setOnKeyPressed(new EventHandler<KeyEvent>(){
             @Override
             public void handle(KeyEvent ke) {
             ga=ke.getText();
             a=ke.getCode();
-            if(ke.getCode().compareTo(KeyCode.ENTER)==0 && Juego.puntaje>=200)
+            if(ke.getCode().compareTo(KeyCode.ENTER)==0 && Juego.puntaje>=150)
             {
                 Juego.cerrarHilos();
-                Juego.puntaje=Juego.puntaje-200;
+                Juego.puntaje=Juego.puntaje-150;
                 Juego.cambiarDeNivel();
                 Juego.actualizarValores();
             }
@@ -54,6 +58,11 @@ public class CompararPalabras extends Thread {
         });
         
     }
+    
+    
+     /**
+    * Metodo destruir void que pone la bandera flag en falso.
+    */   
     public void destruir()
     {
         flag=false;

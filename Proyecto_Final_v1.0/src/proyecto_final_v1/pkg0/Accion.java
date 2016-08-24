@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_final_v1.pkg0;
 
 import javafx.application.Platform;
@@ -10,8 +5,10 @@ import javafx.scene.layout.Pane;
 
 /**
  *
- * @author Christian
+ * @author Christian, Tatiana, Gabriel
+ * @version 1.0 05 de Agosto de 2016
  */
+
 public class Accion extends Thread{
     
     Atacante A;
@@ -19,6 +16,12 @@ public class Accion extends Thread{
     boolean flagAlive=true;
     String palabraDeLaImagen;
     
+    
+    /**
+    * Constructor de clase Accion la cual hereda de la clase interna Thread.   
+    * @param arch ArchPalabras que es un archivo e palabras en el idioma ingles.
+    * @param Rapidez int que es la velocidad de cada atacante.
+    */
     public Accion (ArchPalabras arch,int Rapidez)
     {
         int valorRandom=(int)(Math.random()*3+1);
@@ -41,6 +44,14 @@ public class Accion extends Thread{
     }
     
     
+    /**
+    * Metodo run que es donde empieza a correr cada hilo, siendo este un atacante.
+    * Se le asigna una palabra al tiburon blanco, dos palabras al tiburon negro,
+    * y un caracter a la piranha.
+    * Cuando la palabra es ingresada por teclado se compara con la del atacante
+    * y esta se elimina y tambien el hilo y se crea uno nuevo, 
+    * con esto el jugador acumula puntaje y avanza de nivel.
+    */
     @Override
     public void run() {
         
@@ -105,6 +116,11 @@ public class Accion extends Thread{
         }
     }
     
+    
+    /**
+    * Metodo destruir de tipo void que destruye el Action y es utilizado
+    * en el metodo principal e esta clase llamado run.
+    */  
     public void destruir()
     {
         flagAlive=false;

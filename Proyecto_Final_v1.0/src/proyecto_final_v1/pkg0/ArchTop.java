@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_final_v1.pkg0;
 
 import java.io.File;
@@ -19,13 +14,22 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Christian
+ * @author Christian, Tatiana, Gabriel
+ * @version 1.0 05 de Agosto de 2016
  */
+
 public class ArchTop {
 
     public LinkedList<Puntajes> puntajes;
     private File archPuntajes;
     
+    
+    /**
+    * Constructor de clase ArchTop donde una LinkedList llamada puntajes obtendra
+    * el puntaje de cada partida de juego y lo guardara en un archivo Puntajes.txt
+    * @exception FileNotFoundException error de archivo no encontrado, ocurre 
+    * cuando no es posible encontrar el archivo caracteres.
+    */
     public ArchTop ()
     {
         this.puntajes = new LinkedList<Puntajes>();
@@ -46,6 +50,12 @@ public class ArchTop {
         Archi.close();
     }
     
+    
+    /**
+    * Metodo conseguirLos10PrimerosNombres String que obtiene el nombre de los
+    * 10 jugadores con mayor puntaje.
+    * @return retornar
+    */
     public String[] conseguirLos10PrimerosNombres()
     {
         String retornar[]=new String[10];
@@ -58,6 +68,12 @@ public class ArchTop {
         return retornar;
     }
     
+    
+    /**
+    * Metodo conseguirLos10PrimerosPuntajes String que obtiene el puntaje mayor
+    * de los 10 jugadores.
+    * @return retornar
+    */
     public String[] conseguirLos10PirmerosPuntajes()
     {
                 String retornar[]=new String[10];
@@ -68,8 +84,17 @@ public class ArchTop {
         }
         
         return retornar;
+         
     }
     
+    
+    /**
+    * Metodo guardarPuntajes void que guarda el nombre del jugador y su puntaje
+    * respectivo en el archivo Puntajes.txt.
+    * @param nombre String que es el nombre del jugador.
+    * @param puntaje int que es el puntaje obtenido del jugador en la partida.
+    * 
+    */
     public void guardarPuntajes(String nombre,int puntaje) 
     {
         this.puntajes.add(new Puntajes(nombre,puntaje));

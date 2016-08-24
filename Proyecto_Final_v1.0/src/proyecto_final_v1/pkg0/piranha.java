@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyecto_final_v1.pkg0;
 
 import javafx.animation.TranslateTransition;
@@ -18,7 +14,8 @@ import javafx.util.Duration;
 
 /**
  *
- * @author gabri
+ * @author Christian, Tatiana, Gabriel
+ * @version 1.0 05 de Agosto de 2016
  */
 
 public class piranha extends Atacante {
@@ -31,7 +28,11 @@ public class piranha extends Atacante {
     TranslateTransition tt;
 
     
-    
+     /**
+    * Constructor de clase piranha la cual hereda de la clase Abtracta Atacante.   
+    * @param palabra String que es el caracter asignado a una piranha.
+    * @param velocidad int que es la velocidad de la piranha.
+    */
     public piranha(String palabra, int velocidad){
     this.palabra = palabra;
     this.velocidad = velocidad;
@@ -67,6 +68,12 @@ public class piranha extends Atacante {
          mover(im);
     }
     
+    
+    /**
+    * Constructor de clase piranha la cual hereda de la clase Abtracta Atacante.
+    * Se hace que la imagen se mantenga equilibrada en una escala correcta.
+
+    */
     public piranha(){
        
         n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
@@ -99,6 +106,11 @@ public class piranha extends Atacante {
          mover(im);
     }
     
+    
+    /**
+    * Metodo destruir void que hace que tanto la piranha como su caracter ya no 
+    * sean visibles.
+    */
     @Override
     public void destruir() {
         piranha.this.im.setVisible(false);
@@ -110,6 +122,10 @@ public class piranha extends Atacante {
         
     }
 
+    
+    /**
+    * Metodo mover void que hace que sea posible el movimiento de la piranha.
+    */
     @Override
     public void mover(ImageView im) {
      
@@ -166,7 +182,7 @@ public class piranha extends Atacante {
         tt.play();
     }
     
-     @Override
+    @Override
     public int fila() {
        
        if (n==1){

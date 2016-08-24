@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_final_v1.pkg0;
 
 import java.io.File;
@@ -13,8 +8,10 @@ import java.util.Scanner;
 
 /**
  *
- * @author Christian
+ * @author Christian, Tatiana, Gabriel
+ * @version 1.0 05 de Agosto de 2016
  */
+
 public class ArchPalabras {
     private File archivoDePalabras;
     private File archivoDeCaracteres;
@@ -22,6 +19,14 @@ public class ArchPalabras {
     private LinkedList<String>caracteres;
     
     
+    /**
+    * Constructor de clase ArchPalabras donde se llama a un archivo Palabras.txt 
+    * para las palabras que se le asignan a los tiburones y  tambien otro 
+    * archivo Caracteres.txt para los caracteres que se le asignan a las piranhas.
+    * @exception FileNotFoundException error de archivo no encontrado, ocurre 
+    * cuando no es posible encontrar el archivo caracteres y tambien el archivo
+    * palabras.
+    */
     public ArchPalabras()
     {
         Scanner Archi=null;
@@ -53,12 +58,21 @@ public class ArchPalabras {
     }
     
     
+    /**
+    * Metodo conseguirPalabraAleatoria String que saca del archivo Palabras.txt
+    * una palabra de forma aleatoria(random).
+    */
     public String conseguirPalabraAleatoria()
     {
         int valorRandom=(int)(Math.random()*this.palabras.size());
         return this.palabras.get(valorRandom);
     }
     
+    
+    /**
+    * Metodo conseguirPalabraAleatoria String que saca del archivo Caracteres.txt
+    * una palabra de forma aleatoria(random).
+    */
     public String conseguirCaracterAleatoria()
     {
         int valorRandom=(int)(Math.random()*this.caracteres.size());

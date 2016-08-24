@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_final_v1.pkg0;
 
 import javafx.animation.Timeline;
@@ -19,8 +14,10 @@ import javafx.util.Duration;
 
 /**
  *
- * @author gabri
+ * @author Christian, Tatiana, Gabriel
+ * @version 1.0 05 de Agosto de 2016
  */
+
 public class sharkBlack extends Atacante {
 
 
@@ -31,7 +28,13 @@ public class sharkBlack extends Atacante {
     
     TranslateTransition tt;
 
- 
+    
+    /**
+    * Constructor de clase sharBlack la cual hereda de la clase Abtracta Atacante.   
+    * @param palabra String que es la palara 1 asignada a un tiburon negro.
+    * @param palabra2 String que es la palara 2 asignada a un tiburon negro.
+    * @param velocidad int que es la velocidad del tiburon negro.
+    */
     public sharkBlack(String palabra, String palabra2, int velocidad){
     this.palabra = palabra;
     this.velocidad = velocidad;
@@ -72,9 +75,16 @@ public class sharkBlack extends Atacante {
         word2.setFont(Font.font("Comic San MS", 20));
          
          mover(im);
-    
-    
+   
     }
+    
+    
+    /**
+    * Constructor de clase sharBlack la cual hereda de la clase Abtracta Atacante.
+    * Se hace que la imagen se mantenga equilibrada en una escala correcta.
+    * @param palabra String que es la palara 1 asignada a un tiburon negro.
+     * @param velocidad int que es la velocidad del tiburon negro.
+    */
     public sharkBlack(String palabra, int velocidad){
     this.palabra = palabra;
     this.velocidad = velocidad;
@@ -110,9 +120,13 @@ public class sharkBlack extends Atacante {
          
          mover(im);
     
-    
     }
     
+    
+    /**
+    * Constructor de clase sharBlack la cual hereda de la clase Abtracta Atacante.
+    * Se hace que la imagen se mantenga equilibrada en una escala correcta.
+    */
     public sharkBlack(){
         this.A=new Pane();
         n =(int)(Math.random()*4+1); //indica la posibilidad del nivel a salir;    
@@ -147,6 +161,11 @@ public class sharkBlack extends Atacante {
          mover(im);
     }
     
+    
+    /**
+    * Metodo destruir void que hace que tanto el tiburon negro como sus palabras 
+    * ya no sean visibles.
+    */
     @Override
     public void destruir() {
         sharkBlack.this.im.setVisible(false);
@@ -158,6 +177,10 @@ public class sharkBlack extends Atacante {
       
     }
 
+    
+     /**
+    * Metodo mover void que hace que sea posible el movimiento del tiburon negro.
+    */
     @Override
     public void mover(ImageView im) {
         

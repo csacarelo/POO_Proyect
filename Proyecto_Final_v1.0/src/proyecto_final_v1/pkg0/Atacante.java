@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_final_v1.pkg0;
 
 import javafx.scene.control.Label;
@@ -11,8 +6,10 @@ import javafx.scene.layout.Pane;
 
 /**
  *
- * @author gabri
+ * @author Christian, Tatiana, Gabriel
+ * @version 1.0 05 de Agosto de 2016
  */
+
 public abstract class Atacante {
     
    private int postIn;
@@ -26,8 +23,14 @@ public abstract class Atacante {
     protected Pane A;
     protected boolean murio;
     protected boolean flagAcabo;
-   // private ImageView im2;
+   
     
+    /**
+    * Constructor de clase Abstracta Atacante
+    * un atacante podra implementar los metodos destruir y mover.
+    * Dentro de esta clase Abstracta Atacante se encuentra el tiburon blanco,
+    * tiburon negro y la piranha.
+    */
     public Atacante(){}
     
     abstract public void destruir();

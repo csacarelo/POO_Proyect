@@ -11,11 +11,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.image.Image;
 
-
 /**
  *
- * @author Christian
+ * @author Christian, Tatiana, Gabriel
+ * @version 1.0 05 de Agosto de 2016
  */
+
 public class Juego extends PaneOrganizer2{
     
     public static int puntaje;
@@ -42,6 +43,12 @@ public class Juego extends PaneOrganizer2{
     private static ImageView im2;
     private static ImageView im3;
     
+    
+     /**
+    * Constructor de clase Juego la cual hereda de la clase Paneorganizer2.   
+    * Aqui se ha creado toda la ventana Juego que se mostrara al jugador, donde
+    * se vera el nivel, las vidas y el puntaje obtenido durante el juego.
+    */   
     public Juego ()
     {
         Arch=new ArchPalabras();
@@ -141,7 +148,13 @@ public class Juego extends PaneOrganizer2{
         PaneOrganizer2.actualizarVentana();
         
     }
-   
+    
+    
+     /**
+    * Metodo Jugar donde empiezan a crearse los acction, los cuales son hilos 
+    * que pertenecen a cada uno de los atacantes.
+    * Se verifica si algun hilo sigue vivo constantemente.
+    */   
     public void Jugar()
     {
         iniciarAtacantes();
@@ -164,6 +177,11 @@ public class Juego extends PaneOrganizer2{
 
     }
     
+    
+    /**
+    * Metodo estatico cambiarDeNivel void donde se valida que puntaje debe tener 
+    * el jugador para ir subiendo de nivel, teniendo como maximo nivel 4.
+    */   
     public static void cambiarDeNivel()
     {
         if (Juego.puntajeReal>0 && Juego.puntajeReal<100 )
@@ -176,6 +194,11 @@ public class Juego extends PaneOrganizer2{
             Juego.nivel=4;
     }
     
+    
+    /**
+    * Metodo estatico actualizarValores void que sirve para ir actualizando los
+    * valores de nivel, vidas y puntaje en el trascurso del juego.
+    */
     public static void actualizarValores()
     {
         Thread actualizar=new Thread(new Runnable(){
@@ -198,6 +221,10 @@ public class Juego extends PaneOrganizer2{
     }
     
     
+    /**
+    * Metodo estatico compararVidasPiranhas void que sirve para mostrar en la
+    * ventana juego la figura de las piranhas que nos restan para perder 1 vida.
+    */
     public static void compararVidasPiranhas()
     {
         if(Juego.vidasPrianha==3)
@@ -221,6 +248,12 @@ public class Juego extends PaneOrganizer2{
         
     }
     
+    
+    /**
+    * Metodo  murioAlgunAtacante void que sirve para verificar cuando el
+    * jugador ya no tiene mas vidas, el juego termina y llama a la ventana
+    * FinDeJuego
+    */
     public void murioAlgunAtacante()
     {
         if(!flagMurio)
@@ -263,6 +296,11 @@ public class Juego extends PaneOrganizer2{
         
     }
     
+    
+    /**
+    * Metodo comprobarAtacantes void que sirve para comprobar cuantos atacantes
+    * estan inicializados de acuerdo al nivel del juego.
+    */
     public void comprobarAtacantes()
     {
             if(nivel==1)
@@ -347,6 +385,11 @@ public class Juego extends PaneOrganizer2{
             }
     }
     
+    
+    /**
+    * Metodo iniciarAtacantes void que sirve para asignar cuantos atacantes
+    * deben aparecer de acuerdo a cada nivel.
+    */
     public void iniciarAtacantes()
     {
         if(nivel==1)
@@ -383,7 +426,12 @@ public class Juego extends PaneOrganizer2{
         }
         
     }
-   
+    
+    
+     /**
+    * Metodo verSiHiloEstaVivo void que sirve para destruir el hilo del atacante
+    * que desaparece al momento de tipear toda su palabra o caracter..
+    */
     public static boolean verSiHiloEstaVivo(Accion a)
     {
         if(a!=null)

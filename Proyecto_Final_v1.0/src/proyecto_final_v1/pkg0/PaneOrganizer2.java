@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package proyecto_final_v1.pkg0;
 
-/**
- *
- * @author Tatiana
- */
+package proyecto_final_v1.pkg0;
 
 import javafx.application.Platform;
 import javafx.scene.image.Image;
@@ -25,25 +16,45 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+
 /**
  *
- * @author Tatiana
+ * @author Christian, Tatiana, Gabriel
+ * @version 1.0 05 de Agosto de 2016
  */
+
 public class PaneOrganizer2 {
     public static Pane _root;
     private Pane im;
     private ImageView fondo;
     private TextField Nombres;
- public PaneOrganizer2(){
+    
+    
+  
+    /**
+    * Constructor de clase PaneOrganizer2.   
+    * Esta es nuestra ventana principal del juego.
+    */
+    public PaneOrganizer2(){
      
         this.ventanaPRINCIPAL();
    
     }
     
+    
+    /**
+    * Metodo getRoot Pane que permite obtener el panel creado. 
+    * @return _root que es el panel creado.
+    */
     public Pane getRoot() {
 		return _root;
 	}
-
+    
+    
+     /**
+    * Clase privada ClickHandler1 que implementa el evento al hacer clic en el
+    * boton Jugar.
+    */
      private class ClickHandler1 implements EventHandler<ActionEvent> {
          
            @Override
@@ -52,6 +63,12 @@ public class PaneOrganizer2 {
             
            }
      }
+     
+     
+    /**
+    * Clase privada ClickHandler2 que implementa el evento al hacer clic en el
+    * boton TOP 10.
+    */
      private class ClickHandler2 implements EventHandler<ActionEvent> {
          
            @Override
@@ -61,6 +78,11 @@ public class PaneOrganizer2 {
            }       
      }
      
+     
+    /**
+    * Clase privada ClickHandler1 que implementa el evento al hacer clic en el
+    * boton Instrucciones
+    */
     private class ClickHandler3 implements EventHandler<ActionEvent> {
          
            @Override
@@ -69,6 +91,11 @@ public class PaneOrganizer2 {
            }       
      }
     
+    
+    /**
+    * Clase privada ClickHandler1 que implementa el evento al hacer clic en el
+    * boton Salir.
+    */
     private class ClickHandler4 implements EventHandler<ActionEvent> {
          
            @Override
@@ -78,6 +105,11 @@ public class PaneOrganizer2 {
            }       
      }
     
+    
+    /**
+    * Clase privada ClickHandler1 que implementa el evento al hacer clic en el
+    * boton Regresar.
+    */
     private class ClickHandler5 implements EventHandler<ActionEvent> {
 
     
@@ -88,6 +120,11 @@ public class PaneOrganizer2 {
            }       
      }
     
+    
+    /**
+    * Clase privada ClickHandler1 que implementa el evento al hacer clic en el
+    * boton Guardar.
+    */
     private class ClickHandler6 implements EventHandler<ActionEvent> {
 
            @Override
@@ -98,12 +135,24 @@ public class PaneOrganizer2 {
     
            }       
      }
+    
+    
+    /**
+    * Metodo VentanaJUEGO que sirve para comenzar a jugar actualizando la pantalla
+    * a la ventana Juego y ejecutando el metodo jugar de la clase Juego.
+    */
      public void ventanaJUEGO (){
          Juego j=new Juego();
          j.Jugar(); 
         
     }
     
+     
+    /**
+    * Metodo VentanaPRINCIPAL void que sirve para implementar la estructura de 
+    * la ventana principal del juego.
+    * En esta vetana se encuentran los botones: JUgar, TOP 10, Instrucciones y Salir.
+    */
     public void ventanaPRINCIPAL(){
         
         _root = new Pane();
@@ -163,6 +212,12 @@ public class PaneOrganizer2 {
    
     }
     
+    
+    /**
+    * Metodo VentanaTOP10 void que sirve para implementar la estructura de la 
+    * ventana TOP 10 del juego.
+    * En esta vetana se encuentran los botones: Regresar y Salir.
+    */
     public void ventanaTOP10 (){
         _root = new Pane();
         im = new Pane();
@@ -240,6 +295,12 @@ public class PaneOrganizer2 {
       
     }
     
+    
+    /**
+    * Metodo VentanaINSTRUCCIONES0 void que sirve para implementar la estructura 
+    * de la ventana INSTRUCCIONES del juego.
+    * En esta vetana se encuentran los botones: Regresar y Salir.
+    */
     public void ventanaINSTRUCCIONES (){
         _root = new Pane();
         im = new Pane();
@@ -322,7 +383,15 @@ public class PaneOrganizer2 {
         
     }
     
-     public void ventanaFinDeJuego(){
+    
+    /**
+    * Metodo VentanaFindDeJuego void que sirve para implementar la estructura de
+    * la ventana FIN DE JUEGO que aparece al terminar una partida.
+    * En esta vetana se encuentran el boton Guardar, el cual guarda el nombre y 
+    * puntaje del jugador y regresa a la ventana principal para empezar a jugar 
+    * otra vez.
+    */ 
+    public void ventanaFinDeJuego(){
         
         _root = new Pane();
         im = new Pane();
@@ -396,6 +465,12 @@ public class PaneOrganizer2 {
         actualizarVentana(); 
         
     }
+    
+     
+    /**
+    * Metodo actualizarVentana void que sirve para actualizar el scene con cada
+    * una de las ventanas creadas.
+    */
     public static void actualizarVentana()
     {
         Proyecto_Final_v10.scene=new Scene(_root,1000,800);
