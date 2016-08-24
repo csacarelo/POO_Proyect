@@ -41,7 +41,6 @@ public abstract class Atacante {
         return flagAcabo;
     }
     
-    
 
     public boolean isMurio() {
         return murio;

@@ -2,6 +2,7 @@ package proyecto_final_v1.pkg0;
 
 import java.util.Scanner;
 import javafx.application.Platform;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -63,6 +64,11 @@ public class Juego extends PaneOrganizer2{
         
         Buceador b = new Buceador();
 
+         Button btn3 = new Button("Regresar");
+         btn3.setLayoutX(770);
+         btn3.setLayoutY(800);
+        
+        
          Label VIDAS = new Label("VIDAS:");
          VIDAS.setLayoutX(5);
          VIDAS.setLayoutY(5);
@@ -110,6 +116,8 @@ public class Juego extends PaneOrganizer2{
          im3.setLayoutX(950);
          im3.setLayoutY(5);     
 
+         btn3.setFont(Font.font(null, FontWeight.BOLD, 15));
+         
          VIDAS.setFont(Font.font(null, FontWeight.BOLD, 25));
          VIDAS.setTextFill(Color.LIGHTSALMON);
         
@@ -128,7 +136,7 @@ public class Juego extends PaneOrganizer2{
          NIV.setFont(Font.font(null, FontWeight.BOLD, 25));
          NIV.setTextFill(Color.WHITE);
 
-        PaneOrganizer2._root.getChildren().addAll(im2,b.getBu(),VIDAS,VIDA,PUNTAJE,PUNT,NIVEL,NIV,this.im1,this.im2,this.im3);
+        PaneOrganizer2._root.getChildren().addAll(im2,b.getBu(),VIDAS,VIDA,PUNTAJE,PUNT,NIVEL,NIV,this.im1,this.im2,this.im3,btn3);
     
         PaneOrganizer2.actualizarVentana();
         
